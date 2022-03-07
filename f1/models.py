@@ -6,13 +6,14 @@ from django.utils import timezone
 
 class Driver(models.Model):
     name = models.CharField(max_length=50,null=False)
-    DOB = models.DateField(null=False)
+    DOB = models.CharField(max_length=10,null=False)
     picture = models.ImageField(null=False)
     height = models.CharField(max_length=5,null=False)
     weight = models.CharField(max_length=5,null=False)
     nationality = models.CharField(max_length=20,null=False)
-    driverNumber = models.CharField(max_length=2,null=False)
+    driverNumber = models.IntegerField(null=False)
     seasonsWon = models.IntegerField(null=False)
+    podiumsWon = models.IntegerField(null=False)
 
     class Meta:
         verbose_name_plural = 'Drivers'
@@ -52,11 +53,9 @@ class Car(models.Model):
 class Race(models.Model):
     location = models.CharField(max_length=20,null=False,unique=True)
     trackLength = models.CharField(max_length=5,null=False)
-    date = models.DateField(null=False)
-    laps = models.CharField(max_length=5,null=False)
-    raceWeekend = models.CharField(max_length=20,null=False)
+    date = models.CharField(max_length=10,null=False)
+    laps = models.IntegerField(null=False)
     time = models.CharField(max_length=20,null=False)
-    duration = models.FloatField(null=False)
 
     class Meta:
         verbose_name_plural = 'Races'
@@ -100,7 +99,6 @@ class DriverRating(models.Model):
 
     lastModified = models.DateTimeField(null=False)
     
-    # need to work on this!
     overallAverage = models.DecimalField(max_digits=4, decimal_places=2)
     
     overallRating = models.IntegerField(
