@@ -12,8 +12,8 @@ class DriverRating(models.Model):
     
     lastModified = models.DateTimeField(null=False)
     
-    #overall average + all 
-    overallAverage = 
+    #need to work on this!
+    overallAverage = models.DecimalField(max_digits=4, decimal_places=2)
     
     overallRating = models.IntegerField(
         default=1,
@@ -96,7 +96,7 @@ class ConstructorRating(models.Model):
 
     lastModified = models.DateTimeField(null=False)
 
-    overallAverage =
+    overallAverage = models.DecimalField(max_digits=4, decimal_places=2)
 
     overallRating = models.IntegerField(
         default=1,
@@ -152,7 +152,7 @@ class CarRating(models.Model):
 
     lastModified = models.DateTimeField(null=False)
 
-    overallAverage =
+    overallAverage = models.DecimalField(max_digits=4, decimal_places=2)
 
     overallRating = models.IntegerField(
         default=1,
