@@ -65,6 +65,15 @@ class Race(models.Model):
         return self.location
 
 
+class News(models.Model):
+    title = models.CharField(max_length=50)
+    summary = models.CharField(max_length=256)
+    imageURL = models.URLField(null=True)
+    articleURL = models.URLField()
+    published = models.DateTimeField()
+    author = models.CharField(max_length=30, null=True)
+
+
 class User(models.Model):
     username = models.CharField(max_length=30,null=False,unique=True)
     password = models.CharField(max_length=30,null=False)
@@ -91,7 +100,7 @@ class DriverRating(models.Model):
 
     lastModified = models.DateTimeField(null=False)
     
-    #need to work on this!
+    # need to work on this!
     overallAverage = models.DecimalField(max_digits=4, decimal_places=2)
     
     overallRating = models.IntegerField(
