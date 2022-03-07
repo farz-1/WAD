@@ -13,10 +13,10 @@ class Driver(models.Model):
     nationality = models.CharField(max_length=20,null=False)
     driverNumber = models.CharField(max_length=2,null=False)
     seasonsWon = models.IntegerField(null=False)
-    
+
     class Meta:
         verbose_name_plural = 'Drivers'
-        
+
     def __str__(self):
         return self.name
 
@@ -27,10 +27,10 @@ class Constructor(models.Model):
     nationality = models.CharField(max_length=20,null=False)
     yearsActive = models.IntegerField(null=False)
     raceEngineer = models.CharField(max_length=50,null=False)
-    
+
     class Meta:
         verbose_name_plural = 'Constructors'
-        
+
     def __str__(self):
         return self.name
 
@@ -41,10 +41,10 @@ class Car(models.Model):
     engineSupplier = models.CharField(max_length=30,null=False)
     picture = models.ImageField(null=False)
     gearbox = models.CharField(max_length=30,null=False)
-    
+
     class Meta:
         verbose_name_plural = 'Cars'
-        
+
     def __str__(self):
         return self.model
 
@@ -57,10 +57,10 @@ class Race(models.Model):
     raceWeekend = models.CharField(max_length=20,null=False)
     time = models.CharField(max_length=20,null=False)
     duration = models.FloatField(null=False)
-    
+
     class Meta:
         verbose_name_plural = 'Races'
-        
+
     def __str__(self):
         return self.location
 
@@ -74,10 +74,10 @@ class User(models.Model):
     favTeam = models.ForeignKey(Constructor, on_delete=models.SET_NULL, null=True)
     favDriver = models.ForeignKey(Driver, on_delete=models.SET_NULL, null=True)
     aboutMe = models.CharField(max_length=256)
-    
+
     class Meta:
         verbose_name_plural = 'Users'
-        
+
     def __str__(self):
         return self.userID + " " + self.name
 
@@ -90,10 +90,10 @@ class DriverRating(models.Model):
     created = models.DateTimeField(editable=False,null=False)
 
     lastModified = models.DateTimeField(null=False)
-
-    #overall average + all
-    overallAverage = models.FloatField()
-
+    
+    #need to work on this!
+    overallAverage = models.DecimalField(max_digits=4, decimal_places=2)
+    
     overallRating = models.IntegerField(
         default=1,
         validators=[
@@ -182,7 +182,7 @@ class ConstructorRating(models.Model):
 
     lastModified = models.DateTimeField(null=False)
 
-    overallAverage = models.FloatField()
+    overallAverage = models.DecimalField(max_digits=4, decimal_places=2)
 
     overallRating = models.IntegerField(
         default=1,
@@ -245,7 +245,7 @@ class CarRating(models.Model):
 
     lastModified = models.DateTimeField(null=False)
 
-    overallAverage = models.FloatField()
+    overallAverage = models.DecimalField(max_digits=4, decimal_places=2)
 
     overallRating = models.IntegerField(
         default=1,
