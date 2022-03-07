@@ -17,7 +17,7 @@ def get_news():
     News.objects.all().delete()
 
     for i in data.get("articles"):
-        article = News(title=i.get("source").get("name"),
+        article = News(title=i.get("title"),
                        summary=i.get("description"),
                        imageURL=i.get("urlToImage"),
                        articleURL=i.get("url"),
