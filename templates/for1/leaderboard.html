@@ -1,39 +1,33 @@
 <!DOCTYPE html>
 <html>
-<title>F1 App</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-    .a {font-size: 80px}
+table, th, td {
+  border:1px solid black;
+}
 </style>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <body>
 
-<!-- Sidebar -->
-<div class="w3-sidebar w3-grey w3-bar-block" style="width:12%" >
-    <font size="80px"><a href="#" class="w3-bar-item w3-button">Home</a>
-    <a href="#" class="w3-bar-item w3-button">Profile</a>
-    <a href="#" class="w3-bar-item w3-button">News</a>
-    <a href="#" class="w3-bar-item w3-button">Drivers</a>
-    <a href="#" class="w3-bar-item w3-button">Cars</a>
-    <a href="#" class="w3-bar-item w3-button">Leaderboard</a>
-    <a href="#" class="w3-bar-item w3-button">Schedule</a>
-    <a href="#" class="w3-bar-item w3-button">Teams</a>
-    </font>
+<h1>Leaderboard</h1>
+
+<table style="width:75%">
+  <tr>
+    <th>Event</th>
+    <th>Country</th>
+    <th>Dates</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Centro comercial Moctezuma</td>
+    <td>Francisco Chang</td>
+    <td>Mexico</td>
+  </tr>
+</table>
 
 
-</div>
-<div align="right">
-    <input type="button" value="Logout"/>
-
-
-</div>
-
-
-<div align='left'>
-    {% include 'rango/news.html' %}
-</DIV>
-
-
-</DIV>
 </body>
 </html>
+
