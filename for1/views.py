@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from for1.forms import UserForm, UserProfileForm
 from django.views.decorators.csrf import csrf_protect
+from django.contrib.auth import authenticate, login
 
 
 # Create your views here.
@@ -12,8 +13,6 @@ def index(request):
 
 @csrf_protect
 def register(request):
-    registered = False
-
     if request.method == 'POST':
         user_form = UserForm(request.POST)
         profile_form = UserProfileForm(request.POST)
@@ -41,5 +40,26 @@ def register(request):
     return render(request,
                   'for1/register.html',
                   context={'user_form': user_form,
-                           'profile_form': profile_form,
-                           'registered': registered})
+                           'profile_form': profile_form})
+
+
+@csrf_protect
+def user_login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(username=username, password=password)
+
+        if user:
+            if user.is_active:
+                login(request, user)
+                return redirect('index')
+
+            else:
+                HttpResponse("Account disabled. Please re-verify your account.")
+
+        else:
+            print("Invalid login details.")
+
+    return render(request, 'for1/login.html')

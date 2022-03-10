@@ -71,14 +71,15 @@
 <body>
 
     <div class="bg-img">
-        <form action="/action_page.php" class="container">
+        <form id="login_form" method="post" action="{% url 'login' %}" class="container">
+            {% csrf_token %}
             <h1>Login</h1>
 
             <label for="email"><b>Username</b></label>
             <input type="text" placeholder="Enter username" name="username" required>
 
-            <label for="pwd"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="pwd" required>
+            <label for="password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="password" required>
 
             <button type="submit" class="btn">Login</button>
         </form>
