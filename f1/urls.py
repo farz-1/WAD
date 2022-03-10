@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from for1 import views_main, views_cars
+from for1 import views_main, views_cars, views_drivers, views_constructors, views_schedule, views_news, views_leaderboard, views_users
 
 urlpatterns = [
     # Admin
@@ -28,7 +28,32 @@ urlpatterns = [
     path('register/', views_main.register, name='register'),
     path('login/', views_main.user_login, name='login'),
 
-    # Views Car
+    # Views News
+    path('news/', views_news.index, name='news'),
+
+    # Views Leaderboard
+    path('leaderboard/', views_leaderboard.index, name='leaderboard'),
+
+    # Views Users
+    # path('users/', views_users.index, name='users'),
+    # path('user/<int:id>', views_users.details, name='user_details'),
+    # path('user/<int:id>/edit', views_users.edit, name='user_edit'),
+
+    # Views Schedule
+    path('schedule/', views_schedule.index, name='schedule'),
+
+    # Views Cars
     path('cars/', views_cars.index, name='cars'),
-    path('cars/ratings', views_cars.ratings, name='cars_ratings'),
+    # path('car/<int:id>', views_cars.details, name='car_details),
+    path('car/<int:id>/rate', views_cars.rate, name='car_rate'),
+
+    # Views Drivers
+    path('drivers/', views_drivers.index, name='drivers'),
+    # path('driver/<int:id>', views_drivers.details, name='driver_details),
+    # path('car/<int:id>/rate', views_drivers.rate, name='driver_rate'),
+
+    # Views Constructors
+    path('constructors/', views_constructors.index, name='constructors'),
+    # path('constructor/<int:id>', views_constructors.details, name='constructor_details),
+    # path('constructor/<int:id>/rate', views_constructors.rate, name='constructor_rate'),
 ]

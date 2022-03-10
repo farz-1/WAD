@@ -1,4 +1,3 @@
-from pickle import TRUE
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from for1.forms import UserForm, UserProfileForm
