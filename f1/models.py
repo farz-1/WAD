@@ -10,6 +10,7 @@ class Constructor(models.Model):
     nationality = models.CharField(max_length=20, null=False)
     yearsActive = models.IntegerField(null=False)
     raceEngineer = models.CharField(max_length=50, null=False)
+    
 
     class Meta:
         verbose_name_plural = 'Constructors'
@@ -28,6 +29,8 @@ class Driver(models.Model):
     driverNumber = models.IntegerField(null=False)
     seasonsWon = models.IntegerField(null=False)
     podiumsWon = models.IntegerField(null=False)
+    constructor = models.ForeignKey(Constructor, on_delete=models.SET_NULL, null=True)
+
 
     class Meta:
         verbose_name_plural = 'Drivers'
@@ -42,6 +45,7 @@ class Car(models.Model):
     engineSupplier = models.CharField(max_length=30, null=False)
     picture = models.ImageField(null=False)
     gearbox = models.CharField(max_length=30, null=False)
+    constructor = models.ForeignKey(Constructor, on_delete=models.SET_NULL, null=True)
 
     class Meta:
         verbose_name_plural = 'Cars'

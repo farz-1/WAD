@@ -10,49 +10,50 @@ import news_api
 
 def populate():
     # 1.0 pictures???
-    # 2.0 updating foreign keys with drivers, cars, constructors in models.py and then dictionaries.
-    # 3.0 adding_cars, etc functions.
-    # 4.0 car categories unable to find.
+    # 2.0 adding ratings funcs like add_driver rating.
+    # 3.0 car categories unable to find.
 
     driver_list = [
         {'name': 'Lewis Hamilton', 'DOB': '07/01/1985', 'picture': '', 'height': '1.74m', 'weight': '73kg',
-         'nationality': 'British', 'driverNumber': 44, 'seasonsWon': 7, 'podiumsWon': 182},
+         'nationality': 'British', 'driverNumber': 44, 'seasonsWon': 7, 'podiumsWon': 182,'constructor':'Mercedes AMG Petronas F1 Team'},
         {'name': 'George Russell', 'DOB': '15/02/1998', 'picture': '', 'height': '1.85m', 'weight': '70kg',
-         'nationality': 'British', 'driverNumber': 63, 'seasonsWon': 0, 'podiumsWon': 1},
+         'nationality': 'British', 'driverNumber': 63, 'seasonsWon': 0, 'podiumsWon': 1,'constructor':'Mercedes AMG Petronas F1 Team'},
         {'name': 'Max Verstappen', 'DOB': '30/09/1997', 'picture': '', 'height': '1.81m', 'weight': '72kg',
-         'nationality': 'Belgian-Dutch', 'driverNumber': '1', 'seasonsWon': 1, 'podiumsWon': 60},
+         'nationality': 'Belgian-Dutch', 'driverNumber': '1', 'seasonsWon': 1, 'podiumsWon': 60,'constructor':'Oracle Red Bull Racing'},
         {'name': 'Sergio Perez', 'DOB': '26/01/1990', 'picture': '', 'height': '1.73m', 'weight': '63kg',
-         'nationality': 'Mexican', 'driverNumber': 11, 'seasonsWon': 0, 'podiumsWon': 15},
+         'nationality': 'Mexican', 'driverNumber': 11, 'seasonsWon': 0, 'podiumsWon': 15,'constructor':'Oracle Red Bull Racing'},
         {'name': 'Lando Norris', 'DOB': '13/11/1999', 'picture': '', 'height': '1.7m', 'weight': '66kg',
-         'nationality': 'British', 'driverNumber': 4, 'seasonsWon': 0, 'podiumsWon': 5},
+         'nationality': 'British', 'driverNumber': 4, 'seasonsWon': 0, 'podiumsWon': 5, 'constructor':'McLaren F1 Team'},
         {'name': 'Daniel Ricciardo', 'DOB': '01/07/1989', 'picture': '', 'height': '1.8m', 'weight': '72kg',
-         'nationality': 'Australian', 'driverNumber': 3, 'seasonsWon': 0, 'podiumsWon': 32},
+         'nationality': 'Australian', 'driverNumber': 3, 'seasonsWon': 0, 'podiumsWon': 32,'constructor':'McLaren F1 Team'},
         {'name': 'Carlos Sainz', 'DOB': '01/09/1994', 'picture': '', 'height': '1.78m', 'weight': '64kg',
-         'nationality': 'Spanish', 'driverNumber': 3, 'seasonsWon': 0, 'podiumsWon': 6},
+         'nationality': 'Spanish', 'driverNumber': 3, 'seasonsWon': 0, 'podiumsWon': 6,'constructor':'Scuderia Ferrari'},
         {'name': 'Charles Leclerc', 'DOB': '16/10/1997', 'picture': '', 'height': '1.8m', 'weight': '69kg',
-         'nationality': 'Monocan', 'driverNumber': 16, 'seasonsWon': 0, 'podiumsWon': 13},
+         'nationality': 'Monocan', 'driverNumber': 16, 'seasonsWon': 0, 'podiumsWon': 13,'constructor':'Scuderia Ferrari'},
         {'name': 'Fernando Alonso', 'DOB': '29/07/1981', 'picture': '', 'height': '1.71m', 'weight': '68kg',
-         'nationality': 'Spanish', 'driverNumber': 14, 'seasonsWon': 2, 'podiumsWon': 98},
+         'nationality': 'Spanish', 'driverNumber': 14, 'seasonsWon': 2, 'podiumsWon': 98,'constructor':'Alpine F1 Team'},
         {'name': 'Esteban Ocon', 'DOB': '17/09/1996', 'picture': '', 'height': '1.86m', 'weight': '66kg',
-         'nationality': 'French', 'driverNumber': 31, 'seasonsWon': 0, 'podiumsWon': 2},
+         'nationality': 'French', 'driverNumber': 31, 'seasonsWon': 0, 'podiumsWon': 2,'constructor':'Alpine F1 Team'},
         {'name': 'Pierre Gasly', 'DOB': '07/02/1996', 'picture': '', 'height': '1.77m', 'weight': '70kg',
-         'nationality': 'French', 'driverNumber': 10, 'seasonsWon': 0, 'podiumsWon': 3},
+         'nationality': 'French', 'driverNumber': 10, 'seasonsWon': 0, 'podiumsWon': 3,'constructor':'Scuderia AlphaTauri'},
         {'name': 'Yuki Tsunoda', 'DOB': '11/05/2000', 'picture': '', 'height': '1.59m', 'weight': '54kg',
-         'nationality': 'Japanese', 'driverNumber': 22, 'seasonsWon': 0, 'podiumsWon': 0},
+         'nationality': 'Japanese', 'driverNumber': 22, 'seasonsWon': 0, 'podiumsWon': 0,'constructor':'Scuderia AlphaTauri'},
         {'name': 'Sebastian Vettel', 'DOB': '3/07/1987', 'picture': '', 'height': '1.75m', 'weight': '62kg',
-         'nationality': 'German', 'driverNumber': 5, 'seasonsWon': 4, 'podiumsWon': 122},
+         'nationality': 'German', 'driverNumber': 5, 'seasonsWon': 4, 'podiumsWon': 122,'constructor':'Aston Martin Aramco Cognizant F1 Team'},
         {'name': 'Lance Stroll', 'DOB': '29/10/1998', 'picture': '', 'height': '1.82m', 'weight': '70kg',
-         'nationality': 'Canadian', 'driverNumber': 18, 'seasonsWon': 0, 'podiumsWon': 3, },
+         'nationality': 'Canadian', 'driverNumber': 18, 'seasonsWon': 0, 'podiumsWon': 3, 'constructor':'Aston Martin Aramco Cognizant F1 Team'},
         {'name': 'Alexander Albon', 'DOB': '23/03/1996', 'picture': '', 'height': '1.86m', 'weight': '73kg',
-         'nationality': 'Thai', 'driverNumber': 23, 'seasonsWon': 0, 'podiumsWon': 2},
+         'nationality': 'Thai', 'driverNumber': 23, 'seasonsWon': 0, 'podiumsWon': 2,'constructor':'Williams Racing'},
         {'name': 'Nicholas Latifi', 'DOB': '29/07/1995', 'picture': '', 'height': '1.85m', 'weight': '73kg',
-         'nationality': 'Canadian', 'driverNumber': 6, 'seasonsWon': 0, 'podiumsWon': 0},
+         'nationality': 'Canadian', 'driverNumber': 6, 'seasonsWon': 0, 'podiumsWon': 0,'constructor':'Williams Racing'},
         {'name': 'Mick Schumacher', 'DOB': '22/03/1999', 'picture': '', 'height': '1.77m', 'weight': '67kg',
-         'nationality': 'German', 'driverNumber': 47, 'seasonsWon': 0, 'podiumsWon': 0},
+         'nationality': 'German', 'driverNumber': 47, 'seasonsWon': 0, 'podiumsWon': 0,'constructor':'Haas F1 Team'},
+        {'name':'Kevin Magnussen','DOB': '05/10/1992', 'picture': '', 'height': '1.74m', 'weight': '68kg',
+         'nationality': 'Danish', 'driverNumber': 20, 'seasonsWon': 0, 'podiumsWon': 1,'constructor':'Haas F1 Team'},
         {'name': 'Valtteri Bottas', 'DOB': '28/08/1989', 'picture': '', 'height': '1.73m', 'weight': '69kg',
-         'nationality': 'Finnish', 'driverNumber': 77, 'seasonsWon': 0, 'podiumsWon': 67},
+         'nationality': 'Finnish', 'driverNumber': 77, 'seasonsWon': 0, 'podiumsWon': 67,'constructor':'Alfa Romeo F1 Team Orlen'},
         {'name': 'Guanyu Zhou', 'DOB': '30/05/1999', 'picture': '', 'height': '1.75m',
-         'weight': '63kg', 'nationality': 'Chinese', 'driverNumber': 24, 'seasonsWon': 0, 'podiumsWon': 0}]
+         'weight': '63kg', 'nationality': 'Chinese', 'driverNumber': 24, 'seasonsWon': 0, 'podiumsWon': 0,'constructor':'Alfa Romeo F1 Team Orlen'}]
 
     constructor_list = [
         {'name': 'Mercedes AMG Petronas F1 Team', 'teamPrincipal': 'Totto Wolff', 'nationality': 'German',
