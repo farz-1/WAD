@@ -17,13 +17,14 @@ def get_news():
     News.objects.all().delete()
 
     for i in data.get("articles"):
-        article = News(title=i.get("title"),
-                       summary=i.get("description"),
-                       imageURL=i.get("urlToImage"),
-                       articleURL=i.get("url"),
-                       published=i.get("publishedAt"),
-                       author=i.get("author"))
+        article = News(title=i['title'],
+                       summary=i['description'],
+                       imageURL=i['urlToImage'],
+                       articleURL=i['url'],
+                       published=i['publishedAt'],
+                       author=i['author'])
         article.save()
+    print("News table updated!")
 
 
 def run():
@@ -34,3 +35,4 @@ def run():
 
 if __name__ == '__main__':
     run()
+
