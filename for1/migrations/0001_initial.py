@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                  primary_key=True, serialize=False, verbose_name='ID')),
                 ('picture', models.ImageField(
                     blank=True, upload_to='profile_images')),
-                ('user', models.OneToOneField(
+                ('users', models.OneToOneField(
                     on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),

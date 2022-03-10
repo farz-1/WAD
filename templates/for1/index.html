@@ -1,65 +1,14 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body {
-  margin: 0;
-  font-family: "Lato", sans-serif;
-}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>For1</title>
 
-.sidebar {
-  margin: 0;
-  padding: 0;
-  width: 200px;
-  background-color: #f1f1f1;
-  position: fixed;
-  height: 100%;
-  overflow: auto;
-}
-
-.sidebar a {
-  display: block;
-  color: black;
-  padding: 16px;
-  text-decoration: none;
-}
-
-.sidebar a.active {
-  background-color: #04AA6D;
-  color: white;
-}
-
-.sidebar a:hover:not(.active) {
-  background-color: #555;
-  color: white;
-}
-
-div.content {
-  margin-left: 200px;
-  padding: 1px 16px;
-  height: 1000px;
-}
-
-@media screen and (max-width: 700px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-  .sidebar a {float: left;}
-  div.content {margin-left: 0;}
-}
-
-@media screen and (max-width: 400px) {
-  .sidebar a {
-    text-align: center;
-    float: none;
-  }
-}
-
-</style>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
 </head>
+
 <body>
 
 <div class="sidebar">
@@ -72,22 +21,18 @@ div.content {
     <a href="#" class="w3-bar-item w3-button">Leaderboard</a>
     <a href="#" class="w3-bar-item w3-button">Schedule</a>
     <a href="#" class="w3-bar-item w3-button">Teams</a>
-    </font>
-
 
 </div>
-<div align="right" >
-    <input type="button" colour= "red" value="Logout"/>
 
-
+<div align="right">
+    <input type="button" colour="red" value="Logout"/>
 </div>
+
 <div class="content">
-
-<div align='left'>
-        {% include 'for1/register.html' %}
-</DIV>
+    <div align='left'>
+        {% include 'for1/users/user.register.html' %}
+    </div>
 </div>
 
-</DIV>
 </body>
 </html>

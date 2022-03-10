@@ -1,32 +1,24 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>For1</title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/users/user.profile.css' %}">
+</head>
+
 <body>
-<style>
-table, th, td {
-  border:1px solid black;
-}
-    .aligned {
-            display: flex;
-            align-items: center;
-        }
-
-        span {
-            padding: 30px;
-        }
-
-
-
-</style>
 
 <div class="aligned">
-    <img src=
-                 "https://yt3.ggpht.com/ytc/AKedOLTuvuODeTlyYk7EnHu01TY_ErmsYEGpPnd_Oz7Oxw=s900-c-k-c0x00ffffff-no-rj"
+    <img src="https://yt3.ggpht.com/ytc/AKedOLTuvuODeTlyYk7EnHu01TY_ErmsYEGpPnd_Oz7Oxw=s900-c-k-c0x00ffffff-no-rj"
          width="200" alt="">
-<span> </span>
-
 
     <form ACTION="/action_page.php">
+
         <h1>Username </h1>
+
         <label for="team">Favourite Team:</label>
         <select id="team" name="team">
             <option value="volvo">Mercedes</option>
@@ -34,8 +26,8 @@ table, th, td {
             <option value="fiat">Ferrari</option>
             <option value="audi">AM</option>
         </select>
+
         <input type="submit">
-        <h2></h2>
         <label for="cars">Favourite Racer:</label>
         <select id="cars" name="cars">
             <option value="volvo">Volvo</option>
@@ -43,15 +35,15 @@ table, th, td {
             <option value="fiat">Fiat</option>
             <option value="audi">Audi</option>
         </select>
+
         <input type="submit">
-        <h2></h2>
+
         <h2>Bio</h2>
 
         <textarea name="message" rows="10" cols="150">im a big knob</textarea>
-        <br><br>
         <input type="submit">
-        <h1>Voting History</h1>
 
+        <h1>Voting History</h1>
         <table style="width:35%">
             <tr>
                 <th>Event</th>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>For1</title>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/users/user.register.css' %}">
+</head>
+
+<body>
+
+<div class="bg-img">
+    <form id="register_form" method="post" action="{% url 'register' %}" enctype="multipart/form-data"
+          class="container">
+        {% csrf_token %}
+        <h1>Sign Up</h1>
+
+        <label for="username"><b>Username</b></label>
+        <input type="text" placeholder="Enter username " name="username" required>
+
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter email" name="email" required>
+
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+
+        <label for="picture"><b>Profile Picture</b></label>
+        <input id="picture" type="file" name="picture" placeholder="Photo" capture>
+
+        <button type="reg" class="btn" value="Register">Sign Up</button>
+    </form>
+</div>
+</div>
+
+</body>
+
+</html>
