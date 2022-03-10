@@ -6,10 +6,11 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import authenticate, login
 
 
-# Create your views here.
 def index(request):
     return render(request, 'for1/index.html')
 
+def about(request):
+    return render(request, 'for1/about.html')
 
 @csrf_protect
 def register(request):
@@ -38,7 +39,7 @@ def register(request):
         profile_form = UserProfileForm()
 
     return render(request,
-                  'for1/register.html',
+                  'for1/users/user.register.html',
                   context={'user_form': user_form,
                            'profile_form': profile_form})
 
@@ -62,4 +63,4 @@ def user_login(request):
         else:
             print("Invalid login details.")
 
-    return render(request, 'for1/login.html')
+    return render(request, 'for1/users/user.login.html')

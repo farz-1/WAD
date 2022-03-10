@@ -16,11 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from for1 import views
+from for1 import views_main, views_cars
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('register/', views.register, name='register'),
-    path('login/', views.user_login, name='login'),
+    # Admin
     path('admin/', admin.site.urls),
+
+    # Views Main
+    path('', views_main.index, name='index'),
+    #path('about/', views_main.about, name='about'),
+    path('register/', views_main.register, name='register'),
+    path('login/', views_main.user_login, name='login'),
+
+    # Views Car
+    path('cars/', views_cars.index, name='cars'),
+    path('cars/ratings', views_cars.ratings, name='cars_ratings'),
 ]

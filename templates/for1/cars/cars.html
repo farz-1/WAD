@@ -1,35 +1,14 @@
 <!DOCTYPE html>
-{% load static %}
 <html>
 <head>
-    <title> for1</title>
-</head>
-<body>
-<h1 align="left">Cars</h1>
-
-
-</body>
-<head>
+    <title>for1</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-* {
-  box-sizing: border-box;
-}
-
-.row {
-  display: flex;
-}
-
-/* Create three equal columns that sits next to each other */
-.column {
-  flex: 33.33%;
-  padding: 5px;
-}
-
-    </style>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cars/cars.css' %}">
 </head>
 <body>
 
+<h1 align="left">Cars</h1>
 
 <div class="row">
     <div class="column"><a href="https://www.w3schools.com">
