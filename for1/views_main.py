@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from for1.forms import UserForm, UserProfileForm
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import authenticate, login
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 def index(request):
@@ -27,6 +29,14 @@ def register(request):
             if 'picture' in request.FILES:
                 profile.picture = request.FILES['picture']
             profile.save()
+
+            send_mail(
+                subject='F1 Rating App Sign-Up',
+                message='Thank you very much for signing up to our application! Have fun rating some F1 drivers, cars and constructors!',
+                from_email=settings.EMAIL_HOST_USER,
+                recipient_list=[user.email],
+                fail_silently=False,
+            )
 
             return redirect('index')
 
