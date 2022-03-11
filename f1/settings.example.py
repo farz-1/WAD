@@ -20,6 +20,10 @@ MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
+# Static
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [STATIC_DIR, ]
+STATIC_URL = '/static/'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -32,6 +36,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Socket for emails (set to actual url once hosted)
+SOCKET = 'http://localhost:8000'
 
 # Application definition
 
@@ -74,9 +80,7 @@ TEMPLATES = [
     },
 ]
 
-
 WSGI_APPLICATION = 'f1.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
@@ -110,11 +114,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # EMAIL
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'yoorusername@gmail.com'
-EMAIL_HOST_PASSWORD = 'key'  # past the key or password app here
+EMAIL_HOST_USER = 'f1ratingapp@gmail.com'
+EMAIL_HOST_PASSWORD = 'xrbrgwqqqhvijnao'  # past the key or password app here
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'default from email'
+DEFAULT_FROM_EMAIL = 'F1 Rating App'
 
 
 # Internationalization
@@ -133,9 +137,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-
-STATIC_URL = '/static/'
-
 
 PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
