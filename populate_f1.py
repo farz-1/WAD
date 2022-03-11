@@ -77,7 +77,7 @@ def populate():
         {'name': 'Alfa Romeo F1 Team Orlen', 'teamPrincipal': 'Frédéric Vasseur', 'nationality': 'Italian',
          'yearsActive': 72, 'raceEngineer': 'Ruth Buscombe'}]
 
-    car_list = [{'model': '', 'horsepower': '', 'engineSupplier': '', 'picture': '', 'gearbox': ''}]
+    car_list = [{'model': 'Mercedes-AMG F1 W12 E Performance', 'horsepower': '', 'engineSupplier': '', 'picture': '', 'gearbox': ''}]
 
     race_list = [
         {'location': 'Bahrain - Sakhir', 'trackLength': '5.412km', 'date': '18-20/03/2022', 'laps': 57,
