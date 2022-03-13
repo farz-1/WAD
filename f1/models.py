@@ -22,7 +22,6 @@ class Constructor(models.Model):
 class Driver(models.Model):
     name = models.CharField(max_length=50, null=False, unique=True)
     DOB = models.CharField(max_length=10, null=False)
-    picture = models.ImageField(null=False)
     height = models.CharField(max_length=5, null=False)
     weight = models.CharField(max_length=5, null=False)
     nationality = models.CharField(max_length=20, null=False)
@@ -40,11 +39,11 @@ class Driver(models.Model):
 
 
 class Car(models.Model):
-    model = models.CharField(max_length=30, null=False, unique=True)
+    model = models.CharField(max_length=50, null=False, unique=True)
     horsepower = models.CharField(max_length=5, null=False)
-    engineSupplier = models.CharField(max_length=30, null=False)
-    picture = models.ImageField(null=False)
-    gearbox = models.CharField(max_length=30, null=False)
+    engine = models.CharField(max_length=30, null=False)
+    weight = models.CharField(max_length=30, null=False)
+    gearbox = models.CharField(max_length=50,null=False)
     constructor = models.ForeignKey(Constructor, on_delete=models.SET_NULL, null=True)
 
     class Meta:
@@ -78,14 +77,15 @@ class News(models.Model):
 
 
 class User(models.Model):
-    username = models.CharField(max_length=30, null=False, unique=True)
+    username = models.CharField(max_length=30, null=False)
     password = models.CharField(max_length=30, null=False)
     userID = models.CharField(max_length=30, null=False, unique=True)
-    picture = models.ImageField()
     favCar = models.ForeignKey(Car, on_delete=models.SET_NULL, null=True)
     favTeam = models.ForeignKey(Constructor, on_delete=models.SET_NULL, null=True)
     favDriver = models.ForeignKey(Driver, on_delete=models.SET_NULL, null=True)
     aboutMe = models.CharField(max_length=256)
+    #!!!!!!!!!!!!!!!!!!!
+    picture =models.ImageField(upload_to ='uploads/')
 
     class Meta:
         verbose_name_plural = 'Users'

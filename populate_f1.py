@@ -9,50 +9,51 @@ import news_api
 
 
 def populate():
-    # 1.0 pictures???
-    # 2.0 adding ratings funcs like add_driver rating.
-    # 3.0 car categories unable to find.
+    # 1.0 just to note, not sure if adding ratings() funcs are correct (parameters passed in)
+    # 2.0 also generating userID?
+    # 3.0 in models.py User class, I have a picture field that uploads to a non-existent directory, wasn't sure what the plans are for user pics and       didn't want to mess with file structure
+    # 4.0 overriding save() for user??
 
     driver_list = [
-        {'name': 'Lewis Hamilton', 'DOB': '07/01/1985', 'picture': '', 'height': '1.74m', 'weight': '73kg',
+        {'name': 'Lewis Hamilton', 'DOB': '07/01/1985','height': '1.74m', 'weight': '73kg',
          'nationality': 'British', 'driverNumber': 44, 'seasonsWon': 7, 'podiumsWon': 182,'constructor':'Mercedes AMG Petronas F1 Team'},
-        {'name': 'George Russell', 'DOB': '15/02/1998', 'picture': '', 'height': '1.85m', 'weight': '70kg',
+        {'name': 'George Russell', 'DOB': '15/02/1998', 'height': '1.85m', 'weight': '70kg',
          'nationality': 'British', 'driverNumber': 63, 'seasonsWon': 0, 'podiumsWon': 1,'constructor':'Mercedes AMG Petronas F1 Team'},
-        {'name': 'Max Verstappen', 'DOB': '30/09/1997', 'picture': '', 'height': '1.81m', 'weight': '72kg',
+        {'name': 'Max Verstappen', 'DOB': '30/09/1997', 'height': '1.81m', 'weight': '72kg',
          'nationality': 'Belgian-Dutch', 'driverNumber': '1', 'seasonsWon': 1, 'podiumsWon': 60,'constructor':'Oracle Red Bull Racing'},
-        {'name': 'Sergio Perez', 'DOB': '26/01/1990', 'picture': '', 'height': '1.73m', 'weight': '63kg',
+        {'name': 'Sergio Perez', 'DOB': '26/01/1990', 'height': '1.73m', 'weight': '63kg',
          'nationality': 'Mexican', 'driverNumber': 11, 'seasonsWon': 0, 'podiumsWon': 15,'constructor':'Oracle Red Bull Racing'},
-        {'name': 'Lando Norris', 'DOB': '13/11/1999', 'picture': '', 'height': '1.7m', 'weight': '66kg',
+        {'name': 'Lando Norris', 'DOB': '13/11/1999', 'height': '1.7m', 'weight': '66kg',
          'nationality': 'British', 'driverNumber': 4, 'seasonsWon': 0, 'podiumsWon': 5, 'constructor':'McLaren F1 Team'},
-        {'name': 'Daniel Ricciardo', 'DOB': '01/07/1989', 'picture': '', 'height': '1.8m', 'weight': '72kg',
+        {'name': 'Daniel Ricciardo', 'DOB': '01/07/1989', 'height': '1.8m', 'weight': '72kg',
          'nationality': 'Australian', 'driverNumber': 3, 'seasonsWon': 0, 'podiumsWon': 32,'constructor':'McLaren F1 Team'},
-        {'name': 'Carlos Sainz', 'DOB': '01/09/1994', 'picture': '', 'height': '1.78m', 'weight': '64kg',
+        {'name': 'Carlos Sainz', 'DOB': '01/09/1994', 'height': '1.78m', 'weight': '64kg',
          'nationality': 'Spanish', 'driverNumber': 3, 'seasonsWon': 0, 'podiumsWon': 6,'constructor':'Scuderia Ferrari'},
-        {'name': 'Charles Leclerc', 'DOB': '16/10/1997', 'picture': '', 'height': '1.8m', 'weight': '69kg',
+        {'name': 'Charles Leclerc', 'DOB': '16/10/1997', 'height': '1.8m', 'weight': '69kg',
          'nationality': 'Monocan', 'driverNumber': 16, 'seasonsWon': 0, 'podiumsWon': 13,'constructor':'Scuderia Ferrari'},
-        {'name': 'Fernando Alonso', 'DOB': '29/07/1981', 'picture': '', 'height': '1.71m', 'weight': '68kg',
+        {'name': 'Fernando Alonso', 'DOB': '29/07/1981', 'height': '1.71m', 'weight': '68kg',
          'nationality': 'Spanish', 'driverNumber': 14, 'seasonsWon': 2, 'podiumsWon': 98,'constructor':'Alpine F1 Team'},
-        {'name': 'Esteban Ocon', 'DOB': '17/09/1996', 'picture': '', 'height': '1.86m', 'weight': '66kg',
+        {'name': 'Esteban Ocon', 'DOB': '17/09/1996', 'height': '1.86m', 'weight': '66kg',
          'nationality': 'French', 'driverNumber': 31, 'seasonsWon': 0, 'podiumsWon': 2,'constructor':'Alpine F1 Team'},
-        {'name': 'Pierre Gasly', 'DOB': '07/02/1996', 'picture': '', 'height': '1.77m', 'weight': '70kg',
+        {'name': 'Pierre Gasly', 'DOB': '07/02/1996', 'height': '1.77m', 'weight': '70kg',
          'nationality': 'French', 'driverNumber': 10, 'seasonsWon': 0, 'podiumsWon': 3,'constructor':'Scuderia AlphaTauri'},
-        {'name': 'Yuki Tsunoda', 'DOB': '11/05/2000', 'picture': '', 'height': '1.59m', 'weight': '54kg',
+        {'name': 'Yuki Tsunoda', 'DOB': '11/05/2000', 'height': '1.59m', 'weight': '54kg',
          'nationality': 'Japanese', 'driverNumber': 22, 'seasonsWon': 0, 'podiumsWon': 0,'constructor':'Scuderia AlphaTauri'},
-        {'name': 'Sebastian Vettel', 'DOB': '3/07/1987', 'picture': '', 'height': '1.75m', 'weight': '62kg',
+        {'name': 'Sebastian Vettel', 'DOB': '3/07/1987', 'height': '1.75m', 'weight': '62kg',
          'nationality': 'German', 'driverNumber': 5, 'seasonsWon': 4, 'podiumsWon': 122,'constructor':'Aston Martin Aramco Cognizant F1 Team'},
-        {'name': 'Lance Stroll', 'DOB': '29/10/1998', 'picture': '', 'height': '1.82m', 'weight': '70kg',
+        {'name': 'Lance Stroll', 'DOB': '29/10/1998', 'height': '1.82m', 'weight': '70kg',
          'nationality': 'Canadian', 'driverNumber': 18, 'seasonsWon': 0, 'podiumsWon': 3, 'constructor':'Aston Martin Aramco Cognizant F1 Team'},
-        {'name': 'Alexander Albon', 'DOB': '23/03/1996', 'picture': '', 'height': '1.86m', 'weight': '73kg',
+        {'name': 'Alexander Albon', 'DOB': '23/03/1996', 'height': '1.86m', 'weight': '73kg',
          'nationality': 'Thai', 'driverNumber': 23, 'seasonsWon': 0, 'podiumsWon': 2,'constructor':'Williams Racing'},
-        {'name': 'Nicholas Latifi', 'DOB': '29/07/1995', 'picture': '', 'height': '1.85m', 'weight': '73kg',
+        {'name': 'Nicholas Latifi', 'DOB': '29/07/1995', 'height': '1.85m', 'weight': '73kg',
          'nationality': 'Canadian', 'driverNumber': 6, 'seasonsWon': 0, 'podiumsWon': 0,'constructor':'Williams Racing'},
-        {'name': 'Mick Schumacher', 'DOB': '22/03/1999', 'picture': '', 'height': '1.77m', 'weight': '67kg',
+        {'name': 'Mick Schumacher', 'DOB': '22/03/1999', 'height': '1.77m', 'weight': '67kg',
          'nationality': 'German', 'driverNumber': 47, 'seasonsWon': 0, 'podiumsWon': 0,'constructor':'Haas F1 Team'},
-        {'name':'Kevin Magnussen','DOB': '05/10/1992', 'picture': '', 'height': '1.74m', 'weight': '68kg',
+        {'name':'Kevin Magnussen','DOB': '05/10/1992', 'height': '1.74m', 'weight': '68kg',
          'nationality': 'Danish', 'driverNumber': 20, 'seasonsWon': 0, 'podiumsWon': 1,'constructor':'Haas F1 Team'},
-        {'name': 'Valtteri Bottas', 'DOB': '28/08/1989', 'picture': '', 'height': '1.73m', 'weight': '69kg',
+        {'name': 'Valtteri Bottas', 'DOB': '28/08/1989', 'height': '1.73m', 'weight': '69kg',
          'nationality': 'Finnish', 'driverNumber': 77, 'seasonsWon': 0, 'podiumsWon': 67,'constructor':'Alfa Romeo F1 Team Orlen'},
-        {'name': 'Guanyu Zhou', 'DOB': '30/05/1999', 'picture': '', 'height': '1.75m',
+        {'name': 'Guanyu Zhou', 'DOB': '30/05/1999', 'height': '1.75m',
          'weight': '63kg', 'nationality': 'Chinese', 'driverNumber': 24, 'seasonsWon': 0, 'podiumsWon': 0,'constructor':'Alfa Romeo F1 Team Orlen'}]
 
     constructor_list = [
@@ -76,8 +77,8 @@ def populate():
          'raceEngineer': 'Ayao Komatsu'},
         {'name': 'Alfa Romeo F1 Team Orlen', 'teamPrincipal': 'Frédéric Vasseur', 'nationality': 'Italian',
          'yearsActive': 72, 'raceEngineer': 'Ruth Buscombe'}]
-
-    car_list = [{'model': 'Mercedes-AMG F1 W12 E Performance', 'horsepower': '', 'engineSupplier': '', 'picture': '', 'gearbox': ''}]
+    
+    car_list = [{'model':'Mercedes-AMG W13 E Performance', 'horsepower': '740bhp', 'engine':'Mercedes-AMG F1 M13 E Performance 90º V6','weight':'1,658lbs','gearbox':'Paddle Operated 8 speed Automatic','constructor':'Mercedes AMG Petronas F1 Team'},{'model':'Red Bull Racing RB18','horsepower':'740bhp','engine':'HRC 90º V6','weight':'1,753lbs','gearbox':'Paddle Operated 8 speed Automatic','constructor':'Oracle Red Bull Racing'},{'model':'McLaren MCL36 Mercedes','horsepower':'740bhp','engine':'Mercedes-AMG F1 M13 E Performance 90º V6','weight':'1,753lbs','gearbox':'Paddle Operated 8 speed Automatic','constructor':'McLaren F1 Team'},{'model':'Ferrari SF-75','horsepower':'740bhp','engine':'Tipo 066/7 90º V6','weight':'1,753lbs','gearbox':'Paddle Operated 8 speed Automatic','constructor':'Scuderia Ferrari'},{'model':'Alpine A522 Renault','horsepower':'740bhp','engine':'Renault E22 90º V6','weight':,'1,753lbs','gearbox':'Paddle Operated 8 speed Automatic','constructor':'Alpine F1 Team'},{'model':'AlphaTauri AT03','horsepower':'740bhp','engine':'HRC 90º V6','weight':'1,753lbs','gearbox':'Paddle Operated 8 speed Automatic','constructor':'Scuderia AlphaTauri'},{'model':'Aston Martin AMR22 Mercedes','horsepower':'740bhp','engine':'Mercedes-AMG F1 M13 E Performance 90º V6','weight':'1,753lbs','gearbox':'Paddle Operated 8 speed Automatic','constructor':'Aston Martin Aramco Cognizant F1 Team'},{'model':'Williams FW44 Mercedes','horsepower':'740bhp','engine':'Mercedes-AMG F1 M13 E Performance 90º V6','weight':'1,753lbs','gearbox':'Paddle Operated 8 speed Automatic','constructor':'Williams Racing'},{'model':'Haas VF-22 Ferrari','horsepower':'740bhp','engine':'Ferrari Tipo 066/7 90º V6','weight':'1,753lbs','gearbox':'Paddle Operated 8 speed Automatic','constructor':'Haas F1 Team'},{'model':'Alfa Romeo Racing C42 Ferrari','horsepower':'740bhp','engine':'Ferrari Tipo 066/7 90º V6','weight':'1,753lbs','gearbox':'Paddle Operated 8 speed Automatic','constructor':'Alfa Romeo F1 Team Orlen'}]
 
     race_list = [
         {'location': 'Bahrain - Sakhir', 'trackLength': '5.412km', 'date': '18-20/03/2022', 'laps': 57,
@@ -128,25 +129,26 @@ def populate():
          'time': '13:00-15:00'}]
 
     for i in driver_list:
-        add_driver(i['name'], i['DOB'], i['picture'], i['height'], i['weight'], i['nationality'], i['driverNumber'],
+        add_driver(i['name'], i['DOB'], i['height'], i['weight'], i['nationality'], i['driverNumber'],
                    i['seasonsWon'], i['podiumsWon'])
 
     for i in constructor_list:
         add_constructor(i['name'], i['teamPrincipal'], i['nationality'], i['yearsActive'], i['raceEngineer'])
 
     for i in car_list:
-        add_car(i['model'], i['horsepower'], i['engineSupplier'], i['picture'], i['gearbox'])
+        add_car(i['model'], i['horsepower'], i['engine'], i['weight'], i['gearbox'], i['constructor'])
 
     for i in race_list:
         add_race(i['location'], i['trackLength'], i['date'], i['laps'], i['time'])
 
 
-def add_driver(name, DOB, picture, height, weight, nationality, driverNum, seasonsWon, podiumsWon):
-    record = Driver.objects.get_or_create(name=name, DOB=DOB, picture=picture, height=height, weight=weight,
+def add_driver(name, DOB, height, weight, nationality, driverNum, seasonsWon, podiumsWon):
+    record = Driver.objects.get_or_create(name=name, DOB=DOB, height=height, weight=weight,
                                           nationality=nationality, driverNumber=driverNum, seasonsWon=seasonsWon,
                                           podiumsWon=podiumsWon)[0]
     record.save()
     print("Driver record \"" + name + "\" added.")
+    return record
 
 
 def add_constructor(name, teamPrincipal, nationality, yearsActive, raceEngineer):
@@ -154,22 +156,52 @@ def add_constructor(name, teamPrincipal, nationality, yearsActive, raceEngineer)
                                                yearsActive=yearsActive, raceEngineer=raceEngineer)[0]
     record.save()
     print("Constructor record \"" + name + "\" added.")
+    return record
 
 
-def add_car(model, horsepower, engineSupplier, picture, gearbox):
-    record = Car.objects.get_or_create(model=model, horsepower=horsepower, engineSupplier=engineSupplier,
-                                       picture=picture, gearbox=gearbox)[0]
+def add_car(model, horsepower, engine, weight, gearbox, constructor):
+    record = Car.objects.get_or_create(model=model, horsepower=horsepower, enginge=engine
+                                       , weight=weight,gearbox=gearbox,constructor=constructor)[0]
     record.save()
     print("Car record \"" + model + "\" added.")
+    return record
 
 
 def add_race(location, trackLength, date, laps, time):
     record = Race.objects.get_or_create(location=location, trackLength=trackLength, date=date, laps=laps, time=time)[0]
     record.save()
     print("Race record \"" + location + "\" added.")
+    return record
 
+def add_driverRating(driverID,userID,created,lastModified,overallAverage):
+    record = DriverRating.objects.get_or_create(driverID=driverID, userID=userID, created=created, lastModified=lastModified, overallAverage=overallAverage)[0]
+    record.save()
+    print("Driver rating record for \"" +  userID + "\" added.")
+    return record
+    
+    
+def add_carRating(carID,userID,created,lastModified,overallAverage,overallRating):
+    record = CarRating.objects.get_or_create(carID=carID, userID=userID, created=created, lastModified=lastModified, overallAverage=overallAverage[0]
+    record.save()
+    print("Car rating record for \"" +  userID + "\" added.")
+    return record
+    
+def add_constructorRating(constructorID,userID,created,lastModified,overallAverage,overallRating):
+    record = ConstructorRating.objects.get_or_create(constructorID=constructorID, userID=userID, created=created, lastModified=lastModified, overallAverage=overallAverage)[0]
+    record.save()
+    print("Constructor rating record for \"" +  userID + "\" added.")
+    return record
 
-populate()
-news_api.get_news()  # ensures database is populated before running timed calls
-print("Database Populated! This script will continue to run fetching updated news every hour.")
-news_api.run()
+#validation, etc. done in views?
+def add_user(username,password,userID,favCar,favTeam,favDriver,aboutMe,picture):
+    record = User.objects.get_or_create(username=username,password=password,favCar=favCar,favTeam=favTeam,favDriver=favDriver,aboutMe=aboutMe,picture=picture)[0]
+    record.save()
+    print("User record \"" + userID + "\" added.")
+    return record
+
+if __name__=='__main__':
+    print("Starting Rango population script...")
+    populate()
+    news_api.get_news()  # ensures database is populated before running timed calls
+    print("Database Populated! This script will continue to run fetching updated news every hour.")
+    news_api.run()
