@@ -1,0 +1,57 @@
+.TeamLogo {
+    height: 150px;
+    width: 150px;
+    float: left;
+    object-fit: cover;
+    display: inline;
+}
+
+h1 {
+    display: inline;
+    float: left;
+}
+
+.header {
+    display: block;
+    background-color: pink;
+    height: 150px;
+    object-fit: cover;
+}
+
+#headerText {
+    font-size: 250%;;
+}
+
+img {
+    vertical-align: middle;
+}
+
+span {
+    padding: 10px;
+
+}
+* {
+box-sizing: border-box;
+}
+
+.column {
+float: left;
+width: 33.33%;
+padding: 5px;
+}
+
+.row {
+    display: block;
+}
+
+.DriverImage {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.pubs {
+display: inline-block;
+margin-right: 0px;
+width: 400px;
+}

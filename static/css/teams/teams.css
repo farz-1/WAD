@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  .row {
+    display: flex;
+    width: 100%;
+  }
+  .container {
+     width: 100%;
+     text-align: center;
+     display: block;
+     margin: auto;
+  }
+  
+  /* Create three equal columns that sits next to each other */
+  .column {
+    flex: 33.33%;
+    padding: 30px;
+    height: 50%;
+    width: 33%;
+    display: block;
+  }
+  
+  .TeamLogo {
+      height: 400px;
+      width: 600px;
+      float: left;
+      object-fit: cover;
+  }
+  
+  h1 {
+      display: inline;
+  }
+  
+  .logout {
+      display: inline;
+      float: right;
+  }
