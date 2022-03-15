@@ -6,20 +6,18 @@
     display: inline;
 }
 
-h1 {
-    display: inline;
-    float: left;
-}
-
 .header {
     display: block;
-    background-color: pink;
     height: 150px;
     object-fit: cover;
+    margin-bottom: 1%;
 }
 
 #headerText {
-    font-size: 250%;;
+    font-size: 250%;
+    height: 50%;
+    font-weight: bold;
+    display: inline;
 }
 
 img {
@@ -45,13 +43,35 @@ padding: 5px;
 }
 
 .DriverImage {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+    width: 150px;
+    height: 150px;
+    margin-left: 20px;
+    display: block;
+}
+
+.DriverLink {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.car {
+    width: 465px;
+    height: 138px;
+}
+
+.TeamInfo {
+    text-align: right;
+    font-size: 20px;
+    display: block;
+    float: left;
+}
+
+#about {
+    display: block;
 }
 
 .pubs {
-display: inline-block;
-margin-right: 0px;
-width: 400px;
+    display: inline-block;
+    margin-right: 0px;
 }

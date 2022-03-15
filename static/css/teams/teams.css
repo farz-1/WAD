@@ -29,11 +29,3 @@
       object-fit: cover;
   }
   
-  h1 {
-      display: inline;
-  }
-  
-  .logout {
-      display: inline;
-      float: right;
-  }

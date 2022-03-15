@@ -6,14 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/leaderboard/leaderboard.css' %}">
+    <link rel="stylesheet" type='text/css' href="../../../static/css/styles.css">
 </head>
 
 <body>
-
-<h1>Leaderboard</h1>
-
-<table style="width:75%">
-    <tr>
+<div>
+    <h1>Leaderboard</h1>
+    <button class="logout">Logout</button>
+</div>
+<br><br>
+<table class="TablePage" style="width:75%">
+    <tr id="TableHeaders">
         <th>Event</th>
         <th>Country</th>
         <th>Dates</th>
@@ -23,7 +26,7 @@
         <td>Maria Anders</td>
         <td>Germany</td>
     </tr>
-    <tr>
+    <tr class="EvenRow">
         <td>Centro comercial Moctezuma</td>
         <td>Francisco Chang</td>
         <td>Mexico</td>
