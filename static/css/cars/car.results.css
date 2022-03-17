@@ -1,0 +1,17 @@
+h1 {
+    font-size: 50px;
+}
+
+#CarInfo {
+    display: inline;
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+#CarImage {
+    display: inline;
+    float: left;
+    margin-top: auto;
+    height: 100%;
+}
