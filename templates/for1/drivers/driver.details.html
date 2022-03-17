@@ -7,6 +7,9 @@
 
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/drivers/driver.details.css' %}">
+    <link rel="stylesheet" type="text/css" href="../../../static/css/drivers/driver.details.css">
+    <link rel="stylesheet" type="text/css" href="../../../static/css/styles.css">
+
 </head>
 
 <body>
@@ -18,10 +21,32 @@
             <img src="https://yt3.ggpht.com/ytc/AKedOLTuvuODeTlyYk7EnHu01TY_ErmsYEGpPnd_Oz7Oxw=s900-c-k-c0x00ffffff-no-rj"
                  width="200" alt="">
             <h2>Driver Name </h2>
-            <h5> &nbsp; Country Code </h5>
-            <h5> &nbsp; Ranking </h5>
+            <div id="DriverDetails">
+                <h5> &nbsp; Country Code </h5>
+                <h5> &nbsp; Ranking </h5>
+            </div>
         </div>
+        
+</div><br><br><br><b><br><br><br><br><br><br><br><br><br><br>
+<button class="logout">Logout</button>
+<div class="Ratings">
+    <div class="Score">
+        <p class="rating">Rating</p>
+        <progress id="rating" value="50" max="100"></progress>
     </div>
+
+    <div class="Score">
+        <p class="rating">Rating</p>
+        <progress id="rating" value="50" max="100"></progress>
+    </div>
+
+    <div class="Score">
+        <p class="rating">Rating</p>
+        <progress id="rating" value="50" max="100"></progress>
+    </div>
+</div><br><br><br><br><br><br><br><br><br>
+
+<a href="" style="margin-left:60px">Form</a>
 
 {% include 'for1/banner.html' %}
 </body>

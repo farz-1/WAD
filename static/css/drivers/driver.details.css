@@ -6,7 +6,7 @@ body, html {
 
 .aligned {
     display: flex;
-    align-items: left;
+    width: 450px;
 }
 
 span {
@@ -16,6 +16,14 @@ span {
 .h4 {
 
     padding-top: 15px;
+
+}
+
+#DriverDetails {
+    height: 80px;
+    margin-top: 40px;
+    margin-left: -150px;
+    text-align: left;
 
 }
 
@@ -51,4 +59,21 @@ span {
 .hero-text button:hover {
     background-color: #555;
     color: white;
+}
+
+.Ratings {
+    width: 60%;
+    background-color: pink;
+}
+
+.rating {
+    display: block;
+}
+
+.Score {
+    text-align: center;
+    display: inline;
+    float: left;
+    padding: 30px;
+    margin-left: 50px;
 }
