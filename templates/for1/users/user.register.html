@@ -6,16 +6,20 @@
     <title>For1</title>
 
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/users/user.register.css' %}">
+    <link rel="stylesheet" type='text/css' href="../../../static/css/users/user.register.css">
+    <link rel="stylesheet" type='text/css' href="../../../static/css/styles.css">
+
 </head>
 
 <body>
 
 <div class="bg-img">
+    <img src="../../../images/Register/register.jpg" alt="">
     <form id="register_form" method="post" action="{% url 'register' %}" enctype="multipart/form-data"
           class="container">
         {% csrf_token %}
         <h1>Sign Up</h1>
+        <br><br><br><br>
 
         <label for="username"><b>Username</b></label>
         <input type="text" placeholder="Enter username " name="username" required>
@@ -28,7 +32,7 @@
 
         <label for="picture"><b>Profile Picture</b></label>
         <input id="picture" type="file" name="picture" placeholder="Photo" capture>
-
+        <br><br>
         <button type="reg" class="btn" value="Register">Sign Up</button>
     </form>
 </div>
