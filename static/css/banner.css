@@ -5,7 +5,7 @@ body, html {
 }
 
 .hero-image {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("photographer.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://vignette.wikia.nocookie.net/rr3/images/b/b3/Update_8.7_Banner.png/revision/latest?cb=20200908014535");
     height: 30%;
     background-position: center;
     background-repeat: no-repeat;
