@@ -1,0 +1,16 @@
+1. Make it so that login button isnt shown when logged in and logout isnt when not logged in
+2. Change user bio dynamically when they click submit , right now its just a textbox implementation in user.profile
+3. Add error messages to login and register pages
+4. Register button in user.login doesnt work and login button in user.register doesnt
+5. Place login beside profile photo maybe?
+6. Make the  images in home.html and news.html link to home.about page
+7. Make home.about page display news dynamically according to the image link clicked
+8. Make banner.html use the image in css as it isnt showing up currently
+9. Fix css in drivers.details as it doesnt show up right
+10.Dynamically change tags in car.rating_form to show the correct car and team
+11.Have car.results display right progress bar info instead of it being hardcoded
+12.Relevant pictures for all pages
+13.Populate leaderboard.html
+14.Populate schedule.html
+15.Populate teams.individual
+16.Populate constructors.about dynamically with text files inside /constructors
