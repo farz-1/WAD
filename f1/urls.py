@@ -16,7 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from for1 import views_main, views_cars, views_drivers, views_constructors, views_schedule, views_news, views_leaderboard, views_users
+from for1 import views_main, views_cars, views_drivers, views_constructors, views_profile, views_schedule, views_news, \
+    views_leaderboard, views_users, views_home, views_login, views_register
 
 urlpatterns = [
     # Admin
@@ -40,14 +41,21 @@ urlpatterns = [
     # path('user/<int:id>/edit', views_users.edit, name='user_edit'),
 
     # Views Schedule
+    path('home/', views_home.index, name='home'),
+
     path('schedule/', views_schedule.index, name='schedule'),
 
     # Views Cars
     path('cars/', views_cars.index, name='cars'),
+    path('login/', views_login.index, name='login'),
+    path('register/', views_register.index, name='register'),
+
     # path('car/<int:id>', views_cars.details, name='car_details),
     path('car/<int:id>/rate', views_cars.rate, name='car_rate'),
 
     # Views Drivers
+    path('profile/', views_profile.index, name='profile'),
+
     path('drivers/', views_drivers.index, name='drivers'),
     # path('driver/<int:id>', views_drivers.details, name='driver_details),
     # path('car/<int:id>/rate', views_drivers.rate, name='driver_rate'),
