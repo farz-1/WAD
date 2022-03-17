@@ -2,10 +2,35 @@
     box-sizing: border-box;
 }
 
+h1 {
+    font-size: 85px;
+    vertical-align: middle;
+}
+
+h2 {
+    font-size: 50px;
+}
+
 .row {
     display: flex;
+    margin-left: auto;
+    width: 100%;
 }
 
 .column {
     display: inline;
+    margin: auto;
+}
+
+#banner {
+    width: 100%;
+    border-color: red;
+    height: 300px;
+    background-image: url(../../../images/banner.jpeg);
+}
+
+img {
+    width: 440px;
+    height: 300px;
+    padding: 30px;
 }
