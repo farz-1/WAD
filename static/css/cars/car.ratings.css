@@ -4,8 +4,14 @@
 
 .column {
     float: center;
-    width: 50.00%;
-    padding: 51px;
+    width: 100%;
+}
+
+.row {
+    display: inline;
+    float: left;
+    width: 50%;
+    margin-left: 10px;
 }
 
 /* Clearfix (clear floats) */
@@ -13,4 +19,13 @@
     content: "";
     clear: both;
     display: table;
+}
+
+img {
+    float: right;
+    width: 49%;
+    height: 100%;
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
 }
