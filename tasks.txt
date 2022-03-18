@@ -1,21 +1,21 @@
-1. Make it so that login button isnt shown when logged in and logout isnt when not logged in
-2. Change user bio dynamically when they click submit and store it , right now its just a textbox implementation in user.profile
-3. Dynamically change picture in user.profile to the picture upoloaded in register page.
-4. Register button in user.login doesnt work and login button in user.register doesnt
-6. Make the  images in home.html and news.html link to home.about page
-7. Make home.about page display news dynamically according to the image link clicked
-9. Fix css in drivers.details as it doesnt show up right
-10.Dynamically change tags in car.rating_form to show the correct car and team
-11.Have car.results display relevant progress bar info instead of it being hardcoded
-12.Relevant pictures for all pages
-13.Populate leaderboard.html
-14.Populate schedule.html
-15.Populate teams.individual
-16.Populate constructors.about dynamically with text files inside /constructors
-17.Fix banner to work with base.html in news [DONE].
-18.Add images to login and register.
-19.Use banner in homepage.
-20.Text overlap in constructors.html
+R. Dynamically change picture in user.profile to the picture upoloaded in register page.
+R. Make home.about page display news dynamically according to the image link clicked
+R.Dynamically change tags in car.rating_form to show the correct car and team
+R.Have car.results display relevant progress bar info instead of it being hardcoded
+R. Change user bio dynamically when they click submit and store it , right now its just a textbox implementation in user.profile
+R.Populate constructors.about dynamically with text files inside /constructors
+
+J.Add images to login and register.
+J.Relevant pictures for all pages
+J. Make it so that login button isnt shown when logged in and logout isnt when not logged in
+F. Make the  images in home.html and news.html link to home.about page
+
+
+LV.Populate leaderboard.html
+LV.Populate schedule.html
+LV.Populate teams.individual
+
+
 
 1.https://stackoverflow.com/questions/44431427/hide-login-register-button-when-logged-in-and-hide-logout-button-when-logged-out
 2.for dynamic content - https://stackoverflow.com/questions/10555902/dynamically-change-body-content

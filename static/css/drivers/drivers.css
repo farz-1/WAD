@@ -4,6 +4,7 @@
 
 .row {
   display: flex;
+  margin-left:160px;
 }
 
 /* Create three equal columns that sits next to each other */

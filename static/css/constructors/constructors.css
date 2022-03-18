@@ -4,6 +4,9 @@
 
 .row {
   display: flex;
+  margin-left:300px;
+
+
 }
 .container {
    width: 100%;
@@ -14,8 +17,9 @@
 
 /* Create three equal columns that sits next to each other */
 .column {
+ display: flex;
   flex: 33.33%;
-  padding: 5px;
+  padding: 50px;
 }
 body {
   width: 100%;
