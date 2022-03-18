@@ -5,11 +5,11 @@ from django.utils import timezone
 
 
 class Constructor(models.Model):
-    name = models.CharField(max_length=50, null=False, unique=True)
-    teamPrincipal = models.CharField(max_length=50, null=False)
-    nationality = models.CharField(max_length=20, null=False)
-    yearsActive = models.IntegerField(null=False)
-    raceEngineer = models.CharField(max_length=50, null=False)
+    name = models.CharField(max_length=50, primary_key=True)
+    teamPrincipal = models.CharField(max_length=50)
+    nationality = models.CharField(max_length=20)
+    yearsActive = models.IntegerField()
+    raceEngineer = models.CharField(max_length=50)
     
 
     class Meta:
@@ -20,15 +20,15 @@ class Constructor(models.Model):
 
 
 class Driver(models.Model):
-    name = models.CharField(max_length=50, null=False, unique=True)
-    DOB = models.CharField(max_length=10, null=False)
-    height = models.CharField(max_length=5, null=False)
-    weight = models.CharField(max_length=5, null=False)
-    nationality = models.CharField(max_length=20, null=False)
-    driverNumber = models.IntegerField(null=False)
-    seasonsWon = models.IntegerField(null=False)
-    podiumsWon = models.IntegerField(null=False)
-    constructor = models.ForeignKey(Constructor, on_delete=models.SET_NULL, null=True)
+    name = models.CharField(max_length=50, primary_key=True)
+    DOB = models.CharField(max_length=10)
+    height = models.CharField(max_length=5)
+    weight = models.CharField(max_length=5)
+    nationality = models.CharField(max_length=20)
+    driverNumber = models.IntegerField()
+    seasonsWon = models.IntegerField()
+    podiumsWon = models.IntegerField()
+    constructor = models.ForeignKey(Constructor, on_delete=models.SET_NULL)
 
 
     class Meta:
@@ -39,12 +39,12 @@ class Driver(models.Model):
 
 
 class Car(models.Model):
-    model = models.CharField(max_length=50, null=False, unique=True)
-    horsepower = models.CharField(max_length=5, null=False)
-    engine = models.CharField(max_length=30, null=False)
-    weight = models.CharField(max_length=30, null=False)
-    gearbox = models.CharField(max_length=50,null=False)
-    constructor = models.ForeignKey(Constructor, on_delete=models.SET_NULL, null=True)
+    model = models.CharField(max_length=50, primary_key=True)
+    horsepower = models.CharField(max_length=5)
+    engine = models.CharField(max_length=30)
+    weight = models.CharField(max_length=30)
+    gearbox = models.CharField(max_length=50)
+    constructor = models.ForeignKey(Constructor, on_delete=models.SET_NULL)
 
     class Meta:
         verbose_name_plural = 'Cars'
@@ -54,11 +54,11 @@ class Car(models.Model):
 
 
 class Race(models.Model):
-    location = models.CharField(max_length=20, null=False, unique=True)
-    trackLength = models.CharField(max_length=5, null=False)
-    date = models.CharField(max_length=10, null=False)
-    laps = models.IntegerField(null=False)
-    time = models.CharField(max_length=20, null=False)
+    location = models.CharField(max_length=20, primary_key=True)
+    trackLength = models.CharField(max_length=5)
+    date = models.CharField(max_length=10)
+    laps = models.IntegerField()
+    time = models.CharField(max_length=20)
 
     class Meta:
         verbose_name_plural = 'Races'
@@ -70,19 +70,18 @@ class Race(models.Model):
 class News(models.Model):
     title = models.CharField(max_length=50)
     summary = models.CharField(max_length=256)
-    imageURL = models.URLField(null=True)
+    imageURL = models.URLField()
     articleURL = models.URLField()
     published = models.DateTimeField()
-    author = models.CharField(max_length=30, null=True)
+    author = models.CharField(max_length=30)
 
 
 class User(models.Model):
-    username = models.CharField(max_length=30, null=False)
-    password = models.CharField(max_length=30, null=False)
-    userID = models.CharField(max_length=30, null=False, unique=True)
-    favCar = models.ForeignKey(Car, on_delete=models.SET_NULL, null=True)
-    favTeam = models.ForeignKey(Constructor, on_delete=models.SET_NULL, null=True)
-    favDriver = models.ForeignKey(Driver, on_delete=models.SET_NULL, null=True)
+    username = models.CharField(max_length=30,unique=True)
+    password = models.CharField(max_length=30)
+    favCar = models.ForeignKey(Car, on_delete=models.SET_NULL)
+    favTeam = models.ForeignKey(Constructor, on_delete=models.SET_NULL)
+    favDriver = models.ForeignKey(Driver, on_delete=models.SET_NULL)
     aboutMe = models.CharField(max_length=256)
     #!!!!!!!!!!!!!!!!!!!
     picture =models.ImageField(upload_to ='uploads/')
@@ -91,17 +90,17 @@ class User(models.Model):
         verbose_name_plural = 'Users'
 
     def __str__(self):
-        return self.userID + " " + self.name
+        return self.name
 
 
 class DriverRating(models.Model):
-    driverID = models.ForeignKey(Driver, on_delete=models.CASCADE, null=False)
+    driverID = models.ForeignKey(Driver, on_delete=models.CASCADE)
 
-    userID = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
+    userID = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    created = models.DateTimeField(editable=False, null=False)
+    created = models.DateTimeField(editable=False)
 
-    lastModified = models.DateTimeField(null=False)
+    lastModified = models.DateTimeField()
 
     overallAverage = models.DecimalField(max_digits=4, decimal_places=2)
 
@@ -110,7 +109,7 @@ class DriverRating(models.Model):
         validators=[
             MaxValueValidator(5),
             MinValueValidator(1)
-        ], null=False
+        ]
     )
 
     personality = models.IntegerField(
@@ -118,49 +117,49 @@ class DriverRating(models.Model):
         validators=[
             MaxValueValidator(5),
             MinValueValidator(1)
-        ], null=False
+        ]
     )
     aggressiveness = models.IntegerField(
         default=1,
         validators=[
             MaxValueValidator(5),
             MinValueValidator(1)
-        ], null=False
+        ]
     )
     awareness = models.IntegerField(
         default=1,
         validators=[
             MaxValueValidator(5),
             MinValueValidator(1)
-        ], null=False
+        ]
     )
     experience = models.IntegerField(
         default=1,
         validators=[
             MaxValueValidator(5),
             MinValueValidator(1)
-        ], null=False
+        ]
     )
     starts = models.IntegerField(
         default=1,
         validators=[
             MaxValueValidator(5),
             MinValueValidator(1)
-        ], null=False
+        ]
     )
     pace = models.IntegerField(
         default=1,
         validators=[
             MaxValueValidator(5),
             MinValueValidator(1)
-        ], null=False
+        ]
     )
     racecraft = models.IntegerField(
         default=1,
         validators=[
             MaxValueValidator(5),
             MinValueValidator(1)
-        ], null=False
+        ]
     )
 
     class Meta:
@@ -181,17 +180,17 @@ class DriverRating(models.Model):
         if not self.id:
             self.created = timezone.now()
         self.modified = timezone.now()
-        return super(User, self).save(*args, **kwargs)
+        return super(DriverRating, self).save(*args, **kwargs)
 
 
 class ConstructorRating(models.Model):
-    constructorID = models.ForeignKey(Constructor, on_delete=models.CASCADE, null=False)
+    constructorID = models.ForeignKey(Constructor, on_delete=models.CASCADE)
 
-    userID = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
+    userID = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    created = models.DateTimeField(editable=False, null=False)
+    created = models.DateTimeField(editable=False)
 
-    lastModified = models.DateTimeField(null=False)
+    lastModified = models.DateTimeField()
 
     overallAverage = models.DecimalField(max_digits=4, decimal_places=2)
 
@@ -200,7 +199,7 @@ class ConstructorRating(models.Model):
         validators=[
             MaxValueValidator(5),
             MinValueValidator(1)
-        ], null=False
+        ]
     )
 
     teamPrinciple = models.IntegerField(
@@ -208,7 +207,7 @@ class ConstructorRating(models.Model):
         validators=[
             MaxValueValidator(5),
             MinValueValidator(1)
-        ], null=False
+        ]
     )
 
     raceStrategy = models.IntegerField(
@@ -216,7 +215,7 @@ class ConstructorRating(models.Model):
         validators=[
             MaxValueValidator(5),
             MinValueValidator(1)
-        ], null=False
+        ]
     )
 
     pitStop = models.IntegerField(
@@ -224,7 +223,7 @@ class ConstructorRating(models.Model):
         validators=[
             MaxValueValidator(5),
             MinValueValidator(1)
-        ], null=False
+        ]
     )
 
     class Meta:
@@ -244,17 +243,15 @@ class ConstructorRating(models.Model):
         if not self.id:
             self.created = timezone.now()
         self.modified = timezone.now()
-        return super(User, self).save(*args, **kwargs)
+        return super(ConstructorRating, self).save(*args, **kwargs)
 
 
 class CarRating(models.Model):
-    carID = models.ForeignKey(Car, on_delete=models.CASCADE, null=False)
+    carID = models.ForeignKey(Car, on_delete=models.CASCADE)
 
-    userID = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
+    userID = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    created = models.DateTimeField(editable=False, null=False)
-
-    lastModified = models.DateTimeField(null=False)
+    lastModified = models.DateTimeField()
 
     overallAverage = models.DecimalField(max_digits=4, decimal_places=2)
 
@@ -263,7 +260,7 @@ class CarRating(models.Model):
         validators=[
             MaxValueValidator(5),
             MinValueValidator(1)
-        ], null=False
+        ]
     )
 
     speed = models.IntegerField(
@@ -271,7 +268,7 @@ class CarRating(models.Model):
         validators=[
             MaxValueValidator(5),
             MinValueValidator(1)
-        ], null=False
+        ]
     )
 
     aerodynamics = models.IntegerField(
@@ -279,7 +276,7 @@ class CarRating(models.Model):
         validators=[
             MaxValueValidator(5),
             MinValueValidator(1)
-        ], null=False
+        ] 
     )
 
     aesthetics = models.IntegerField(
@@ -287,7 +284,7 @@ class CarRating(models.Model):
         validators=[
             MaxValueValidator(5),
             MinValueValidator(1)
-        ], null=False
+        ]
     )
 
     braking = models.IntegerField(
@@ -295,7 +292,7 @@ class CarRating(models.Model):
         validators=[
             MaxValueValidator(5),
             MinValueValidator(1)
-        ], null=False
+        ]
     )
 
     engine = models.IntegerField(
@@ -303,7 +300,7 @@ class CarRating(models.Model):
         validators=[
             MaxValueValidator(5),
             MinValueValidator(1)
-        ], null=False
+        ]
     )
 
     class Meta:
@@ -321,7 +318,5 @@ class CarRating(models.Model):
     def save(self, *args, **kwargs):
         self.overallAverage = self.get_overall_average
         ''' On save, update timestamps '''
-        if not self.id:
-            self.created = timezone.now()
         self.modified = timezone.now()
-        return super(User, self).save(*args, **kwargs)
+        return super(CarRating, self).save(*args, **kwargs)
