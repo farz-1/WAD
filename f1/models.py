@@ -83,8 +83,7 @@ class User(models.Model):
     favTeam = models.ForeignKey(Constructor, on_delete=models.SET_NULL)
     favDriver = models.ForeignKey(Driver, on_delete=models.SET_NULL)
     aboutMe = models.CharField(max_length=256)
-    #!!!!!!!!!!!!!!!!!!!
-    picture =models.ImageField(upload_to ='uploads/')
+    picture = models.ImageField(upload_to='media/profile_images')
 
     class Meta:
         verbose_name_plural = 'Users'

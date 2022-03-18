@@ -212,11 +212,12 @@ def add_car(model, horsepower, engine, weight, gearbox, constructor):
     return record
 
 
-def add_race(location, trackLength, date, laps, time,overallRating):
+def add_race(location, trackLength, date, laps, time):
     record = Race.objects.get_or_create(location=location, trackLength=trackLength, date=date, laps=laps, time=time)[0]
     record.save()
     print("Race record \"" + location + "\" added.")
     return record
+
 
 def add_driverRating(driverID,userID,overallRating,personality,aggressiveness,awareness,experience,starts,pace,racecraft):
     record = DriverRating.objects.get_or_create(driverID=driverID, userID=userID)[0]
@@ -231,30 +232,33 @@ def add_driverRating(driverID,userID,overallRating,personality,aggressiveness,aw
     record.save()
     print("Driver rating record for \"" + userID + "\" added.")
     return record
-    
+
+
 def add_carRating(carID,userID,overallRating,speed,aerodynamics,aesthetics,braking,engine):
     record = CarRating.objects.get_or_create(carID=carID, userID=userID)[0]
-    record.overallRating=overallRating
-    record.speed=spped
-    record.aerodynamics=aerodynamics
-    record.aesthetics=aesthetics
-    record.braking=braking
-    record.engine=record.engine
+    record.overallRating = overallRating
+    record.speed = speed
+    record.aerodynamics = aerodynamics
+    record.aesthetics = aesthetics
+    record.braking = braking
+    record.engine = record.engine
     record.save()
     print("Car rating record for \"" + userID + "\" added.")
     return record
 
+
 def add_constructorRating(constructorID,userID,overallRating,teamPrincipal,raceStrategy,pitStop):
     record = ConstructorRating.objects.get_or_create(constructorID=constructorID, userID=userID)[0]
-    record.overallRating=overallRating
-    record.teamPrincipal=teamPrincipal
+    record.overallRating = overallRating
+    record.teamPrincipal = teamPrincipal
     record.raceStrategy=raceStrategy
     record.pitStop=pitStop
     record.save()
     print("Constructor rating record for \"" + userID + "\" added.")
     return record
 
-#all seperate changes for about me, 3 favourites, password update, picture update
+
+# all seperate changes for about me, 3 favourites, password update, picture update
 def add_user(username,password):
     record = User.objects.get_or_create(username=username,password=password)[0]
     record.save()
@@ -263,7 +267,7 @@ def add_user(username,password):
 
 
 def update_picture(username, picture):
-    pass
+    record = User.objects.filter(username=username).update(picture=picture)
 
 
 def update_about_me(username, aboutMe):
