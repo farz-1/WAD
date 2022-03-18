@@ -1,5 +1,5 @@
 table, th, td {
-    border: 1px solid black;
+    border: 12px solid black;
 }
 
 .aligned {
@@ -8,5 +8,5 @@ table, th, td {
 }
 
 span {
-    padding: 30px;
+    padding: 50px;
 }

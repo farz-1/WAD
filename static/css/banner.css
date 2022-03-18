@@ -7,10 +7,12 @@ body, html {
 .hero-image {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://vignette.wikia.nocookie.net/rr3/images/b/b3/Update_8.7_Banner.png/revision/latest?cb=20200908014535");
     height: 30%;
-    background-position: center;
+    width:100%;
+    background-position: right;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
+    position: right;
+    overflow:hidden;
 }
 
 .hero-text {
