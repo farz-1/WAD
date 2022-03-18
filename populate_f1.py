@@ -1,9 +1,7 @@
 import os
-
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'f1.settings')
 
 import django
-
 django.setup()
 
 from f1.models import *
@@ -11,13 +9,11 @@ import news_api
 
 
 def populate():
-    # 1.0 just to note, not sure if adding ratings() funcs are correct (parameters passed in)
-    # 2.0 also generating userID?
-    # 3.0 in models.py User class, I have a picture field that uploads to a non-existent directory, wasn't sure what
-    # the plans are for user pics and didn't want to mess with file structure
-    # 4.0 overriding save() for user??
+    # 1.0 picture thing
+    # 2.0 user updates (vaughn) / password with raph
+    # 3.0 more readable data refine (libby)
 
-    # NOTE: Should we consider using the shortened constructor names? -Vaughn
+
     driver_list = [
         {'name': 'Lewis Hamilton', 'DOB': '07/01/1985', 'height': '1.74m', 'weight': '73kg',
          'nationality': 'British', 'driverNumber': 44, 'seasonsWon': 7, 'podiumsWon': 182,
@@ -216,44 +212,53 @@ def add_car(model, horsepower, engine, weight, gearbox, constructor):
     return record
 
 
-def add_race(location, trackLength, date, laps, time):
+def add_race(location, trackLength, date, laps, time,overallRating):
     record = Race.objects.get_or_create(location=location, trackLength=trackLength, date=date, laps=laps, time=time)[0]
     record.save()
     print("Race record \"" + location + "\" added.")
     return record
 
-
-def add_driverRating(driverID, userID, created, lastModified, overallAverage):
-    record = \
-        DriverRating.objects.get_or_create(driverID=driverID, userID=userID, created=created, lastModified=lastModified,
-                                           overallAverage=overallAverage)[0]
+def add_driverRating(driverID,userID,overallRating,personality,aggressiveness,awareness,experience,starts,pace,racecraft):
+    record = DriverRating.objects.get_or_create(driverID=driverID, userID=userID)[0]
+    record.personality=personality
+    record.aggressiveness=aggressiveness
+    record.awareness=awareness
+    record.experience=experience
+    record.starts=starts
+    record.pace=pace
+    record.racecraft=racecraft
+    record.overallRating=overallRating
     record.save()
     print("Driver rating record for \"" + userID + "\" added.")
     return record
-
-
-def add_carRating(carID, userID, created, lastModified, overallAverage, overallRating):
-    record = CarRating.objects.get_or_create(carID=carID, userID=userID, created=created, lastModified=lastModified,
-                                             overallAverage=overallAverage)[0]
+    
+def add_carRating(carID,userID,overallRating,speed,aerodynamics,aesthetics,braking,engine):
+    record = CarRating.objects.get_or_create(carID=carID, userID=userID)[0]
+    record.overallRating=overallRating
+    record.speed=spped
+    record.aerodynamics=aerodynamics
+    record.aesthetics=aesthetics
+    record.braking=braking
+    record.engine=record.engine
     record.save()
     print("Car rating record for \"" + userID + "\" added.")
     return record
 
-
-def add_constructorRating(constructorID, userID, created, lastModified, overallAverage, overallRating):
-    record = ConstructorRating.objects.get_or_create(constructorID=constructorID, userID=userID, created=created,
-                                                     lastModified=lastModified, overallAverage=overallAverage)[0]
+def add_constructorRating(constructorID,userID,overallRating,teamPrincipal,raceStrategy,pitStop):
+    record = ConstructorRating.objects.get_or_create(constructorID=constructorID, userID=userID)[0]
+    record.overallRating=overallRating
+    record.teamPrincipal=teamPrincipal
+    record.raceStrategy=raceStrategy
+    record.pitStop=pitStop
     record.save()
     print("Constructor rating record for \"" + userID + "\" added.")
     return record
 
-
-# validation, etc. done in views?
-def add_user(username, password, userID, favCar, favTeam, favDriver, aboutMe, picture):
-    record = User.objects.get_or_create(username=username, password=password, favCar=favCar, favTeam=favTeam,
-                                        favDriver=favDriver, aboutMe=aboutMe, picture=picture)[0]
+#all seperate changes for about me, 3 favourites, password update, picture update
+def add_user(username,password):
+    record = User.objects.get_or_create(username=username,password=password)[0]
     record.save()
-    print("User record \"" + userID + "\" added.")
+    print("User record \"" + username + "\" added.")
     return record
 
 
