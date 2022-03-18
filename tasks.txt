@@ -2,10 +2,8 @@
 2. Change user bio dynamically when they click submit and store it , right now its just a textbox implementation in user.profile
 3. Dynamically change picture in user.profile to the picture upoloaded in register page.
 4. Register button in user.login doesnt work and login button in user.register doesnt
-5. Fix css in users.profile , profile picture doesnt show up right
 6. Make the  images in home.html and news.html link to home.about page
 7. Make home.about page display news dynamically according to the image link clicked
-8. Make banner.html use the image in css as it isnt showing up currently[DONE]
 9. Fix css in drivers.details as it doesnt show up right
 10.Dynamically change tags in car.rating_form to show the correct car and team
 11.Have car.results display relevant progress bar info instead of it being hardcoded

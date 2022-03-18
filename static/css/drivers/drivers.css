@@ -8,8 +8,9 @@
 
 /* Create three equal columns that sits next to each other */
 .column {
+ display: flex;
   flex: 33.33%;
-  padding: 5px;
+  padding: 50px;
 }
 
 img {
