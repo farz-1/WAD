@@ -11,3 +11,7 @@
   flex: 33.33%;
   padding: 15px;
 }
+body {
+  width: 100%;
+  background: linear-gradient(to left bottom, white, red);
+}

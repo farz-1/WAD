@@ -29,3 +29,7 @@ span {
     margin-right: 0px;
     width: 400px;
 }
+body {
+  width: 100%;
+  background: linear-gradient(to left bottom, white, red);
+}

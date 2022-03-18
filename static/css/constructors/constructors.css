@@ -8,7 +8,7 @@
 .container {
    width: 100%;
    text-align: center;
-   display: block;
+   display: flex;
    margin: auto;
 }
 
@@ -16,4 +16,8 @@
 .column {
   flex: 33.33%;
   padding: 5px;
+}
+body {
+  width: 100%;
+  background: linear-gradient(to left bottom, white, red);
 }

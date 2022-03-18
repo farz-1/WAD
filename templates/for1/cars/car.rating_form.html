@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+        {% include 'base.html' %}
 
 <head>
     <meta charset="utf-8">
@@ -10,61 +11,57 @@
 
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/cars/car.ratings.css' %}">
+    <link rel="stylesheet" type="text/css" href="../../../static/css/cars/car.ratings.css">
+    <link rel="stylesheet" type="text/css" href="../../../static/css/styles.css">
+
 </head>
 
 <body>
+    <div class="row">
+        <h1>Car</h1>
 
-<h1>Car</h1>
+        <h3>Team</h3><br><br>
+        <div class="column">
+            <h6>Rating Category</h6>
+            <label for="ct1"></label>
+            <select id="ct1" name="ct1">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
 
-<div class="row">
+        <div class="column">
+            <h6>Rating Category</h6>
+            <label for="ct2"></label>
+            <select id="ct2" name="ct2">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
 
-    <div class="column">
-        <h6>Team</h6>
-    </div>
-
-    <div class="column">
-        <img src="img_mountains.jpg" alt="Mountains" style="width:100%">
-    </div>
-
-    <div class="column">
-        <h6>Rating Category</h6>
-        <label for="ct1"></label>
-        <select id="ct1" name="ct1">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-    </div>
-
-    <div class="column">
-        <h6>Rating Category</h6>
-        <label for="ct2"></label>
-        <select id="ct2" name="ct2">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-    </div>
-
-    <div class="column">
-        <h6>Rating Category</h6>
-        <label for="ct3"></label>
-        <select id="ct3" name="ct3">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-    </div>
-
-    <input type="submit">
+        <div class="column">
+            <h6>Rating Category</h6>
+            <label for="ct3"></label>
+            <select id="ct3" name="ct3">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+        <br><br><br><br>
+        <input type="submit">
 
 </div>
+
+<img src="img_mountains.jpg" alt="Mountains">
 
 </body>
 </html>

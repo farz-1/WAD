@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 from for1 import views_main, views_cars, views_drivers, views_constructors, views_profile, views_schedule, views_news, \
-    views_leaderboard, views_users, views_home, views_login, views_register
+    views_leaderboard, views_users, views_home, views_login, views_register, views_ratings
 
 urlpatterns = [
     # Admin
@@ -25,7 +25,7 @@ urlpatterns = [
 
     # Views Main
     path('', views_main.index, name='index'),
-    #path('about/', views_main.about, name='about'),
+    # path('about/', views_main.about, name='about'),
     path('register/', views_main.register, name='register'),
     path('login/', views_main.user_login, name='login'),
 
@@ -59,6 +59,7 @@ urlpatterns = [
     path('drivers/', views_drivers.index, name='drivers'),
     # path('driver/<int:id>', views_drivers.details, name='driver_details),
     # path('car/<int:id>/rate', views_drivers.rate, name='driver_rate'),
+    path('ratings/', views_ratings.index, name='ratings'),
 
     # Views Constructors
     path('constructors/', views_constructors.index, name='constructors'),

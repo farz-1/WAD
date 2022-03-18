@@ -15,8 +15,9 @@
 15.Populate teams.individual
 16.Populate constructors.about dynamically with text files inside /constructors
 17.Fix banner to work with base.html in news [DONE].
-18.Bug in login and register where image positioning doesnt allow sidebar use
+18.Add images to login and register.
 19.Use banner in homepage.
+20.Text overlap in constructors.html
 
 1.https://stackoverflow.com/questions/44431427/hide-login-register-button-when-logged-in-and-hide-logout-button-when-logged-out
 2.for dynamic content - https://stackoverflow.com/questions/10555902/dynamically-change-body-content

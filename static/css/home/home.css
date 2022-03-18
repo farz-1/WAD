@@ -34,3 +34,7 @@ img {
     height: 300px;
     padding: 30px;
 }
+body {
+  width: 100%;
+  background: linear-gradient(to left bottom, white, red);
+}

@@ -1,10 +1,10 @@
 table, th, td {
-    border: 12px solid black;
+    border: 2px solid black;
 }
 
 .aligned {
     display: flex;
-    align-items: center;
+    align-items: right;
 }
 
 span {
