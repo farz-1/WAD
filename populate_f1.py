@@ -1,17 +1,16 @@
 import os
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'f1.settings')
-
 import django
+import news_api
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'f1.settings')
 django.setup()
 
 from f1.models import *
-import news_api
 
 
 def populate():
     # 1.0 picture thing
     # 2.0 user updates (vaughn) /  password with raph
-
 
     driver_list = [
         {'name': 'Lewis Hamilton', 'DOB': '07/01/1985', 'height': '1.74m', 'weight': '73kg',
@@ -57,16 +56,16 @@ def populate():
          'nationality': 'Canadian', 'driverNumber': 18, 'seasonsWon': 0, 'podiumsWon': 3,
          'constructor': 'Aston Martin'},
         {'name': 'Alexander Albon', 'DOB': '23/03/1996', 'height': '1.86m', 'weight': '73kg',
-         'nationality': 'Thai', 'driverNumber': 23, 'seasonsWon': 0, 'podiumsWon': 2, 
+         'nationality': 'Thai', 'driverNumber': 23, 'seasonsWon': 0, 'podiumsWon': 2,
          'constructor': 'Williams'},
         {'name': 'Nicholas Latifi', 'DOB': '29/07/1995', 'height': '1.85m', 'weight': '73kg',
          'nationality': 'Canadian', 'driverNumber': 6, 'seasonsWon': 0, 'podiumsWon': 0,
          'constructor': 'Williams'},
         {'name': 'Mick Schumacher', 'DOB': '22/03/1999', 'height': '1.77m', 'weight': '67kg',
-         'nationality': 'German', 'driverNumber': 47, 'seasonsWon': 0, 'podiumsWon': 0, 
+         'nationality': 'German', 'driverNumber': 47, 'seasonsWon': 0, 'podiumsWon': 0,
          'constructor': 'Haas'},
         {'name': 'Kevin Magnussen', 'DOB': '05/10/1992', 'height': '1.74m', 'weight': '68kg',
-         'nationality': 'Danish', 'driverNumber': 20, 'seasonsWon': 0, 'podiumsWon': 1, 
+         'nationality': 'Danish', 'driverNumber': 20, 'seasonsWon': 0, 'podiumsWon': 1,
          'constructor': 'Haas'},
         {'name': 'Valtteri Bottas', 'DOB': '28/08/1989', 'height': '1.73m', 'weight': '69kg',
          'nationality': 'Finnish', 'driverNumber': 77, 'seasonsWon': 0, 'podiumsWon': 67,
@@ -175,12 +174,12 @@ def populate():
         {'location': 'Abu Dhabi - United Arab Emirates', 'trackLength': '5.554km', 'date': '18/11-20/11', 'laps': 55,
          'time': '13:00-15:00'}]
 
-    for i in driver_list:
-        add_driver(i['name'], i['DOB'], i['height'], i['weight'], i['nationality'], i['driverNumber'],
-                   i['seasonsWon'], i['podiumsWon'])
-
     for i in constructor_list:
         add_constructor(i['name'], i['teamPrincipal'], i['nationality'], i['yearsActive'], i['raceEngineer'])
+
+    for i in driver_list:
+        add_driver(i['name'], i['DOB'], i['height'], i['weight'], i['nationality'], i['driverNumber'],
+                   i['seasonsWon'], i['podiumsWon'], i['constructor'])
 
     for i in car_list:
         add_car(i['model'], i['horsepower'], i['engine'], i['weight'], i['gearbox'], i['constructor'])
@@ -189,10 +188,11 @@ def populate():
         add_race(i['location'], i['trackLength'], i['date'], i['laps'], i['time'])
 
 
-def add_driver(name, DOB, height, weight, nationality, driverNum, seasonsWon, podiumsWon):
+def add_driver(name, DOB, height, weight, nationality, driverNum, seasonsWon, podiumsWon, constructor):
     record = Driver.objects.get_or_create(name=name, DOB=DOB, height=height, weight=weight,
                                           nationality=nationality, driverNumber=driverNum, seasonsWon=seasonsWon,
-                                          podiumsWon=podiumsWon)[0]
+                                          podiumsWon=podiumsWon,
+                                          constructor=Constructor.objects.get(name=constructor))[0]
     record.save()
     print("Driver record \"" + name + "\" added.")
     return record
@@ -207,8 +207,9 @@ def add_constructor(name, teamPrincipal, nationality, yearsActive, raceEngineer)
 
 
 def add_car(model, horsepower, engine, weight, gearbox, constructor):
-    record = Car.objects.get_or_create(model=model, horsepower=horsepower, enginge=engine,
-                                       weight=weight, gearbox=gearbox, constructor=constructor)[0]
+    record = Car.objects.get_or_create(model=model, horsepower=horsepower, engine=engine,
+                                       weight=weight, gearbox=gearbox,
+                                       constructor=Constructor.objects.get(name=constructor))[0]
     record.save()
     print("Car record \"" + model + "\" added.")
     return record
@@ -221,22 +222,23 @@ def add_race(location, trackLength, date, laps, time):
     return record
 
 
-def add_driverRating(driverID,userID,overallRating,personality,aggressiveness,awareness,experience,starts,pace,racecraft):
+def add_driver_rating(driverID, userID, overallRating, personality, aggressiveness, awareness, experience, starts, pace,
+                      racecraft):
     record = DriverRating.objects.get_or_create(driverID=driverID, userID=userID)[0]
-    record.personality=personality
-    record.aggressiveness=aggressiveness
-    record.awareness=awareness
-    record.experience=experience
-    record.starts=starts
-    record.pace=pace
-    record.racecraft=racecraft
-    record.overallRating=overallRating
+    record.personality = personality
+    record.aggressiveness = aggressiveness
+    record.awareness = awareness
+    record.experience = experience
+    record.starts = starts
+    record.pace = pace
+    record.racecraft = racecraft
+    record.overallRating = overallRating
     record.save()
     print("Driver rating record for \"" + userID + "\" added.")
     return record
 
 
-def add_carRating(carID,userID,overallRating,speed,aerodynamics,aesthetics,braking,engine):
+def add_car_rating(carID, userID, overallRating, speed, aerodynamics, aesthetics, braking, engine):
     record = CarRating.objects.get_or_create(carID=carID, userID=userID)[0]
     record.overallRating = overallRating
     record.speed = speed
@@ -249,20 +251,20 @@ def add_carRating(carID,userID,overallRating,speed,aerodynamics,aesthetics,braki
     return record
 
 
-def add_constructorRating(constructorID,userID,overallRating,teamPrincipal,raceStrategy,pitStop):
+def add_constructor_rating(constructorID, userID, overallRating, teamPrincipal, raceStrategy, pitStop):
     record = ConstructorRating.objects.get_or_create(constructorID=constructorID, userID=userID)[0]
     record.overallRating = overallRating
     record.teamPrincipal = teamPrincipal
-    record.raceStrategy=raceStrategy
-    record.pitStop=pitStop
+    record.raceStrategy = raceStrategy
+    record.pitStop = pitStop
     record.save()
     print("Constructor rating record for \"" + userID + "\" added.")
     return record
 
 
 # all seperate changes for about me, 3 favourites, password update, picture update
-def add_user(username,password):
-    record = User.objects.get_or_create(username=username,password=password)[0]
+def add_user(username, password):
+    record = User.objects.get_or_create(username=username, password=password)[0]
     record.save()
     print("User record \"" + username + "\" added.")
     return record
@@ -277,7 +279,9 @@ def update_about_me(username, aboutMe):
 
 
 def update_favorites(username, favCar, favTeam, favDriver):
-    record = User.objects.filter(username=username).update(favCar=favCar, favTeam=favTeam, favDriver=favDriver)
+    record = User.objects.filter(username=username).update(favCar=Car.objects.get(model=favCar),
+                                                           favTeam=Constructor.objects.get(name=favTeam),
+                                                           favDriver=Driver.objects.get(name=favDriver))
 
 
 if __name__ == '__main__':

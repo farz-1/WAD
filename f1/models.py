@@ -10,7 +10,6 @@ class Constructor(models.Model):
     nationality = models.CharField(max_length=20)
     yearsActive = models.IntegerField()
     raceEngineer = models.CharField(max_length=50)
-    
 
     class Meta:
         verbose_name_plural = 'Constructors'
@@ -28,8 +27,7 @@ class Driver(models.Model):
     driverNumber = models.IntegerField()
     seasonsWon = models.IntegerField()
     podiumsWon = models.IntegerField()
-    constructor = models.ForeignKey(Constructor, on_delete=models.SET_NULL)
-
+    constructor = models.ForeignKey(Constructor, on_delete=models.SET_NULL, null=True)
 
     class Meta:
         verbose_name_plural = 'Drivers'
@@ -44,7 +42,7 @@ class Car(models.Model):
     engine = models.CharField(max_length=30)
     weight = models.CharField(max_length=30)
     gearbox = models.CharField(max_length=50)
-    constructor = models.ForeignKey(Constructor, on_delete=models.SET_NULL)
+    constructor = models.ForeignKey(Constructor, on_delete=models.SET_NULL, null=True)
 
     class Meta:
         verbose_name_plural = 'Cars'
@@ -70,18 +68,18 @@ class Race(models.Model):
 class News(models.Model):
     title = models.CharField(max_length=50)
     summary = models.CharField(max_length=256)
-    imageURL = models.URLField()
+    imageURL = models.URLField(null=True)
     articleURL = models.URLField()
     published = models.DateTimeField()
-    author = models.CharField(max_length=30)
+    author = models.CharField(max_length=30, null=True)
 
 
 class User(models.Model):
-    username = models.CharField(max_length=30,unique=True)
+    username = models.CharField(max_length=30, unique=True)
     password = models.CharField(max_length=30)
-    favCar = models.ForeignKey(Car, on_delete=models.SET_NULL)
-    favTeam = models.ForeignKey(Constructor, on_delete=models.SET_NULL)
-    favDriver = models.ForeignKey(Driver, on_delete=models.SET_NULL)
+    favCar = models.ForeignKey(Car, on_delete=models.SET_NULL, null=True)
+    favTeam = models.ForeignKey(Constructor, on_delete=models.SET_NULL, null=True)
+    favDriver = models.ForeignKey(Driver, on_delete=models.SET_NULL, null=True)
     aboutMe = models.CharField(max_length=256)
     picture = models.ImageField(upload_to='media/profile_images')
 
@@ -275,7 +273,7 @@ class CarRating(models.Model):
         validators=[
             MaxValueValidator(5),
             MinValueValidator(1)
-        ] 
+        ]
     )
 
     aesthetics = models.IntegerField(
