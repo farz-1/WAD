@@ -72,6 +72,9 @@ class News(models.Model):
     articleURL = models.URLField()
     published = models.DateTimeField()
     author = models.CharField(max_length=30, null=True)
+    
+    class Meta:
+        verbose_name_plural='News'
 
 
 class User(models.Model):

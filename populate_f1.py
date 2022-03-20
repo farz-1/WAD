@@ -1,16 +1,16 @@
 import os
 import django
-import news_api
+
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'f1.settings')
 django.setup()
 
 from f1.models import *
+import news_api
 
 
 def populate():
-    # 1.0 picture thing
-    # 2.0 user updates (vaughn) /  password with raph
+    # raph password updates
 
     driver_list = [
         {'name': 'Lewis Hamilton', 'DOB': '07/01/1985', 'height': '1.74m', 'weight': '73kg',
