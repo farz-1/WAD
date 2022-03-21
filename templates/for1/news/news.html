@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html>
-        {% include 'banner.html' %}
+{% extends 'base.html' %}
 
-<head>
-    <title>for1</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/cars/cars.css' %}">
-</head>
+{% block headdata %}
+<title>News</title>
 
-<body>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/cars/cars.css' %}">
+{% endblock %}
+
+{% block main_content %}
 <h1> News </h1>
 
 <div class="row">
@@ -33,6 +31,4 @@
     </div>
 
 </div>
-
-</body>
-</html>
+{% endblock %}

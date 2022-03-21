@@ -1,22 +1,9 @@
-<!DOCTYPE html>
-<html>
-        {% include 'base.html' %}
+{% extends 'base.html' %}
 
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>For1</title>
+{% block headdata %}
+<title>Home</title>
+{% endblock %}
 
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
-</head>
-
-<body>
-
-<div class="content">
-    <div align='left'>
-        {% include 'for1/users/user.login.html' %}
-    </div>
-</div>
-
-</body>
-</html>
+{% block main_content %}
+    <h1>Welcome to our Formula 1 Rating App</h1>
+{% endblock %}

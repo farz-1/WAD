@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>for1</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/cars/cars.css' %}">
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block headdata %}
+<title>Cars</title>
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/cars/cars.css' %}">
+{% endblock %}
+
+{% block main_content %}
 
 <h1 align="left">Cars</h1>
 
@@ -51,6 +52,4 @@
         <a href="https://www.w3schools.com">
             <img src="img_mountains.jpg" alt="Mountains" style="width:100%">
     </div>
-</div>
-</body>
-</html>
+{% endblock %}

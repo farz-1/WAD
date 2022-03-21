@@ -1,30 +1,46 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>For1</title>
 
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="../static/css/base.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/buttons.css">
+    <link rel="stylesheet" type='text/css' href="{% static 'css/forms.css' %}">
+
+    {% block headdata %}
+    {% endblock %}
 </head>
 
 <body>
 
-<div class="sidebar">
+<div class="flex flex-row">
 
-    <a href="" class="w3-bar-item w3-button">Home</a>
-    <a href="/#" class="w3-bar-item w3-button">Profile</a>
-    <a href="/leaderboard" class="w3-bar-item w3-button">Leaderboard</a>
-    <a href="/news" class="w3-bar-item w3-button">News</a>
-    <a href="/schedule" class="w3-bar-item w3-button">Schedule</a>
-    <a href="/drivers" class="w3-bar-item w3-button">Drivers</a>
-    <a href="/cars" class="w3-bar-item w3-button">Cars</a>
-    <a href="/constructors" class="w3-bar-item w3-button">Constructors</a>
+    <div class="sidebar flex flex-column">
+
+        <a href="/#">Home</a>
+        <a href="/#">Profile</a>
+        <a href="/leaderboard">Leaderboard</a>
+        <a href="/news">News</a>
+        <a href="/schedule">Schedule</a>
+        <a href="/drivers">Drivers</a>
+        <a href="/cars">Cars</a>
+        <a href="/constructors">Constructors</a>
+
+        <div class="flex-fill flex align-items-end">
+            <a class="w-100" href="#">Logout</a>
+        </div>
+
+    </div>
+
+    <div class="flex-fill" style="margin-left: 250px">
+    {% block main_content %}
+    {% endblock %}
+    </div>
 
 </div>
-
-
 
 </body>
 </html>

@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html>
-        {% include 'base.html' %}
+{% extends 'base.html' %}
 
-<head>
-    <title>for1</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/leaderboard/leaderboard.css' %}">
-    <link rel="stylesheet" type='text/css' href="../../../static/css/styles.css">
-</head>
+{% block headdata %}
+<title>Leaderboard</title>
 
-<body>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/leaderboard/leaderboard.css' %}">
+{% endblock %}
+
+{% block main_content %}
 <div>
     <h1>Leaderboard</h1>
     <button class="logout">Logout</button>
@@ -33,7 +30,4 @@
         <td>Mexico</td>
     </tr>
 </table>
-
-</body>
-</html>
-
+{% endblock %}

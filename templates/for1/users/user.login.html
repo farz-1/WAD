@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
 
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>For1</title>
+{% block headdata %}
+<title>Login</title>
 
-    {% load static %}
-    <link rel="stylesheet" type='text/css' href="../../../static/css/forms.css">
-    <link rel="stylesheet" type='text/css' href="../../../static/css/buttons.css">
-    <link rel="stylesheet" type='text/css' href="../../../static/css/layout.css">
-    <link rel="stylesheet" type='text/css' href="../../../static/css/users/user.login.css">
+{% load static %}
+<link rel="stylesheet" type='text/css' href="{% static 'css/users/user.login.css' %}">
+{% endblock %}
 
-</head>
-
-<body>
+{% block main_content %}
 <div class="bg-img">
     <img src="../../../images/Login/login.jpg" alt="">
     <form id="login_form" method="post" action="{% url 'login' %}" class="container">
@@ -35,7 +29,4 @@
         </div>
     </form>
 </div>
-
-</body>
-
-</html>
+{% endblock %}
