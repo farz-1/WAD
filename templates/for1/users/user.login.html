@@ -6,8 +6,10 @@
     <title>For1</title>
 
     {% load static %}
+    <link rel="stylesheet" type='text/css' href="../../../static/css/forms.css">
+    <link rel="stylesheet" type='text/css' href="../../../static/css/buttons.css">
+    <link rel="stylesheet" type='text/css' href="../../../static/css/layout.css">
     <link rel="stylesheet" type='text/css' href="../../../static/css/users/user.login.css">
-    <link rel="stylesheet" type='text/css' href="../../../static/css/styles.css">
 
 </head>
 
@@ -16,15 +18,21 @@
     <img src="../../../images/Login/login.jpg" alt="">
     <form id="login_form" method="post" action="{% url 'login' %}" class="container">
         {% csrf_token %}
-        <h1 style='display: block;'>Login</h1>
+        <h1>Login</h1>
         <label for="email"><b>Username</b></label>
         <input type="text" placeholder="Enter username" name="username" required>
 
         <label for="password"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="password" required>
 
-        <button type="submit" class="btn">Login</button>
-        <a id="register" href="user.register.html">Register</a>
+        <div class="flex flex-row">
+            <button type="submit" class="btn primary-button">Login</button>
+
+            <div class="flex flex-column align-items-end justify-content-end flex-fill">
+                <a href="/register">Register</a>
+                <a href="/accounts/password_reset">Password forgotten?</a>
+            </div>
+        </div>
     </form>
 </div>
 

@@ -6,8 +6,10 @@
     <title>For1</title>
 
     {% load static %}
-    <link rel="stylesheet" type='text/css' href="../../../static/css/users/user.register.css">
-    <link rel="stylesheet" type='text/css' href="../../../static/css/styles.css">
+    <link rel="stylesheet" type='text/css' href="../../../static/css/forms.css">
+    <link rel="stylesheet" type='text/css' href="../../../static/css/buttons.css">
+    <link rel="stylesheet" type='text/css' href="../../../static/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="../../../static/css/styles.css">
 
 </head>
 
@@ -19,7 +21,6 @@
           class="container">
         {% csrf_token %}
         <h1>Sign Up</h1>
-        <br><br><br><br>
 
         <label for="username"><b>Username</b></label>
         <input type="text" placeholder="Enter username " name="username" required>
@@ -32,9 +33,14 @@
 
         <label for="picture"><b>Profile Picture</b></label>
         <input id="picture" type="file" name="picture" placeholder="Photo" capture>
-        <br><br>
-        <button type="reg" class="btn" value="Register">Sign Up</button>
-        <a id="login" href="user.login.html">Login</a>
+
+        <div class="flex flex-row">
+            <button class="btn primary-button" type="reg" class="btn" value="Register">Sign Up</button>
+
+            <div class="flex-fill flex justify-content-end align-items-center">
+                <a id="login" href="/login">Already got an account? Login instead</a>
+            </div>
+        </div>
 
     </form>
 </div>
