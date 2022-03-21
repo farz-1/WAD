@@ -4,11 +4,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="../static/css/base.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/layout.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/buttons.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/layout.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/buttons.css' %}">
     <link rel="stylesheet" type='text/css' href="{% static 'css/forms.css' %}">
+    <link rel="stylesheet" type='text/css' href="{% static 'css/tables.css' %}">
 
     {% block headdata %}
     {% endblock %}
@@ -20,17 +21,59 @@
 
     <div class="sidebar flex flex-column">
 
-        <a href="/#">Home</a>
-        <a href="/#">Profile</a>
-        <a href="/leaderboard">Leaderboard</a>
-        <a href="/news">News</a>
-        <a href="/schedule">Schedule</a>
-        <a href="/drivers">Drivers</a>
-        <a href="/cars">Cars</a>
-        <a href="/constructors">Constructors</a>
+        <a href="/#">
+            Home
+        </a>
+
+        <a href="/#">
+            Profile
+        </a>
+
+        {% url 'leaderboard' as url %}
+        <a href="{% url 'leaderboard' %}"
+            class="{% if request.path == url %}active{% endif %}">
+            Leaderboard
+        </a>
+
+        {% url 'news' as url %}
+        <a href="{% url 'news' %}"
+            class="{% if request.path == url %}active{% endif %}">
+            News
+        </a>
+
+        {% url 'schedule' as url %}
+        <a href="{% url 'schedule' %}"
+            class="{% if request.path == url %}active{% endif %}">
+            Schedule
+        </a>
+
+        {% url 'drivers' as url %}
+        <a href="{% url 'drivers' %}"
+            class="{% if request.path == url %}active{% endif %}">
+            Drivers
+        </a>
+
+        {% url 'cars' as url %}
+        <a href="{% url 'cars' %}"
+            class="{% if request.path == url %}active{% endif %}">
+            Cars
+        </a>
+
+        {% url 'constructors' as url %}
+        <a href="{% url 'constructors' %}"
+            class="{% if request.path == url %}active{% endif %}">
+            Constructors
+        </a>
+
 
         <div class="flex-fill flex align-items-end">
-            <a class="w-100" href="#">Logout</a>
+            {% if user.is_authenticated %}
+            <a class="w-100" href="{% url 'logout' %}">Logout</a>
+
+            {% else %}
+            <a href="{% url 'login' %}" class="w-100" href="#">Login</a>
+            <a href="{% url 'register' %}" class="w-100" href="#">Register</a>
+            {% endif %}
         </div>
 
     </div>

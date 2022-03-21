@@ -9,25 +9,5 @@ body,html {
 }
 
 h1 {
-    display: block;
     font-size: 30px;
-}
-
-#TableHeaders {
-    background-color: black;
-    color: white;
-}
-
-.TablePage {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.EvenRow {
-    background-color: gainsboro;
-}
-
-.logout {
-    display: inline;
-    float: right;
 }

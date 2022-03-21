@@ -22,6 +22,11 @@
     transition: 200ms ease-out;
 }
 
+.sidebar a .active {
+    background-color: #FF1801 !important;
+    transition: 200ms ease-out;
+}
+
 div.content {
     margin-left: 200px;
     padding: 1px 16px;
