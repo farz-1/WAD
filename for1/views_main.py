@@ -8,7 +8,11 @@ from django.conf import settings
 
 
 def index(request):
-    return render(request, 'for1/index.html')
+    return redirect('home')
+
+
+def home(request):
+    return render(request, 'for1/home.html')
 
 
 def about(request):

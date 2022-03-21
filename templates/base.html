@@ -21,11 +21,15 @@
 
     <div class="sidebar flex flex-column">
 
-        <a href="/#">
+        {% url 'home' as url %}
+        <a href="{% url 'home' %}"
+            class="{% if request.path == url %}active{% endif %}">
             Home
         </a>
 
-        <a href="/#">
+        {% url 'profile' as url %}
+        <a href="{% url 'profile' %}"
+            class="{% if request.path == url %}active{% endif %}">
             Profile
         </a>
 
