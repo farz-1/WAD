@@ -1,0 +1,30 @@
+.btn {
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 48px;
+}
+
+.primary-button {
+    background-color: #FF1801;
+    color: white;
+}
+
+.primary-button:hover {
+    background-color: #c21500;
+    transition: 200ms ease-out;
+}
+
+.secondary-button {
+    background-color: #ff6357;
+    color: white;
+}
+
+.secondary-button:hover {
+    background-color: #ff4c40;
+    transition: 200ms ease-out;
+}

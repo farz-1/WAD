@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block headdata %}
+<title>My Profile</title>
+
+{% load static %}
+<link rel="stylesheet" type='text/css' href="{% static 'css/profile/profile.css' %}">
+{% endblock %}
+
+{% block main_content %}
+    <h1>My Profile</h1>
+
+    {% if user.is_authenticated %}
+
+        <div class="flex flex-row">
+
+            <div class="profile-picture-container">
+                <img src="{{user.profile_image}}">
+            </div>
+
+        <table>
+            <tr>
+                <td>Username</td>
+                <td>{{user.username}}</td>
+            </tr>
+            <tr>
+                <td>E-Mail</td>
+                <td>{{user.email}}</td>
+            </tr>
+        </table>
+
+        </div>
+
+    {% else %}
+
+    <h2>You're not logged in. Please log in first</h2>
+
+    <a href="{% url 'login' %}">Login</a>
+
+    {% endif %}
+
+{% endblock %}

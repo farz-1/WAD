@@ -1,0 +1,18 @@
+/* Full-width input fields */
+
+input {
+    width: 100%;
+    padding: 15px;
+    margin: 15px 0 32px 0;
+    border: 1px solid transparent;
+    background: #f1f1f1;
+}
+
+input:hover {
+    background-color: #ddd;
+    transition: 200ms ease-out;
+}
+
+input:focus {
+    border-color: red;
+}

@@ -1,20 +1,16 @@
-<!DOCTYPE html>
-<html>
-        {% include 'base.html' %}
+{% extends 'base.html' %}
 
-<head>
-    <title>for1</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% load static %}
-    <link rel="stylesheet" type='text/css' href="../../../static/css/styles.css">
+{% block headdata %}
+<title>Schedule</title>
 
-</head>
+{% load static %}
+<link rel="stylesheet" type='text/css' href="../../../static/css/styles.css">
+{% endblock %}
 
-<body>
+{% block main_content %}
 
 <h1>Schedule</h1>
-<button class="logout">Logout</button>
-<br><br>
+
 <table class="TablePage" style="width:75%">
     <tr id="TableHeaders">
         <th>Event</th>
@@ -32,8 +28,4 @@
         <td>Mexico</td>
     </tr>
 </table>
-
-
-</body>
-</html>
-
+{% endblock %}

@@ -1,22 +1,15 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block headdata %}
+<title>Constructors </title>
+
 {% load static %}
-<html>
-<head>
-    <title> for1</title>
-</head>
-<body>
-<h1 align="left">Teams</h1>
+<link rel="stylesheet" type='text/css' href="../../../static/css/teams/teams.css">
+{% endblock %}
 
+{% block main_content %}
 
-</body>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type='text/css' href="../../../static/css/teams/teams.css">
-    <link rel="stylesheet" type='text/css' href="../../../static/css/styles.css">
-
-</head>
-<body>
-
+<h1>Constructors</h1>
 
 <div class="row">
     <div class="column"><a href="https://www.w3schools.com">
@@ -122,5 +115,4 @@
         </div>
     </div>
 </div>
-</body>
-</html>
+{% endblock %}

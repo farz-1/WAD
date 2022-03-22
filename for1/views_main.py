@@ -5,13 +5,21 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import authenticate, login
 from django.core.mail import send_mail
 from django.conf import settings
+from django.contrib import auth
+from django.contrib import messages
 
 
 def index(request):
-    return render(request, 'for1/index.html')
+    return redirect('home')
+
+
+def home(request):
+    return render(request, 'for1/home.html')
+
 
 def about(request):
     return render(request, 'for1/about.html')
+
 
 @csrf_protect
 def register(request):
@@ -64,12 +72,19 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request, user)
+                messages.success(request, "Successfully logged in")
                 return redirect('index')
 
             else:
-                HttpResponse("Account disabled. Please re-verify your account.")
+                messages.error(request, "Account disabled. Please re-verify your account.")
 
         else:
-            print("Invalid login details.")
+            messages.error(request, "Invalid login details.")
 
     return render(request, 'for1/users/user.login.html')
+
+
+def logout(request):
+    auth.logout(request)
+    messages.success(request, "Successfully logged out")
+    return redirect('home')
