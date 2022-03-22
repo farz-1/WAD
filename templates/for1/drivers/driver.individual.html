@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block headdata %}
+<title>For1</title>
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/drivers/driver.details.css' %}">
+{% endblock %}
+
+{% block main_content %}
+
+
+<div class="hero-image">
+
+    <div class="hero-text">
+        <div class="aligned">
+            <img src="https://yt3.ggpht.com/ytc/AKedOLTuvuODeTlyYk7EnHu01TY_ErmsYEGpPnd_Oz7Oxw=s900-c-k-c0x00ffffff-no-rj"
+                 width="200" alt="">
+            <h2>Driver Name :</h2>
+            <h3>Constructor:</h3>
+            <h5>Date Of Birth :</h5>
+            <h5>Height :</h5>
+            <h5>Weight :</h5>
+            <h5>Nationality :</h5>
+            <h5>Driver Number :</h5>
+            <h5>Seasons Won :</h5>
+            <h5>Podiums Won :</h5>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

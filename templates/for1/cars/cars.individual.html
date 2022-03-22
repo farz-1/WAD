@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
 
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% block headdata %}
     <title>For1</title>
 
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/drivers/driver.details.css' %}">
-</head>
+{% endblock %}
 
-<body>
+{% block main_content %}
 
 <div class="hero-image">
 
@@ -17,11 +15,12 @@
         <div class="aligned">
             <img src="https://yt3.ggpht.com/ytc/AKedOLTuvuODeTlyYk7EnHu01TY_ErmsYEGpPnd_Oz7Oxw=s900-c-k-c0x00ffffff-no-rj"
                  width="200" alt="">
-            <h2>Driver Name </h2>
-            <h5> &nbsp; Country Code </h5>
-            <h5> &nbsp; Ranking </h5>
+            <h2>Model</h2>
+            <h5>Constructor </h5>
+            <h5>Weight </h5>
+            <h5>Gearbox </h5>
+            <h5>Horsepower </h5>
+            <h5>Engine </h5>
         </div>
     </div>
-
-</body>
-</html>
+{% endblock %}
