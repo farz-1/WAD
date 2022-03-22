@@ -11,21 +11,15 @@
 
 <h1>Drivers</h1>
 
-<div class="row">
 
+<div class="flex flex-row flex-wrap">
     {% for driver in drivers %}
-    <div class="column">
-        <div class="container">
-            <a href="{% url 'driver_details' driver.slug %}">
-                {{driver.name}}
-            </a>
+    <a class="card m-2 pointer" href="{% url 'driver_details' driver.slug %}">
+        <div class="img mb-2" style="height: 100px; width: 250px">
         </div>
-    </div>
+        <h5> {{ driver.name }} </h5>
+    </a>
     {% endfor %}
-
-</div>
-
-
 </div>
 
 {% endblock %}

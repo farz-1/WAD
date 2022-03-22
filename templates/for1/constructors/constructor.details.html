@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block headdata %}
+<link rel="stylesheet" type='text/css' href="../../../static/css/teams/teams.individual.css">
+{% endblock %}
+
+{% block main_content %}
+<div class="header">
+    <img class="TeamLogo" src="https://media.geeksforgeeks.org/wp-content/uploads/20200327230544/g4gicon.png" alt="">
+    <span id="headerText">
+        {{constructor.name}}
+    </span>
+</div>
+
+<div class="row">
+    {% for driver in drivers %}
+        <div class="pubs">
+        <span><a class="DriverLink" href="#">{{driver.name}}</a></span>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="card flex flex-column">
+    <p>Team Principal : {{constructor.teamPrincipal}}</p>
+    <p>Nationality : {{constructor.nationality}}</p>
+    <p>Years Active : {{constructor.yearsActive}}</p>
+    <p>Race Engineer : {{constructor.raceEngineer}}</p>
+</div>
+
+{% endblock %}
