@@ -10,22 +10,29 @@
 {% block main_content %}
 
 <h1>News</h1>
-{% for n in news %}
+    <div class="flex flex-wrap">
 
-<div class="row">
-    <div class="myImage">
+    {% for n in news %}
+
+    <a class="w-50 flex" style="text-decoration: none !important;" href="{{n.articleURL}}" target="_blank">
+    <div class="flex-fill card flex flex-row m-2 hover-shadow pointer">
+
         <img src={{n.imageURL}}>
-    </div>
 
-    <div class="text">
-        <a href="{{n.articleURL}}" style="float:right;">{{n.title}}</a>
-        <br>
-        <div class="texb">
-            <p>{{n.summary}}</p>
+        <div class="w-100">
+            <div class="flex flex-row">
+                <h4 style="margin: 4px 0" class="w-75">{{ n.title }}</h4>
+                <p style="margin: 4px; color: grey" class="flex justify-content-end w-25">{{ n.published }}</p>
+            </div>
+            <p>{{ n.summary }}</p>
         </div>
+
+    </div>
+    </a>
+
+    {% endfor %}
+
     </div>
 
-</div>
-{% endfor %}
 
 {% endblock %}
