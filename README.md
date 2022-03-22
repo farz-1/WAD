@@ -23,10 +23,6 @@ Users can log in and out of the site and have details about themselves.
 * Raphael Nekam
 * Joe Lee
 
-## Version History
-
-    * See [commit change]()
-
 ## Acknowledgments
 
 Links to APIs:
