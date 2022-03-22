@@ -2,9 +2,6 @@
 
 {% block headdata %}
 <title>Cars</title>
-
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/cars/cars.css' %}">
 {% endblock %}
 
 {% block main_content %}
@@ -13,11 +10,15 @@
 
 <div class="flex flex-row flex-wrap">
     {% for car in cars %}
-    <a class="card m-2 pointer hover-shadow" href="{% url 'car_details' car.slug %}">
-        <div class="img mb-2" style="height: 100px; width: 250px">
-        </div>
-        <h5> {{ car.model }} </h5>
-    </a>
+    <div class="w-25">
+        <a style="text-decoration: none" href="{% url 'car_details' car.slug %}">
+            <div class="card pointer hover-shadow m-2">
+                <div class="img mb-2" style="height: 100px; width: 100%">
+                </div>
+                <h5> {{ car.model }} </h5>
+            </div>
+        </a>
+    </div>
     {% endfor %}
 </div>
 

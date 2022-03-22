@@ -8,14 +8,17 @@
 
 <h1>Drivers</h1>
 
-
 <div class="flex flex-row flex-wrap">
     {% for driver in drivers %}
-    <a class="card hover-shadow m-2 pointer" href="{% url 'driver_details' driver.slug %}">
-        <div class="img mb-2" style="height: 100px; width: 250px">
-        </div>
-        <h5> {{ driver.name }} </h5>
-    </a>
+    <div class="w-25">
+        <a style="text-decoration: none" href="{% url 'driver_details' driver.slug %}">
+            <div class="card pointer m-2 hover-shadow">
+                <div class="img mb-2" style="height: 100px; width: 100%">
+                </div>
+                <h5> {{ driver.name }} </h5>
+            </div>
+        </a>
+    </div>
     {% endfor %}
 </div>
 
