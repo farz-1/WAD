@@ -13,7 +13,7 @@ def index(request):
 
 
 def home(request):
-    return render(request, 'for1/home.html')
+    return render(request, 'for1/home/home.html')
 
 
 def about(request):
