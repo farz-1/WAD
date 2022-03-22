@@ -1,0 +1,7 @@
+.profile-picture-container {
+    height: 100px;
+    width: 100px;
+    border: grey 1px solid;
+    border-radius: 50px;
+    margin: 20px;
+}

@@ -55,3 +55,26 @@ div.content {
         float: none;
     }
 }
+
+.message {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+    color: white;
+    z-index: 1000; // to keep above any content
+}
+
+.messages .success {
+    background: rgba(0, 148, 0, 0.75);
+}
+
+.messages .error {
+    background: rgba(255, 79, 79, 0.75);
+}
+
+.messages .info {
+    background: rgba(109, 255, 255, 0.75);
+}

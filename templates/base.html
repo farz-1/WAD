@@ -13,9 +13,34 @@
 
     {% block headdata %}
     {% endblock %}
+
+
+    <!-- Both Scripts needed to let messages fade out -->
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+
+    <script text="javascript">
+        setTimeout(fade_out, 2000);
+        function fade_out() {
+            $(".messages").fadeOut().empty();
+        }
+        $(".post-form")[0].reset(); // this is to reset the form
+    </script>
+
 </head>
 
 <body>
+
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+    <div  {% if message.tags %} class="message {{ message.tags }} " {% endif %}> {{ message }} </div>
+    {% endfor %}
+</div>
+{% endif %}
 
 <div class="flex flex-row">
 

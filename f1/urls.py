@@ -22,6 +22,7 @@ from for1 import views_main, views_cars, views_drivers, views_constructors, view
 urlpatterns = [
     # Accounts
     path('accounts/login/', views_main.user_login, name='login'),
+    path('accounts/logout/', views_main.logout, name='logout'),
     path('accounts/', include('django.contrib.auth.urls')),
 
     # Admin
