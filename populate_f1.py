@@ -5,7 +5,7 @@ import django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'f1.settings')
 django.setup()
 
-from f1.models import *
+from for1.models import *
 import news_api
 
 

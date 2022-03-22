@@ -6,7 +6,7 @@ import schedule
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'f1.settings')
 django.setup()
 
-from f1.models import News
+from for1.models import News
 
 
 def get_news():

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from f1.models import Constructor, Driver, Car, Race, News, UserProfile, DriverRating, ConstructorRating, CarRating
+from for1.models import Constructor, Driver, Car, Race, News, UserProfile, DriverRating, ConstructorRating, CarRating
 
 # Register your models here.
 admin.site.register(Constructor)
