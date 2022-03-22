@@ -1,19 +1,20 @@
 {% extends 'base.html' %}
 
 {% block headdata %}
-<title>{{ constructor.name }}</title>
+<title>{{ car.model }}</title>
 {% endblock %}
 
 {% block main_content %}
 
-<a href="{% url 'constructors' %}">
+
+<a href="{% url 'cars' %}">
     <button class="btn back-button mt-2">
     Back
     </button>
 </a>
 
 
-<h1>{{ constructor.name }}</h1>
+<h1>{{ car.model }}</h1>
 
     <div class="flex flex-row">
 
@@ -26,29 +27,31 @@
     <div class="card w-75 flex flex-column m-2">
         <table>
             <tr>
-                <td>Name</td>
-                <td>{{ constructor.name }}</td>
+                <td>Model</td>
+                <td>{{ car.model }}</td>
             </tr>
             <tr>
-                <td>Team Principal</td>
-                <td>{{ constructor.teamPrincipal }}</td>
+                <td>Horsepower</td>
+                <td>{{ car.horsepower }}</td>
             </tr>
             <tr>
-                <td>Race Engineer</td>
-                <td>{{ constructor.raceEngineer }}</td>
+                <td>Engine</td>
+                <td>{{ car.engine }}</td>
             </tr>
             <tr>
-                <td>Nationality</td>
-                <td>{{ constructor.nationality }}</td>
+                <td>Weight</td>
+                <td>{{ car.weight }}</td>
             </tr>
             <tr>
-                <td>Years active</td>
-                <td>{{ constructor.yearsActive }}</td>
+                <td>Gearbox</td>
+                <td>{{ car.gearbox }}</td>
             </tr>
-
+            <tr>
+                <td>Constructor</td>
+                <td>{{ car.constructor }}</td>
+            </tr>
         </table>
     </div>
 
     </div>
-
 {% endblock %}

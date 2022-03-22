@@ -25,4 +25,4 @@ def driver_details(request, slug):
     except Driver.DoesNotExist:
         context_dict['driver'] = None
         
-    return render(request, 'for1/drivers/driver.individual.html', context=context_dict)
+    return render(request, 'for1/drivers/driver.details.html', context=context_dict)

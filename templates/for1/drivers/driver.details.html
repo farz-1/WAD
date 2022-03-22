@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block headdata %}
+<title>{{ driver.name }}</title>
+{% endblock %}
+
+{% block main_content %}
+
+<a href="{% url 'drivers' %}">
+    <button class="btn back-button mt-2">
+    Back
+    </button>
+</a>
+
+<h1>{{ driver.name }}</h1>
+
+    <div class="flex flex-row">
+
+    <div class="card w-25 m-2">
+        <div class="img w-100 h-100">
+
+        </div>
+    </div>
+
+    <div class="card w-75 flex flex-column m-2">
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>{{ driver.name }}</td>
+            </tr>
+            <tr>
+                <td>Constructor</td>
+                <td>{{ driver.constructor }}</td>
+            </tr>
+            <tr>
+                <td>Date of Birth</td>
+                <td>{{ driver.DOB }}</td>
+            </tr>
+            <tr>
+                <td>Height</td>
+                <td>{{ driver.height }}</td>
+            </tr>
+            <tr>
+                <td>Weight</td>
+                <td>{{ driver.weight }}</td>
+            </tr>
+            <tr>
+                <td>Nationality</td>
+                <td>{{ driver.nationality }}</td>
+            </tr>
+            <tr>
+                <td>Driver Number</td>
+                <td>{{ driver.driverNumber }}</td>
+            </tr>
+            <tr>
+                <td>World Championships</td>
+                <td>{{ driver.seasonsWon }}</td>
+            </tr>
+            <tr>
+                <td>Podiums</td>
+                <td>{{ driver.podiumsWon }}</td>
+            </tr>
+        </table>
+    </div>
+
+    </div>
+
+{% endblock %}
