@@ -1,27 +1,20 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 
-<html>
-
-<head>
+{% block headdata %}
     <title>Constructor About</title>
 
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/constructors/constructor.about.css' %}">
-</head>
+{% endblock %}
+
+{% block main_content %}
 
 
-<body>
 <h1 align="left">About</h1>
 
 <body>
 
 
-<object width="1000" height="400" data=""></object>   {%required file here%}
-
-</body>
-
-
-
-</body>
-
-</html>
+<object width="1000" height="400" data=""></object>
+{%required file here%}
+{% endblock %}

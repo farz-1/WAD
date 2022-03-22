@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
 
-<head>
+{% block headdata %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>For1</title>
 
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/users/user.profile.css' %}">
-</head>
+{% endblock %}
 
-<body>
+{% block main_content %}
 
 <div class="aligned">
     <img src="https://yt3.ggpht.com/ytc/AKedOLTuvuODeTlyYk7EnHu01TY_ErmsYEGpPnd_Oz7Oxw=s900-c-k-c0x00ffffff-no-rj"
@@ -17,7 +16,7 @@
 
     <form ACTION="/action_page.php">
 
-        <h1>Username </h1>
+        <h1>Username : </h1>
 
         <label for="team">Favourite Team:</label>
         <select id="team" name="team">
@@ -64,6 +63,4 @@
 
     </form>
 </div>
-</body>
-</html>
-
+{% endblock %}

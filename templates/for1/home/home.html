@@ -1,22 +1,14 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
 
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% block headdata %}
     <title>For1</title>
 
     {% load static %}
     <link rel="stylesheet" type="text/css" href="../../../static/css/home/home.css">
     <link rel="stylesheet" type="text/css" href="../../../static/css/styles.css">
-</head>
+{% endblock %}
 
-
-<body>
-
-<div id="banner">
-    <h1><span style="color: red;">F1</span> <span style="color: white;">Website</span></h1>
-    <button class="logout">Logout</button>
-</div>
+{% block main_content %}
 
 <h2>News</h2>
 
@@ -39,5 +31,4 @@
 <h2>About</h2>
 <p>Text which describes the website</p>
 
-</body>
-</html>
+{% endblock %}
