@@ -2,35 +2,36 @@
 
 {% block headdata %}
 <title>Leaderboard</title>
-
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/leaderboard/leaderboard.css' %}">
 {% endblock %}
 
 {% block main_content %}
 
 <h1>Leaderboard</h1>
 
-<table class="TablePage" style="width:75%">
-    <tr id="TableHeaders">
-        <th>Position</th>
-        <th>Driver</th>
-        <th>Rating</th>
-    </tr>
-    {% for driver in drivers %}
-        {% if forloop.counter0|divisibleby:2 %}
-            <tr>
-                <td>{{ forloop.counter }}</td>
-                <td>{{ driver.name }}</td>
-                <td>{{ driver.overallAverage }}</td>
-            </tr>
-        {% else %}
-            <tr class="EvenRow">
-                <td>{{ forloop.counter }}</td>
-                <td>{{ driver.name }}</td>
-                <td>{{ driver.overallAverage }}</td>
-            </tr>
-        {% endif %}
-    {% endfor %}
-</table>
+<div class="card" style="width: 75%">
+
+    <table class="TablePage" width="100%">
+        <tr id="TableHeaders">
+            <th>Position</th>
+            <th>Driver</th>
+            <th>Rating</th>
+        </tr>
+        {% for driver in drivers %}
+            {% if forloop.counter0|divisibleby:2 %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ driver.name }}</td>
+                    <td>{{ driver.overallAverage }}</td>
+                </tr>
+            {% else %}
+                <tr class="EvenRow">
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ driver.name }}</td>
+                    <td>{{ driver.overallAverage }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+
+</div>
 {% endblock %}

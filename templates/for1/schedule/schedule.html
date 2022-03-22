@@ -2,41 +2,40 @@
 
 {% block headdata %}
 <title>Schedule</title>
-
-{% load static %}
-<link rel="stylesheet" type='text/css' href="{% static 'css/schedule/schedule.css' %}">
 {% endblock %}
 
 {% block main_content %}
 
 <h1>Schedule</h1>
 
-<table class="TablePage" style="width:75%">
-    <tr id="TableHeaders">
-        <th>Event</th>
-        <th>Laps</th>
-        <th>Length</th>
-        <th>Dates</th>
-        <th>Time</th>
-    </tr>
-    {% for race in races %}
-        {% if forloop.counter0|divisibleby:2 %}
-            <tr>
-                <td>{{ race.location }}</td>
-                <td>{{ race.laps }}</td>
-                <td>{{ race.trackLength }}</td>
-                <td>{{ race.date }}</td>
-                <td>{{ race.time }}</td>
-            </tr>
-        {% else %}
-            <tr class="EvenRow">
-                <td>{{ race.location }}</td>
-                <td>{{ race.laps }}</td>
-                <td>{{ race.trackLength }}</td>
-                <td>{{ race.date }}</td>
-                <td>{{ race.time }}</td>
-            </tr>
-        {% endif %}
-    {% endfor %}
-</table>
+<div class="card" style="width: 75%">
+    <table class="TablePage" style="width:100%">
+        <tr id="TableHeaders">
+            <th>Event</th>
+            <th>Laps</th>
+            <th>Length</th>
+            <th>Dates</th>
+            <th>Time</th>
+        </tr>
+        {% for race in races %}
+            {% if forloop.counter0|divisibleby:2 %}
+                <tr>
+                    <td>{{ race.location }}</td>
+                    <td>{{ race.laps }}</td>
+                    <td>{{ race.trackLength }}</td>
+                    <td>{{ race.date }}</td>
+                    <td>{{ race.time }}</td>
+                </tr>
+            {% else %}
+                <tr class="EvenRow">
+                    <td>{{ race.location }}</td>
+                    <td>{{ race.laps }}</td>
+                    <td>{{ race.trackLength }}</td>
+                    <td>{{ race.date }}</td>
+                    <td>{{ race.time }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+</div>
 {% endblock %}
