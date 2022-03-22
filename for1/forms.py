@@ -13,10 +13,16 @@ class UserForm(forms.ModelForm):
         fields = ('username', 'email', 'password',)
 
 
+class UserProfilePictureForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ('picture',)
+
+
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = ('favCar', 'favTeam', 'favDriver', 'aboutMe', 'picture')
+        fields = ('favCar', 'favTeam', 'favDriver', 'aboutMe', 'picture',)
 
 
 class ConstructorRatingForm(forms.ModelForm):

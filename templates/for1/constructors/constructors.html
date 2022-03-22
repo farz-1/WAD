@@ -12,108 +12,15 @@
 <h1>Constructors</h1>
 
 <div class="row">
-    <div class="column"><a href="https://www.w3schools.com">
-        <img class="TeamLogo" src="../../../images/Logos/AlfaRomeo.jpeg" alt="Team logo" style="width:100%">
-    </div>
+    {% for constructor in constructors %}
     <div class="column">
-        <a href="https://www.w3schools.com">
-            <img class="TeamLogo" src="../../../images/Logos/AlphaTauri.png" alt="Team logo" style="width:100%">
+        <div class="container">
+            <a href="{% url 'constructor_details' constructor.slug %}">
+                {{constructor.name}}
+            </a>
+        </div>
     </div>
-    <div class="column">
-        <a href="">
-            <img class="TeamLogo" src="../../../images/Logos/Alpine.png" alt="Team logo" style="width:100%">
-    </div>
-
+    {% endfor %}
 </div>
 
-<div class="row">
-    <div class="column">
-        <div class='container'>
-            <a href="https://en.wikipedia.org/wiki/Valtteri_Bottas">Valtteri BOTTAS | </a>
-            <a href="https://en.wikipedia.org/wiki/Guanyu_Zhou">ZHOU Guanyu </a>
-        </div>
-    </div>
-    <div class="column">
-        <div class='container'>
-            <a href="https://en.wikipedia.org/wiki/Pierre_Gasly">Pierre GASLY | </a>
-            <a href="https://en.wikipedia.org/wiki/Yuki_Tsunoda">Yuki TSUNODA </a>
-        </div>
-    </div>
-    <div class="column">
-        <div class='container'>
-            <a href="https://en.wikipedia.org/wiki/Fernando_Alonso">Fernando ALONSO | </a>
-            <a href="https://en.wikipedia.org/wiki/Esteban_Ocon">Esteban OCON </a>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="column"><a href="https://www.w3schools.com">
-        <img class="TeamLogo" src="../../../images/Logos/AstonMartin.png" alt="Team logo" style="width:100%">
-    </div>
-    <div class="column">
-        <a href="https://www.w3schools.com">
-            <img class="TeamLogo" src="../../../images/Logos/Ferrari.png" alt="Team logo" style="width:100%">
-    </div>
-    <div class="column">
-        <a href="https://www.w3schools.com">
-            <img class="TeamLogo" src="../../../images/Logos/Haas.png" alt="Team logo" style="width:100%">
-    </div>
-</div>
-
-<div class="row">
-    <div class="column">
-        <div class='container'>
-            <a href="https://en.wikipedia.org/wiki/Lance_Stroll">Lance STROLL | </a>
-            <a href="https://en.wikipedia.org/wiki/Sebastian_Vettel">Sebastian VETTEL </a>
-        </div>
-    </div>
-    <div class="column">
-        <div class='container'>
-            <a href="https://en.wikipedia.org/wiki/Charles_Leclerc">Charles LECLERC | </a>
-            <a href="https://en.wikipedia.org/wiki/Carlos_Sainz_Jr.">Carlos SAINZ </a>
-        </div>
-    </div>
-    <div class="column">
-        <div class='container'>
-            <a href="https://en.wikipedia.org/wiki/Mick_Schumacher">Mick SCHUMACHER  |</a>
-             <a href="https://en.wikipedia.org/wiki/Mick_Schumacher">Kevin MAGNUSSEN</a>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="column"><a href="https://www.w3schools.com">
-        <img class="TeamLogo" src="../../../images/Logos/McLaren.png" alt="Team logo" style="width:100%">
-    </div>
-    <div class="column">
-        <a href="https://www.w3schools.com">
-            <img class="TeamLogo" src="../../../images/Logos/Mercedes.png" alt="Team logo" style="width:100%">
-    </div>
-    <div class="column">
-        <a href="https://www.w3schools.com">
-            <img class="TeamLogo" src="../../../images/Logos/RedBull.png" alt="Team logo" style="width:100%">
-    </div>
-</div>
-
-<div class="row">
-    <div class="column">
-        <div class='container'>
-            <a href="https://en.wikipedia.org/wiki/Lando_Norris">Lando NORRIS | </a>
-            <a href="https://en.wikipedia.org/wiki/Daniel_Ricciardo">Daniel RICCARDO </a>
-        </div>
-    </div>
-    <div class="column">
-        <div class='container'>
-            <a href="https://en.wikipedia.org/wiki/Lewis_Hamilton">Lewis HAMILTON | </a>
-            <a href="https://en.wikipedia.org/wiki/George_Russell_(racing_driver)">George RUSSEL </a>
-        </div>
-    </div>
-    <div class="column">
-        <div class='container'>
-            <a href="https://en.wikipedia.org/wiki/Max_Verstappen">Max VERSTAPPEN | </a>
-            <a href="https://en.wikipedia.org/wiki/Sergio_P%C3%A9rez">Sergio PEREZ </a>
-        </div>
-    </div>
-</div>
 {% endblock %}
