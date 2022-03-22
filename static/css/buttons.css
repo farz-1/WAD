@@ -5,8 +5,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 250px;
     height: 48px;
+    border-radius: 8px;
+    padding: 16px 24px;
+    text-decoration: none !important;
 }
 
 .primary-button {
@@ -27,4 +29,13 @@
 .secondary-button:hover {
     background-color: #ff4c40;
     transition: 200ms ease-out;
+}
+
+.back-button {
+    color: #555555;
+    transition: 200ms ease-out;
+}
+
+.back-button:hover {
+    color: #333333;
 }

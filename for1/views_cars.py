@@ -25,4 +25,4 @@ def car_details(request, slug):
     except Car.DoesNotExist:
         context_dict['car'] = None
 
-    return render(request, 'for1/cars/cars.individual.html', context=context_dict)
+    return render(request, 'for1/cars/cars.details.html', context=context_dict)
