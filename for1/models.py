@@ -1,6 +1,7 @@
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models import Avg
 from django.utils import timezone
 from django.template.defaultfilters import slugify
 
@@ -35,6 +36,7 @@ class Driver(models.Model):
     podiumsWon = models.IntegerField()
     constructor = models.ForeignKey(Constructor, on_delete=models.SET_NULL, null=True)
     slug = models.SlugField(unique=True)
+    overallAverage = models.DecimalField(max_digits=4, decimal_places=2, null=True)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
@@ -197,6 +199,8 @@ class DriverRating(models.Model):
         if not self.id:
             self.created = timezone.now()
         self.modified = timezone.now()
+        update = Driver.objects.get(name=self.driverID.name)
+        update.overallAverage = DriverRating.objects.filter(driverID=self.driverID).aggregate(Avg('overallAverage'))
         return super(DriverRating, self).save(*args, **kwargs)
 
 

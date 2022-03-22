@@ -172,55 +172,6 @@ def populate():
         {'location': 'Abu Dhabi - United Arab Emirates', 'trackLength': '5.554km', 'date': '18/11-20/11', 'laps': 55,
          'time': '13:00-15:00'}]
 
-    user_list = [
-        {'username': 'Adam', 'password': 'tempy', 'favCar': 'Mercedes-AMG W13 E Performance', 'favTeam': 'Mercedes',
-         'favDriver': 'Lewis Hamilton', 'aboutMe': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-         'picture': ''},
-        {'username': 'Dave', 'password': 'test1', 'favCar': 'Red Bull Racing RB18', 'favTeam': 'Red Bull',
-         'favDriver': 'Max Verstappen', 'aboutMe': 'Proin lectus nulla, condimentum nec mollis quis.', 'picture': ''},
-        {'username': 'Lauren', 'password': 'drowssap', 'favCar': 'McLaren MCL36 Mercedes', 'favTeam': 'McLaren',
-         'favDriver': 'Lando Norris', 'aboutMe': 'Pellentesque posuere justo tortor.', 'picture': ''},
-        {'username': 'Meghan', 'password': 'sdea_$23-12FR%', 'favCar': 'Aston Martin AMR22 Mercedes',
-         'favTeam': 'Aston Martin', 'favDriver': 'Sebastian Vettel', 'aboutMe': 'Donec euismod rutrum mauris.',
-         'picture': ''},
-        {'username': 'Steve', 'password': 'EFWJ!"£435_23jsd-=', 'favCar': 'Haas VF-22 Ferrari', 'favTeam': 'Haas',
-         'favDriver': 'Mick Schumacher', 'aboutMe': 'Curabitur commodo nec enim in vestibulum.', 'picture': ''}]
-
-    driver_rating_list = [
-        {'driverID': 'Lewis Hamilton', 'userID': 'Adam', 'overallRating': '4', 'personality': '2',
-         'aggressiveness': '5', 'awareness': '5', 'experience': '5', 'starts': '4', 'pace': '4', 'racecraft': '3'},
-        {'driverID': 'Lando Norris', 'userID': 'Dave', 'overallRating': '3', 'personality': '3', 'aggressiveness': '4',
-         'awareness': '4', 'experience': '2', 'starts': '4', 'pace': '2', 'racecraft': '3'},
-        {'driverID': 'Nico Hulkenberg', 'userID': 'Lauren', 'overallRating': '3', 'personality': '5',
-         'aggressiveness': '2', 'awareness': '3', 'experience': '5', 'starts': '3', 'pace': '2', 'racecraft': '4'},
-        {'driverID': 'Lewis Hamilton', 'userID': 'Meghan', 'overallRating': '2', 'personality': '2',
-         'aggressiveness': '3', 'awareness': '1', 'experience': '5', 'starts': '2', 'pace': '3', 'racecraft': '1'},
-        {'driverID': 'Max Verstappen', 'userID': 'Steve', 'overallRating': '4', 'personality': '2',
-         'aggressiveness': '5', 'awareness': '5', 'experience': '3', 'starts': '4', 'pace': '5', 'racecraft': '3'}]
-
-    car_rating_list = [
-        {'carID': 'Haas VF-22 Ferrari', 'userID': 'Adam', 'overallRating': '4', 'speed': '4', 'aerodynamics': '3',
-         'aesthetics': '2', 'braking': '4', 'engine': '4'},
-        {'carID': 'Mercedes-AMG W13 E Performance', 'userID': 'Dave', 'overallRating': '2', 'speed': '2',
-         'aerodynamics': '4', 'aesthetics': '3', 'braking': '2', 'engine': '1'},
-        {'carID': 'Red Bull Racing RB18', 'userID': 'Lauren', 'overallRating': '5', 'speed': '5', 'aerodynamics': '3',
-         'aesthetics': '4', 'braking': '4', 'engine': '5'},
-        {'carID': 'Haas VF-22 Ferrari', 'userID': 'Meghan', 'overallRating': '3', 'speed': '4', 'aerodynamics': '2',
-         'aesthetics': '1', 'braking': '2', 'engine': '3'},
-        {'carID': 'McLaren MCL36 Mercedes', 'userID': 'Steve', 'overallRating': '2', 'speed': '3', 'aerodynamics': '2',
-         'aesthetics': '3', 'braking': '2', 'engine': '1'}]
-
-    constructor_rating_list = [
-        {'constructorID': 'Mercedes', 'userID': 'Adam', 'overallRating': '4', 'teamPrinciple': '4', 'raceStrategy': '5',
-         'pitStop': '3'},
-        {'constructorID': 'Mclaren', 'userID': 'Dave', 'overallRating': '3', 'teamPrinciple': '3', 'raceStrategy': '4',
-         'pitStop': '2'},
-        {'constructorID': 'Haas', 'userID': 'Lauren', 'overallRating': '4', 'teamPrinciple': '4', 'raceStrategy': '2',
-         'pitStop': '2'},
-        {'constructorID': 'Mercedes', 'userID': 'Meghan', 'overallRating': '2', 'teamPrinciple': '1',
-         'raceStrategy': '4', 'pitStop': '3'},
-        {'constructorID': 'Ferrari', 'userID': 'Steve', 'overallRating': '5', 'teamPrinciple': '4', 'raceStrategy': '2',
-         'pitStop': '3'}]
 
     for i in constructor_list:
         add_constructor(i['name'], i['teamPrincipal'], i['nationality'], i['yearsActive'], i['raceEngineer'])
