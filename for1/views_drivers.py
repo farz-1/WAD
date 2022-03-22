@@ -1,5 +1,4 @@
 from django.shortcuts import render
-
 from for1.models import Driver
 
 
