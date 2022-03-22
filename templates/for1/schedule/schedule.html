@@ -4,7 +4,7 @@
 <title>Schedule</title>
 
 {% load static %}
-<link rel="stylesheet" type='text/css' href="../../../static/css/styles.css">
+<link rel="stylesheet" type='text/css' href="{% static 'css/schedule/schedule.css' %}">
 {% endblock %}
 
 {% block main_content %}
@@ -14,18 +14,29 @@
 <table class="TablePage" style="width:75%">
     <tr id="TableHeaders">
         <th>Event</th>
-        <th>Country</th>
+        <th>Laps</th>
+        <th>Length</th>
         <th>Dates</th>
+        <th>Time</th>
     </tr>
-    <tr>
-        <td>Alfreds Futterkiste</td>
-        <td>Maria Anders</td>
-        <td>Germany</td>
-    </tr>
-    <tr class="EvenRow">
-        <td>Centro comercial Moctezuma</td>
-        <td>Francisco Chang</td>
-        <td>Mexico</td>
-    </tr>
+    {% for race in races %}
+        {% if forloop.counter0|divisibleby:2 %}
+            <tr>
+                <td>{{ race.location }}</td>
+                <td>{{ race.laps }}</td>
+                <td>{{ race.trackLength }}</td>
+                <td>{{ race.date }}</td>
+                <td>{{ race.time }}</td>
+            </tr>
+        {% else %}
+            <tr class="EvenRow">
+                <td>{{ race.location }}</td>
+                <td>{{ race.laps }}</td>
+                <td>{{ race.trackLength }}</td>
+                <td>{{ race.date }}</td>
+                <td>{{ race.time }}</td>
+            </tr>
+        {% endif %}
+    {% endfor %}
 </table>
 {% endblock %}

@@ -202,6 +202,7 @@ class DriverRating(models.Model):
         self.modified = timezone.now()
         update = Driver.objects.get(name=self.driverID.name)
         update.overallAverage = DriverRating.objects.filter(driverID=self.driverID).aggregate(Avg('overallAverage'))
+        update.save()
         return super(DriverRating, self).save(*args, **kwargs)
 
 
