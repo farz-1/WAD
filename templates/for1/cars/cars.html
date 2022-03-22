@@ -11,13 +11,13 @@
 
 <h1>Cars</h1>
 
-<div class="row">
+<div class="flex flex-row flex-wrap">
     {% for car in cars %}
-    <div class="column">
-         <div class='container'>
-            <a href="{% url 'car_details' car.slug %}"> {{ car.model }} </a>
-         </div>
-    </div>
+    <a class="card m-2 pointer" href="{% url 'car_details' car.slug %}">
+        <div class="img mb-2" style="height: 100px; width: 250px">
+        </div>
+        <h5> {{ car.model }} </h5>
+    </a>
     {% endfor %}
 </div>
 

@@ -12,7 +12,7 @@
     padding: 30px;
     height: 50%;
     width: 33%;
-    display: block;
+    display: flex;
   }
  .container {
      width: 100%;

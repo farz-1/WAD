@@ -11,15 +11,13 @@
 
 <h1>Constructors</h1>
 
-<div class="row">
+<div class="flex flex-row flex-wrap">
     {% for constructor in constructors %}
-    <div class="column">
-        <div class="container">
-            <a href="{% url 'constructor_details' constructor.slug %}">
-                {{constructor.name}}
-            </a>
+    <a class="card m-2 pointer" href="{% url 'constructor_details' constructor.slug %}">
+        <div class="img mb-2" style="height: 100px; width: 250px">
         </div>
-    </div>
+        <h5> {{ constructor.name }} </h5>
+    </a>
     {% endfor %}
 </div>
 

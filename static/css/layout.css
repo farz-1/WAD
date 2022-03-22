@@ -31,10 +31,51 @@
     flex-grow: 1;
 }
 
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-nowrap {
+    flex-wrap: nowrap;
+}
+
+.w-25 {
+    width: 25px;
+}
+
+.w-33 {
+    width: 33px;
+}
+
 .w-100 {
     width: 100%;
 }
 
 .h-100 {
     height: 100%;
+}
+
+
+.m-1 {
+    margin: 4px;
+}
+
+.m-2 {
+    margin: 8px;
+}
+
+.mb-1 {
+    margin-bottom: 4px;
+}
+
+.mb-2 {
+    margin-bottom: 8px;
+}
+
+.p-1 {
+    padding: 4px;
+}
+
+.p-2 {
+    padding: 8px;
 }
