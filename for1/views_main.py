@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from for1.forms import UserForm, UserProfileForm
+from for1.forms import UserForm, UserProfilePictureForm
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import authenticate, login
 from django.core.mail import send_mail
@@ -25,7 +24,7 @@ def about(request):
 def register(request):
     if request.method == 'POST':
         user_form = UserForm(request.POST)
-        profile_form = UserProfileForm(request.POST)
+        profile_form = UserProfilePictureForm(request.POST)
 
         if user_form.is_valid() and profile_form.is_valid():
             user = user_form.save()
@@ -46,14 +45,17 @@ def register(request):
                 fail_silently=False,
             )
 
+            messages.success(request, "Account successfully created")
             return redirect('index')
 
         else:
+            messages.error(request, "Creation of the account unsuccessful. Please try again")
             print(user_form.errors, profile_form.errors)
 
     else:
+        messages.error(request, "Creation of the account unsuccessful. Please try again")
         user_form = UserForm()
-        profile_form = UserProfileForm()
+        profile_form = UserProfilePictureForm()
 
     return render(request,
                   'for1/users/user.register.html',
