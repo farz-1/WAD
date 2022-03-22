@@ -11,6 +11,7 @@ class Constructor(models.Model):
     nationality = models.CharField(max_length=20)
     yearsActive = models.IntegerField()
     raceEngineer = models.CharField(max_length=50)
+    about = models.TextField()
     slug = models.SlugField(unique=True)
 
     def save(self, *args, **kwargs):
