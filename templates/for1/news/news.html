@@ -4,35 +4,28 @@
 <title>News</title>
 
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/cars/cars.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/news/news.css' %}">
 {% endblock %}
 
 {% block main_content %}
 
 <h1>News</h1>
+{% for n in news %}
 
 <div class="row">
-
-    <div class="column">
-        <img src="img_snow.jpg" alt="Snow" style="width:90%">
-        <div>
-            <p>Title</p>
-            <p>Description</p>
-            {% for n in news %}
-            <p>{{ n.title }}</p>
-            {% endfor %}
-
-        </div>
+    <div class="myImage">
+        <img src={{n.imageURL}}>
     </div>
 
-    <div class="column">
-        <img src="img_mountains.jpg" alt="Mountains" style="width:90%">
-        <div>
-            <p>Title </p>
-            <p>Description</p>
-
+    <div class="text">
+        <a href="{{n.articleURL}}" style="float:right;">{{n.title}}</a>
+        <br>
+        <div class="texb">
+            <p>{{n.summary}}</p>
         </div>
     </div>
 
 </div>
+{% endfor %}
+
 {% endblock %}

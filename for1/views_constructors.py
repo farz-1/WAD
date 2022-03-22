@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from for1.models import Constructor
+from for1.models import Constructor, Driver
 
 
 def index(request):
@@ -22,7 +22,10 @@ def constructor_details(request, slug):
         constructor = Constructor.objects.get(slug=slug)
         context_dict['constructor'] = constructor
 
+        drivers = Driver.objects.filter(constructor=constructor.name)
+        context_dict['drivers'] = drivers
+
     except Constructor.DoesNotExist:
         context_dict['constructor'] = None
 
-    return render(request, 'for1/constructors/constructor.individual.html', context=context_dict)
+    return render(request, 'for1/constructors/constructor.details.html', context=context_dict)

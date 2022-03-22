@@ -13,7 +13,7 @@ def index(request):
 
 
 def home(request):
-    return render(request, 'for1/home.html')
+    return render(request, 'for1/home/home.html')
 
 
 def about(request):
@@ -50,10 +50,8 @@ def register(request):
 
         else:
             messages.error(request, "Creation of the account unsuccessful. Please try again")
-            print(user_form.errors, profile_form.errors)
 
     else:
-        messages.error(request, "Creation of the account unsuccessful. Please try again")
         user_form = UserForm()
         profile_form = UserProfilePictureForm()
 
