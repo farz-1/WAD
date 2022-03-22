@@ -16,15 +16,14 @@
     transition: 200ms ease-out;
 }
 
-.sidebar a:hover {
-    background-color: #555;
-    color: white;
+.sidebar a:hover:not(.active) {
+    background-color: #ccc;
     transition: 200ms ease-out;
 }
 
-.sidebar a .active {
-    background-color: #FF1801 !important;
-    transition: 200ms ease-out;
+.active {
+    background-color: #555;
+    color: white !important;
 }
 
 div.content {
