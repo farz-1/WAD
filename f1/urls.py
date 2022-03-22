@@ -47,24 +47,24 @@ urlpatterns = [
 
     # Views Users
     # path('users/', views_users.index, name='users'),
-    # path('user/<int:id>', views_users.details, name='user_details'),
-    # path('user/<int:id>/edit', views_users.edit, name='user_edit'),
+    # path('user/<slug:user_name_slug>', views_users.details, name='user_details'),
+    # path('user/<slug:user_name_slug>/edit', views_users.edit, name='user_edit'),
 
     # Views Schedule
     path('schedule/', views_schedule.index, name='schedule'),
 
     # Views Cars
     path('cars/', views_cars.index, name='cars'),
-    # path('car/<int:id>', views_cars.details, name='car_details),
-    path('car/<int:id>/rate', views_cars.rate, name='car_rate'),
+    # path('car/<slug:car_name_slug>', views_cars.details, name='car_details),
+    path('car/<slug:car_name_slug>/rate', views_cars.rate, name='car_rate'),
 
     # Views Drivers
     path('drivers/', views_drivers.index, name='drivers'),
-    # path('driver/<int:id>', views_drivers.details, name='driver_details),
-    # path('car/<int:id>/rate', views_drivers.rate, name='driver_rate'),
+    # path('driver/<slug:driver_name_slug>', views_drivers.details, name='driver_details),
+    # path('driver/<slug:driver_name_slug>/rate', views_drivers.rate, name='driver_rate'),
 
     # Views Constructors
     path('constructors/', views_constructors.index, name='constructors'),
-    # path('constructor/<int:id>', views_constructors.details, name='constructor_details),
-    # path('constructor/<int:id>/rate', views_constructors.rate, name='constructor_rate'),
+    # path('constructor/<slug:constructor_name_slug>', views_constructors.details, name='constructor_details),
+    # path('constructor/<slug:constructor_name_slug>/rate', views_constructors.rate, name='constructor_rate'),
 ]

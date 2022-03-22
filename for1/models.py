@@ -2,6 +2,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.template.defaultfilters import slugify
 
 
 class Constructor(models.Model):
@@ -10,6 +11,11 @@ class Constructor(models.Model):
     nationality = models.CharField(max_length=20)
     yearsActive = models.IntegerField()
     raceEngineer = models.CharField(max_length=50)
+    slug = models.SlugField(unique=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(Constructor, self).save(*args, **kwargs)
 
     class Meta:
         verbose_name_plural = 'Constructors'
@@ -28,6 +34,11 @@ class Driver(models.Model):
     seasonsWon = models.IntegerField()
     podiumsWon = models.IntegerField()
     constructor = models.ForeignKey(Constructor, on_delete=models.SET_NULL, null=True)
+    slug = models.SlugField(unique=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(Driver, self).save(*args, **kwargs)
 
     class Meta:
         verbose_name_plural = 'Drivers'
@@ -43,6 +54,11 @@ class Car(models.Model):
     weight = models.CharField(max_length=30)
     gearbox = models.CharField(max_length=50)
     constructor = models.ForeignKey(Constructor, on_delete=models.SET_NULL, null=True)
+    slug = models.SlugField(unique=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.constructor.name)
+        super(Car, self).save(*args, **kwargs)
 
     class Meta:
         verbose_name_plural = 'Cars'
@@ -84,6 +100,11 @@ class UserProfile(models.Model):
     favDriver = models.ForeignKey(Driver, on_delete=models.SET_NULL, null=True)
     aboutMe = models.CharField(max_length=256)
     picture = models.ImageField(upload_to='media/profile_images', blank=True)
+    slug = models.SlugField(unique=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.user.username)
+        super(UserProfile, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.user.username
