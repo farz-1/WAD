@@ -19,5 +19,5 @@ LV.Populate teams.individual
 
 
 additional
-add profile picture
+edit profile picture
 remove driver rank
