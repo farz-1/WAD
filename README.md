@@ -27,5 +27,5 @@ Users can log in and out of the site and have details about themselves.
 
 Links to APIs:
 * [newsapi-python](https://newsapi.org/docs/client-libraries/python)
-* [schedule] (https://schedule.readthedocs.io/en/stable/)
+* [schedule](https://schedule.readthedocs.io/en/stable/)
 * [bcrypt](https://docs.python-requests.org/en/latest/)
