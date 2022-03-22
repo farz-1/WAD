@@ -20,19 +20,19 @@ class UserProfileForm(forms.ModelForm):
 
 
 class ConstructorRatingForm(forms.ModelForm):
-    overallAverage = forms.IntegerField(max_length=1, validators=[
+    overallAverage = forms.IntegerField(validators=[
             MaxValueValidator(5),
             MinValueValidator(1)],
             help_text="Please enter the rating between 1-5 for overall average.")
-    teamPrinciple = forms.IntegerField(max_length=1, validators=[
+    teamPrinciple = forms.IntegerField(validators=[
             MaxValueValidator(5),
             MinValueValidator(1)],
             help_text="Please enter the rating between 1-5 for the team principle.")
-    raceStrategy = forms.IntegerField(max_length=1, validators=[
+    raceStrategy = forms.IntegerField(validators=[
             MaxValueValidator(5),
             MinValueValidator(1)],
             help_text="Please enter the rating between 1-5 for the race strategy.")
-    pitStop = forms.IntegerField(max_length=1, validators=[
+    pitStop = forms.IntegerField(validators=[
             MaxValueValidator(5),
             MinValueValidator(1)],
             help_text="Please enter the rating between 1-5 for the pit stop.")
@@ -43,35 +43,35 @@ class ConstructorRatingForm(forms.ModelForm):
 
 
 class DriverRatingForm(forms.ModelForm):
-    overallAverage = forms.IntegerField(max_length=1, validators=[
+    overallAverage = forms.IntegerField(validators=[
             MaxValueValidator(5),
             MinValueValidator(1)],
             help_text="Please enter the rating between 1-5 for overall average.")
-    personality = forms.IntegerField(max_length=1, validators=[
+    personality = forms.IntegerField(validators=[
             MaxValueValidator(5),
             MinValueValidator(1)],
             help_text="Please enter the rating between 1-5 for personality.")
-    aggressiveness = forms.IntegerField(max_length=1, validators=[
+    aggressiveness = forms.IntegerField(validators=[
             MaxValueValidator(5),
             MinValueValidator(1)],
             help_text="Please enter the rating between 1-5 for aggressiveness.")
-    awareness = forms.IntegerField(max_length=1, validators=[
+    awareness = forms.IntegerField(validators=[
             MaxValueValidator(5),
             MinValueValidator(1)],
             help_text="Please enter the rating between 1-5 for awareness.")
-    experience = forms.IntegerField(max_length=1, validators=[
+    experience = forms.IntegerField(validators=[
             MaxValueValidator(5),
             MinValueValidator(1)],
             help_text="Please enter the rating between 1-5 for experience.")
-    starts = forms.IntegerField(max_length=1, validators=[
+    starts = forms.IntegerField(validators=[
             MaxValueValidator(5),
             MinValueValidator(1)],
             help_text="Please enter the rating between 1-5 for starts.")
-    pace = forms.IntegerField(max_length=1, validators=[
+    pace = forms.IntegerField(validators=[
             MaxValueValidator(5),
             MinValueValidator(1)],
             help_text="Please enter the rating between 1-5 for pace.")
-    racecraft = forms.IntegerField(max_length=1, validators=[
+    racecraft = forms.IntegerField(validators=[
             MaxValueValidator(5),
             MinValueValidator(1)],
             help_text="Please enter the rating between 1-5 for racecraft.")
@@ -83,23 +83,23 @@ class DriverRatingForm(forms.ModelForm):
 
 
 class CarRatingForm(forms.ModelForm):
-    overallAverage = forms.IntegerField(max_length=1, validators=[
+    overallAverage = forms.IntegerField(validators=[
             MaxValueValidator(5),
             MinValueValidator(1)],
             help_text="Please enter the rating between 1-5 for overall average.")
-    speed = forms.IntegerField(max_length=1, validators=[
+    speed = forms.IntegerField(validators=[
             MaxValueValidator(5),
             MinValueValidator(1)],
             help_text="Please enter the rating between 1-5 for speed.")
-    aerodynamics = forms.IntegerField(max_length=1, validators=[
+    aerodynamics = forms.IntegerField(validators=[
             MaxValueValidator(5),
             MinValueValidator(1)],
             help_text="Please enter the rating between 1-5 for aerodynamics.")
-    braking = forms.IntegerField(max_length=1, validators=[
+    braking = forms.IntegerField(validators=[
             MaxValueValidator(5),
             MinValueValidator(1)],
             help_text="Please enter the rating between 1-5 for braking.")
-    engine = forms.IntegerField(max_length=1, validators=[
+    engine = forms.IntegerField(validators=[
             MaxValueValidator(5),
             MinValueValidator(1)],
             help_text="Please enter the rating between 1-5 for engine.")
