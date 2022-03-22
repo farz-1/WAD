@@ -10,7 +10,6 @@ import news_api
 
 
 def populate():
-    # raph password updates
 
     driver_list = [
         {'name': 'Lewis Hamilton', 'DOB': '07/01/1985', 'height': '1.74m', 'weight': '73kg',
@@ -270,68 +269,6 @@ def add_race(location, trackLength, date, laps, time):
     record.save()
     print("Race record \"" + location + "\" added.")
     return record
-
-
-def add_driver_rating(driverID, userID, overallRating, personality, aggressiveness, awareness, experience, starts, pace,
-                      racecraft):
-    record = DriverRating.objects.get_or_create(driverID=driverID, userID=userID)[0]
-    record.personality = personality
-    record.aggressiveness = aggressiveness
-    record.awareness = awareness
-    record.experience = experience
-    record.starts = starts
-    record.pace = pace
-    record.racecraft = racecraft
-    record.overallRating = overallRating
-    record.save()
-    print("Driver rating record for \"" + userID + "\" added.")
-    return record
-
-
-def add_car_rating(carID, userID, overallRating, speed, aerodynamics, aesthetics, braking, engine):
-    record = CarRating.objects.get_or_create(carID=carID, userID=userID)[0]
-    record.overallRating = overallRating
-    record.speed = speed
-    record.aerodynamics = aerodynamics
-    record.aesthetics = aesthetics
-    record.braking = braking
-    record.engine = record.engine
-    record.save()
-    print("Car rating record for \"" + userID + "\" added.")
-    return record
-
-
-def add_constructor_rating(constructorID, userID, overallRating, teamPrincipal, raceStrategy, pitStop):
-    record = ConstructorRating.objects.get_or_create(constructorID=constructorID, userID=userID)[0]
-    record.overallRating = overallRating
-    record.teamPrincipal = teamPrincipal
-    record.raceStrategy = raceStrategy
-    record.pitStop = pitStop
-    record.save()
-    print("Constructor rating record for \"" + userID + "\" added.")
-    return record
-
-
-# all seperate changes for about me, 3 favourites, password update, picture update
-def add_user(username, password):
-    record = User.objects.get_or_create(username=username, password=password)[0]
-    record.save()
-    print("User record \"" + username + "\" added.")
-    return record
-
-
-def update_picture(username, picture):
-    record = User.objects.filter(username=username).update(picture=picture)
-
-
-def update_about_me(username, aboutMe):
-    record = User.objects.filter(username=username).update(aboutMe=aboutMe)
-
-
-def update_favorites(username, favCar, favTeam, favDriver):
-    record = User.objects.filter(username=username).update(favCar=Car.objects.get(model=favCar),
-                                                           favTeam=Constructor.objects.get(name=favTeam),
-                                                           favDriver=Driver.objects.get(name=favDriver))
 
 
 if __name__ == '__main__':

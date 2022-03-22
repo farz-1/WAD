@@ -77,20 +77,16 @@ class News(models.Model):
         verbose_name_plural='News'
 
 
-class User(models.Model):
-    username = models.CharField(max_length=30, unique=True)
-    password = models.CharField(max_length=30)
+class UserProfile(models.Model):
+    user = models.OneToOneField(User,on_delete=models.CASCADE)
     favCar = models.ForeignKey(Car, on_delete=models.SET_NULL, null=True)
     favTeam = models.ForeignKey(Constructor, on_delete=models.SET_NULL, null=True)
     favDriver = models.ForeignKey(Driver, on_delete=models.SET_NULL, null=True)
     aboutMe = models.CharField(max_length=256)
-    picture = models.ImageField(upload_to='media/profile_images')
-
-    class Meta:
-        verbose_name_plural = 'Users'
-
+    picture = models.ImageField(upload_to='media/profile_images',blank=True)
+    
     def __str__(self):
-        return self.name
+        return self.user.username
 
 
 class DriverRating(models.Model):
