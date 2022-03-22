@@ -9,8 +9,8 @@ Users can log in and out of the site and have details about themselves.
 ### Installing
 
 * You will need to install the following packages via pip with the commands:
-* $ pip install newsapi-python
 * $ pip install schedule
+* $ pip install requests
 * $ pip install bcrypt
 * We used schedule/newsapi-python APIs for fetching our news stories and bcrypt API for user authentication.
 * Make sure you migrate/populate your database!
@@ -26,6 +26,6 @@ Users can log in and out of the site and have details about themselves.
 ## Acknowledgments
 
 Links to APIs:
-* [newsapi-python](https://newsapi.org/docs/client-libraries/python)
+* [requests](https://docs.python-requests.org/en/latest/)
 * [schedule](https://schedule.readthedocs.io/en/stable/)
 * [bcrypt](https://docs.python-requests.org/en/latest/)
