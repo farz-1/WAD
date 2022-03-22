@@ -1,9 +1,22 @@
 from django.shortcuts import render
 
-def index(request):
-    return render(request, 'for1/drivers/drivers.html')
+from for1.models import Driver
 
-def show_drivers(request,slug):
+
+def index(request):
+    context_dict = {}
+
+    try:
+        drivers = Driver.objects.all()
+        context_dict['drivers'] = drivers
+
+    except:
+        context_dict['drivers'] = None
+
+    return render(request, 'for1/drivers/drivers.html', context=context_dict)
+
+
+def driver_details(request, slug):
     context_dict = {}
     
     try:

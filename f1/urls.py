@@ -60,7 +60,7 @@ urlpatterns = [
 
     # Views Drivers
     path('drivers/', views_drivers.index, name='drivers'),
-    # path('driver/<slug:driver_name_slug>', views_drivers.details, name='driver_details),
+    path('driver/<slug:slug>', views_drivers.driver_details, name='driver_details'),
     # path('driver/<slug:driver_name_slug>/rate', views_drivers.rate, name='driver_rate'),
 
     # Views Constructors
