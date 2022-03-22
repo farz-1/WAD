@@ -18,6 +18,9 @@
         <div>
             <p>Title </p>
             <p>Description</p>
+            {% for n in news %}
+            <p>{{ n.title }}</p>
+            {% endfor %}
 
         </div>
     </div>

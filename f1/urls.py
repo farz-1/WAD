@@ -65,6 +65,6 @@ urlpatterns = [
 
     # Views Constructors
     path('constructors/', views_constructors.index, name='constructors'),
-    # path('constructor/<slug:constructor_name_slug>', views_constructors.details, name='constructor_details),
+    #path('constructor/<slug:constructor_name_slug>', views_constructors.details, name='constructor_details'),
     # path('constructor/<slug:constructor_name_slug>/rate', views_constructors.rate, name='constructor_rate'),
-]
+         ]
