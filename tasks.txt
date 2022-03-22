@@ -11,6 +11,13 @@ F. Make the  images in home.html and news.html link to home.about page
 F. Relevant URL mappings on all pages
 
 
+
+
 LV.Populate leaderboard.html
 LV.Populate schedule.html
 LV.Populate teams.individual
+
+
+additional
+add profile picture
+remove driver rank
