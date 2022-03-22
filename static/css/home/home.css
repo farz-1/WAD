@@ -4,8 +4,10 @@
 
 .row {
     display: flex;
+
 }
 
 .column {
     display: inline;
+    padding-left:100px;
 }
