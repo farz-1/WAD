@@ -12,7 +12,7 @@ class Constructor(models.Model):
     nationality = models.CharField(max_length=20)
     yearsActive = models.IntegerField()
     raceEngineer = models.CharField(max_length=50)
-    about = models.TextField()
+    about = models.TextField(null=True)
     slug = models.SlugField(unique=True)
 
     def save(self, *args, **kwargs):
@@ -36,6 +36,7 @@ class Driver(models.Model):
     seasonsWon = models.IntegerField()
     podiumsWon = models.IntegerField()
     constructor = models.ForeignKey(Constructor, on_delete=models.SET_NULL, null=True)
+    about = models.TextField(null=True)
     slug = models.SlugField(unique=True)
     overallAverage = models.DecimalField(max_digits=4, decimal_places=2, null=True)
 
@@ -57,6 +58,7 @@ class Car(models.Model):
     weight = models.CharField(max_length=30)
     gearbox = models.CharField(max_length=50)
     constructor = models.ForeignKey(Constructor, on_delete=models.SET_NULL, null=True)
+    about = models.TextField(null=True)
     slug = models.SlugField(unique=True)
 
     def save(self, *args, **kwargs):
