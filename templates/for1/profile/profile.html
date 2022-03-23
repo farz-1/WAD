@@ -8,8 +8,7 @@
 {% endblock %}
 
 {% block main_content %}
-    <h1>My Profile</h1>
-
+    <h1>Your Profile</h1>
     {% if user.is_authenticated %}
 
         <div class="flex flex-row">
@@ -85,10 +84,10 @@
 
     {% else %}
 
-    <h2>You're not logged in. Please log in first</h2>
+    <h2>You're not logged in. Please log in or register first!</h2>
 
-    <a href="{% url 'login' %}">Login</a>
-
+    <button ><a href="{% url 'login' %}" >Login</a></button>
+    <button><a href = "{% url 'register' %}">Register</a></button>
     {% endif %}
 
 {% endblock %}
