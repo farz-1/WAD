@@ -45,7 +45,6 @@ def rate(request, slug):
 
         if rating_form.is_valid():
             rating = rating_form.save(commit=False)
-            print(rating)
             rating.userID = request.user
             rating.carID = Car.objects.get(slug=slug)
             rating.save()

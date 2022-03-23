@@ -259,9 +259,9 @@ class ConstructorRating(models.Model):
 
 
 class CarRating(models.Model):
-    carID = models.ForeignKey(Car, on_delete=models.CASCADE,null=True)
+    carID = models.ForeignKey(Car, on_delete=models.CASCADE)
 
-    userID = models.ForeignKey(User, on_delete=models.CASCADE,null=True)
+    userID = models.ForeignKey(User, on_delete=models.CASCADE)
 
     lastModified = models.DateTimeField(null=True)
 
@@ -323,6 +323,9 @@ class CarRating(models.Model):
         scores = [self.overallRating, self.speed, self.aerodynamics, self.aesthetics, self.braking,
                   self.engine]  # add new fields here.
         return sum(scores) / len(scores)  # this way allows for easier adding of new fields in future.
+    
+    def __str__(self):
+        return f"USER: {self.userID}, CAR: {self.carID}"
 
     def save(self, *args, **kwargs):
         self.overallAverage = self.get_overall_average
