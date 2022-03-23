@@ -55,13 +55,13 @@ urlpatterns = [
 
     # Views Cars
     path('cars/', views_cars.index, name='cars'),
-    path('car/<slug:slug>', views_cars.car_details, name='car_details'),
-    #path('car/<slug:car_name_slug>/rate', views_cars.rate, name='car_rate'),
+    path('car/<slug:slug>', views_cars.details, name='car_details'),
+    path('car/<slug:slug>/rate', views_cars.rate, name='car_rate'),
 
     # Views Drivers
     path('drivers/', views_drivers.index, name='drivers'),
     path('driver/<slug:slug>', views_drivers.driver_details, name='driver_details'),
-    # path('driver/<slug:driver_name_slug>/rate', views_drivers.rate, name='driver_rate'),
+    #path('driver/<slug:driver_name_slug>/rate', views_drivers.rate, name='driver_rate'),
 
     # Views Constructors
     path('constructors/', views_constructors.index, name='constructors'),

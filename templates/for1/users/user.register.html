@@ -8,9 +8,9 @@
 
     <h1>Register</h1>
 
-    <div class="card w-25">
+    <div class="card">
 
-        <form id="register_form" method="post" action="{% url 'register' %}" enctype="multipart/form-data">
+        <form method="post" action="{% url 'register' %}" enctype="multipart/form-data">
 
             {% csrf_token %}
 
@@ -39,7 +39,7 @@
                     <a id="login" href="/login">Already got an account? Login instead</a>
                 </div>
 
-                <button class="btn primary-button" type="reg" class="btn" value="Register">Sign Up</button>
+                <button class="btn primary-button" type="submit" value="Register">Register</button>
             </div>
 
         </form>

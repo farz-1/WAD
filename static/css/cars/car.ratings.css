@@ -1,16 +1,3 @@
-* {
-    box-sizing: border-box;
-}
-
-.column {
-    float: center;
-    width: 50.00%;
-    padding: 51px;
-}
-
-/* Clearfix (clear floats) */
-.row::after {
-    content: "";
-    clear: both;
-    display: table;
+label {
+    width: 100%;
 }

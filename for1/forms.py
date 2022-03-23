@@ -26,7 +26,7 @@ class UserProfileForm(forms.ModelForm):
 
 
 class ConstructorRatingForm(forms.ModelForm):
-    overallAverage = forms.IntegerField(validators=[
+    overallRating = forms.IntegerField(validators=[
             MaxValueValidator(5),
             MinValueValidator(1)],
             help_text="Please enter the rating between 1-5 for overall average.")
@@ -45,11 +45,11 @@ class ConstructorRatingForm(forms.ModelForm):
 
     class Meta:
         model = ConstructorRating
-        fields = ('overallAverage', 'teamPrinciple', 'raceStrategy', 'pitStop')
+        fields = ('overallRating', 'teamPrinciple', 'raceStrategy', 'pitStop')
 
 
 class DriverRatingForm(forms.ModelForm):
-    overallAverage = forms.IntegerField(validators=[
+    overallRating = forms.IntegerField(validators=[
             MaxValueValidator(5),
             MinValueValidator(1)],
             help_text="Please enter the rating between 1-5 for overall average.")
@@ -84,12 +84,12 @@ class DriverRatingForm(forms.ModelForm):
 
     class Meta:
         model = DriverRating
-        fields = ('overallAverage', 'personality', 'aggressiveness', 'awareness', 'experience', 'starts', 'pace',
+        fields = ('overallRating', 'personality', 'aggressiveness', 'awareness', 'experience', 'starts', 'pace',
                   'racecraft')
 
 
 class CarRatingForm(forms.ModelForm):
-    overallAverage = forms.IntegerField(validators=[
+    overallRating = forms.IntegerField(validators=[
             MaxValueValidator(5),
             MinValueValidator(1)],
             help_text="Please enter the rating between 1-5 for overall average.")
@@ -101,6 +101,10 @@ class CarRatingForm(forms.ModelForm):
             MaxValueValidator(5),
             MinValueValidator(1)],
             help_text="Please enter the rating between 1-5 for aerodynamics.")
+    aesthetics = forms.IntegerField(validators=[
+            MaxValueValidator(5),
+            MinValueValidator(1)],
+            help_text="Please enter the rating between 1-5 for aesthetics.")
     braking = forms.IntegerField(validators=[
             MaxValueValidator(5),
             MinValueValidator(1)],
@@ -112,4 +116,4 @@ class CarRatingForm(forms.ModelForm):
 
     class Meta:
         model = CarRating
-        fields = ('overallAverage', 'speed', 'aerodynamics', 'aesthetics', 'braking', 'engine')
+        fields = ('overallRating', 'speed', 'aerodynamics', 'aesthetics', 'braking', 'engine')

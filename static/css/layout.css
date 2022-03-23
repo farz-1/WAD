@@ -39,6 +39,10 @@
     flex-wrap: nowrap;
 }
 
+.justify-content-between {
+    justify-content: space-between;
+}
+
 .w-25 {
     width: 25%;
 }
