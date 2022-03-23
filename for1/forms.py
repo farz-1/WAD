@@ -4,7 +4,6 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from for1.models import UserProfile, DriverRating, CarRating, ConstructorRating
 
 
-# driver ID/car ID/constructor ID and userID ?
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
 
@@ -91,29 +90,34 @@ class DriverRatingForm(forms.ModelForm):
 class CarRatingForm(forms.ModelForm):
     overallRating = forms.IntegerField(validators=[
             MaxValueValidator(5),
-            MinValueValidator(1)],
+            MinValueValidator(1)],required=False,
             help_text="Please enter the rating between 1-5 for overall average.")
     speed = forms.IntegerField(validators=[
             MaxValueValidator(5),
-            MinValueValidator(1)],
+            MinValueValidator(1)],required=False,
             help_text="Please enter the rating between 1-5 for speed.")
     aerodynamics = forms.IntegerField(validators=[
             MaxValueValidator(5),
-            MinValueValidator(1)],
+            MinValueValidator(1)],required=False,
             help_text="Please enter the rating between 1-5 for aerodynamics.")
     aesthetics = forms.IntegerField(validators=[
             MaxValueValidator(5),
-            MinValueValidator(1)],
+            MinValueValidator(1)],required=False,
             help_text="Please enter the rating between 1-5 for aesthetics.")
     braking = forms.IntegerField(validators=[
             MaxValueValidator(5),
-            MinValueValidator(1)],
+            MinValueValidator(1)],required=False,
             help_text="Please enter the rating between 1-5 for braking.")
     engine = forms.IntegerField(validators=[
             MaxValueValidator(5),
-            MinValueValidator(1)],
+            MinValueValidator(1)],required=False,
             help_text="Please enter the rating between 1-5 for engine.")
+    
+
 
     class Meta:
         model = CarRating
         fields = ('overallRating', 'speed', 'aerodynamics', 'aesthetics', 'braking', 'engine')
+        exclude = ('userID','carID')
+        
+

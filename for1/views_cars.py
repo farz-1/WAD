@@ -44,7 +44,9 @@ def rate(request, slug):
         print(rating_form)
 
         if rating_form.is_valid():
-            rating = rating_form.save()
+            rating = rating_form.save(commit=False)
+            rating.user = request.user
+            #rating.carID = slug
             rating.save()
 
             messages.success(request, "Rating submitted successfully")

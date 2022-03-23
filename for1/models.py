@@ -120,8 +120,6 @@ class DriverRating(models.Model):
 
     userID = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    created = models.DateTimeField(editable=False)
-
     lastModified = models.DateTimeField()
 
     overallAverage = models.DecimalField(max_digits=4, decimal_places=2)
@@ -193,15 +191,10 @@ class DriverRating(models.Model):
                   self.starts, self.pace, self.racecraft]  # add new fields here.
         return sum(scores) / len(scores)  # this way allows for easier adding of new fields in future.
 
-    def __str__(self):
-        return self.userID + " " + self.driverID
-
     def save(self, *args, **kwargs):
         self.overallAverage = self.get_overall_average
         ''' On save, update timestamps '''
-        if not self.id:
-            self.created = timezone.now()
-        self.modified = timezone.now()
+        self.lastModified = timezone.now()
         update = Driver.objects.get(name=self.driverID.name)
         update.overallAverage = DriverRating.objects.filter(driverID=self.driverID).aggregate(Avg('overallAverage'))
         update.save()
@@ -213,11 +206,9 @@ class ConstructorRating(models.Model):
 
     userID = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    created = models.DateTimeField(editable=False)
+    lastModified = models.DateTimeField(null=True)
 
-    lastModified = models.DateTimeField()
-
-    overallAverage = models.DecimalField(max_digits=4, decimal_places=2)
+    overallAverage = models.DecimalField(max_digits=4, decimal_places=2,null=True)
 
     overallRating = models.IntegerField(
         default=1,
@@ -259,26 +250,22 @@ class ConstructorRating(models.Model):
         scores = [self.overallRating, self.teamPrinciple, self.raceStrategy, self.pitStop]  # add new fields here.
         return sum(scores) / len(scores)  # this way allows for easier adding of new fields in future.
 
-    def __str__(self):
-        return self.userID + " " + self.constructorID
 
     def save(self, *args, **kwargs):
         self.overallAverage = self.get_overall_average
         ''' On save, update timestamps '''
-        if not self.id:
-            self.created = timezone.now()
-        self.modified = timezone.now()
+        self.lastModified = timezone.now()
         return super(ConstructorRating, self).save(*args, **kwargs)
 
 
 class CarRating(models.Model):
-    carID = models.ForeignKey(Car, on_delete=models.CASCADE)
+    carID = models.ForeignKey(Car, on_delete=models.CASCADE,null=True)
 
-    userID = models.ForeignKey(User, on_delete=models.CASCADE)
+    userID = models.ForeignKey(User, on_delete=models.CASCADE,null=True)
 
-    lastModified = models.DateTimeField()
+    lastModified = models.DateTimeField(null=True)
 
-    overallAverage = models.DecimalField(max_digits=4, decimal_places=2)
+    overallAverage = models.DecimalField(max_digits=4, decimal_places=2,null=True)
 
     overallRating = models.IntegerField(
         default=1,
@@ -337,11 +324,8 @@ class CarRating(models.Model):
                   self.engine]  # add new fields here.
         return sum(scores) / len(scores)  # this way allows for easier adding of new fields in future.
 
-    def __str__(self):
-        return self.userID + " " + self.carID
-
     def save(self, *args, **kwargs):
         self.overallAverage = self.get_overall_average
         ''' On save, update timestamps '''
-        self.modified = timezone.now()
+        self.lastModified = timezone.now()
         return super(CarRating, self).save(*args, **kwargs)
