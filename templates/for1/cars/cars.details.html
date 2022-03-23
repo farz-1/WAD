@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
+{% load staticfiles %}
+
 {% block headdata %}
+
 <title>{{ car.model }}</title>
 {% endblock %}
 
@@ -26,8 +29,7 @@
     <div class="flex flex-row">
 
     <div class="card w-25 m-2">
-        <div class="img w-100 h-100">
-
+        <div class="img w-100h-100">
         </div>
     </div>
 
@@ -60,5 +62,10 @@
         </table>
     </div>
 
+    </div>
+
+    <div class="card m-2">
+        <h3>About</h3>
+        <p>{{ car.about }}</p>
     </div>
 {% endblock %}
