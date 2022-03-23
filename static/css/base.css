@@ -53,6 +53,8 @@ div.content {
     .sidebar a {
         text-align: center;
         float: none;
+        visibility: hidden;
+
     }
 }
 

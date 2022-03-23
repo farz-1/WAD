@@ -48,7 +48,7 @@
 
         {% url 'home' as url %}
         <a href="{% url 'home' %}"
-            class="{% if request.path == url %}active{% endif %}">
+            class="{% if request.path == url %}active{% endif %}" >
             Home
         </a>
 
@@ -100,8 +100,8 @@
             <a class="w-100" href="{% url 'logout' %}">Logout</a>
 
             {% else %}
-            <a href="{% url 'login' %}" class="w-100" href="#">Login</a>
-            <a href="{% url 'register' %}" class="w-100" href="#">Register</a>
+            <a href="{% url 'login' %}" class="w-100" href="#" style="color:red;">Login</a>
+            <a href="{% url 'register' %}" class="w-100" href="#" style="color:red;">Register</a>
             {% endif %}
         </div>
 

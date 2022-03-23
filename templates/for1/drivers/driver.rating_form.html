@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block headdata %}
-    <title>Cars</title>
+    <title>Drivers</title>
 
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/cars/car.ratings.css' %}">
@@ -11,14 +11,14 @@
 
     <h1>
         <small>Rating:</small>
-        <span>{{ car.model }}</span>
+        <span>{{ driver.model }}</span>
     </h1>
 
     <div class="card">
 
         <div class="w-100 flex flex-column">
 
-            <form method="post" action="{% url 'car_rate' car.slug %}" enctype="multipart/form-data">
+            <form method="post" action="{% url 'driver_rate' driver.slug %}" enctype="multipart/form-data">
 
                 {% csrf_token %}
 
