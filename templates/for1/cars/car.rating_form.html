@@ -14,13 +14,13 @@
     <span>{{ car.model }}</span>
 </h1>
 
-<div class="card">
+    <div class="card">
 
-    <div class="w-100 flex flex-column">
+        <div class="w-100 flex flex-column">
 
-        <form method="post" action="{% url 'car_rate' car.slug %}" enctype="multipart/form-data">
+            <form method="post" action="{% url 'car_rate' car.slug %}" enctype="multipart/form-data">
 
-            {% csrf_token %}
+                {% csrf_token %}
 
             <table>
             {% for field in rating_form.Meta.fields %}
@@ -36,15 +36,15 @@
             {% endfor %}
             </table>
 
-            <div class="flex justify-content-end">
-                <button class="btn primary-button" type="submit">
-                    Submit
-                </button>
-            </div>
+                <div class="flex justify-content-end">
+                    <button class="btn primary-button" type="submit">
+                        Submit
+                    </button>
+                </div>
 
-        </form>
+            </form>
+        </div>
     </div>
-</div>
 
 
 

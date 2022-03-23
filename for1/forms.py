@@ -94,23 +94,23 @@ class CarRatingForm(forms.ModelForm):
             help_text="Please enter the rating between 1-5 for overall average.")
     speed = forms.IntegerField(validators=[
             MaxValueValidator(5),
-            MinValueValidator(1)],required=False,
+            MinValueValidator(1)],
             help_text="Please enter the rating between 1-5 for speed.")
     aerodynamics = forms.IntegerField(validators=[
             MaxValueValidator(5),
-            MinValueValidator(1)],required=False,
+            MinValueValidator(1)],
             help_text="Please enter the rating between 1-5 for aerodynamics.")
     aesthetics = forms.IntegerField(validators=[
             MaxValueValidator(5),
-            MinValueValidator(1)],required=False,
+            MinValueValidator(1)],
             help_text="Please enter the rating between 1-5 for aesthetics.")
     braking = forms.IntegerField(validators=[
             MaxValueValidator(5),
-            MinValueValidator(1)],required=False,
+            MinValueValidator(1)],
             help_text="Please enter the rating between 1-5 for braking.")
     engine = forms.IntegerField(validators=[
             MaxValueValidator(5),
-            MinValueValidator(1)],required=False,
+            MinValueValidator(1)],
             help_text="Please enter the rating between 1-5 for engine.")
 
     class Meta:
