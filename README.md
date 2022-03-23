@@ -8,11 +8,11 @@ Users can log in and out of the site and have details about themselves.
 
 ### Installing
 
-* You will need to install the following packages via pip with the commands:
+* You will need to install the following via pip with the commands:
 * $ pip install schedule
 * $ pip install requests
 * $ pip install bcrypt
-* We used schedule/newsapi-python APIs for fetching our news stories and bcrypt API for user authentication.
+* We used the newsapi-python API for fetching our news stories and bcrypt API for user authentication. The schedule library aids the news API. 
 * Make sure you migrate/populate your database!
 
 ## Authors
@@ -25,7 +25,7 @@ Users can log in and out of the site and have details about themselves.
 
 ## Acknowledgments
 
-Links to APIs:
+Links:
 * [requests](https://docs.python-requests.org/en/latest/)
 * [schedule](https://schedule.readthedocs.io/en/stable/)
 * [bcrypt](https://docs.python-requests.org/en/latest/)
