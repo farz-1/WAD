@@ -3,7 +3,7 @@
 {% block headdata %}
 <title>Cars</title>
 
-{% load static %}
+{% load staticfiles %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/cars/cars.css' %}">
 {% endblock %}
 
@@ -14,7 +14,8 @@
 <div class="flex flex-row flex-wrap">
     {% for car in cars %}
     <a class="card m-2 pointer hover-shadow" href="{% url 'car_details' car.slug %}">
-        <div class="img mb-2" style="height: 100px; width: 250px">
+        <div class="img mb-2" style="height: 160px; width: 230px">
+            <img src="{% static 'images/Cars/' %}{{ car.slug }}.jpeg" alt="Picture of {{ car.name }}">
         </div>
         <h5> {{ car.model }} </h5>
     </a>

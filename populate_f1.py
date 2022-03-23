@@ -172,7 +172,6 @@ def populate():
         {'location': 'Abu Dhabi - United Arab Emirates', 'trackLength': '5.554km', 'date': '18/11-20/11', 'laps': 55,
          'time': '13:00-15:00'}]
 
-
     for i in constructor_list:
         add_constructor(i['name'], i['teamPrincipal'], i['nationality'], i['yearsActive'], i['raceEngineer'],i['about'])
 

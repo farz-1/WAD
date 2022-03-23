@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 
+
 {% block headdata %}
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/drivers/drivers.css' %}">
 <title>Drivers</title>
 {% endblock %}
 
@@ -12,7 +15,8 @@
 <div class="flex flex-row flex-wrap">
     {% for driver in drivers %}
     <a class="card hover-shadow m-2 pointer" href="{% url 'driver_details' driver.slug %}">
-        <div class="img mb-2" style="height: 100px; width: 250px">
+        <div class="img mb-2" style="height: 150px; width: 200px">
+            <img src="{% static 'images/Drivers/' %}{{ driver.slug }}.jpeg" alt="Picture of {{ driver.name }}">
         </div>
         <h5> {{ driver.name }} </h5>
     </a>

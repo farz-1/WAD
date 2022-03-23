@@ -20,3 +20,11 @@
      display: block;
      margin: auto;
   }
+
+ img {
+      margin-right: 16px;
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+  }
