@@ -19,6 +19,9 @@ def home(request):
 def about(request):
     return render(request, 'for1/about.html')
 
+def ratings(request):
+    return render(request, 'for1/cars/car.rating_form.html')
+
 
 @csrf_protect
 def register(request):
