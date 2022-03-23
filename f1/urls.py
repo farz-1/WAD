@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 
-from for1 import views_main, views_cars, views_drivers, views_constructors, views_schedule, views_news, views_leaderboard, views_profile,views_ratings
+from for1 import views_main, views_cars, views_drivers, views_constructors, views_schedule, views_news, views_leaderboard, views_profile
 
 urlpatterns = [
     # Accounts
@@ -34,6 +34,7 @@ urlpatterns = [
     path('about/', views_main.about, name='about'),
     path('register/', views_main.register, name='register'),
     path('login/', views_main.user_login, name='login'),
+
 
     # Views News
     path('news/', views_news.index, name='news'),
@@ -59,11 +60,11 @@ urlpatterns = [
 
     # Views Drivers
     path('drivers/', views_drivers.index, name='drivers'),
-    path('driver/<slug:slug>', views_drivers.details, name='driver_details'),
-    path('driver/<slug:slug>/rate', views_drivers.rate, name='driver_rate'),
+    path('driver/<slug:slug>', views_drivers.driver_details, name='driver_details'),
+    #path('driver/<slug:driver_name_slug>/rate', views_drivers.rate, name='driver_rate'),
 
     # Views Constructors
     path('constructors/', views_constructors.index, name='constructors'),
-    path('constructor/<slug:slug>', views_constructors.details, name='constructor_details'),
-    path('constructor/<slug:slug>/rate', views_constructors.rate, name='constructor_rate'),
-]
+    path('constructor/<slug:slug>', views_constructors.constructor_details, name='constructor_details'),
+    # path('constructor/<slug:constructor_name_slug>/rate', views_constructors.rate, name='constructor_rate'),
+         ]
