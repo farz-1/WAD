@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block headdata %}
-<title>Login</title>
+    <title>Login</title>
 {% endblock %}
 
 {% block main_content %}
@@ -14,17 +14,23 @@
 
                 {% csrf_token %}
                 <div class="flex flex-column">
+
+
                     <label for="email"><b>Username</b></label>
                     <input type="text" placeholder="Enter username" name="username" required>
                 </div>
 
                 <div class="flex flex-column">
+
+
                     <label for="password"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="password" required>
                 </div>
 
                 <div class="flex flex-row">
                     <div class="flex flex-column flex-fill justify-content-center">
+
+
                         <a style="margin-bottom: 4px" href="/register">No account yet? Register here!</a>
                         <a href="/accounts/password_reset">Password forgotten?</a>
                     </div>
