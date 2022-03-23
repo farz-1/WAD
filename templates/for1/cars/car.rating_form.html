@@ -1,55 +1,51 @@
 {% extends 'base.html' %}
 
 {% block headdata %}
-    <title>Cars</title>
+<title>Cars</title>
 
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/cars/car.ratings.css' %}">
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/cars/car.ratings.css' %}">
 {% endblock %}
 
 {% block main_content %}
 
-    <h1>
-        <small>Rating:</small>
-        <span>{{ car.model }}</span>
-    </h1>
+<h1>
+    <small>Rating:</small>
+    <span>{{ car.model }}</span>
+</h1>
 
-    <div class="card">
+<div class="card">
 
-        <div class="w-100 flex flex-column">
+    <div class="w-100 flex flex-column">
 
-            <form method="post" action="{% url 'car_rate' car.slug %}" enctype="multipart/form-data">
+        <form method="post" action="{% url 'car_rate' car.slug %}" enctype="multipart/form-data">
 
-                {% csrf_token %}
+            {% csrf_token %}
 
-                <table>
-                    {% for field in rating_form.Meta.fields %}
-                        <tr>
+            <table>
+            {% for field in rating_form.Meta.fields %}
+                <tr>
+                    <td>
+                        <label for="field" class="mr-2"><b>{{ field|title }}</b></label>
+                    </td>
 
-                            <td>
-                                <label class="rating-label">
-                                    <strong>{{ field|title }}</strong>
-                                    <input
-                                            class="rating"
-                                            max="5"
-                                            oninput="this.style.setProperty('--value', this.value)"
-                                            step="1"
-                                            type="range"
-                                            value="1">
-                                </LABEL>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </table>
+                    <td>
+                        <input required type="number" max="5" min="1" name="field">
+                    </td>
+                </tr>
+            {% endfor %}
+            </table>
 
-                <div class="flex justify-content-end">
-                    <button class="btn primary-button" type="submit">
-                        Submit
-                    </button>
-                </div>
+            <div class="flex justify-content-end">
+                <button class="btn primary-button" type="submit">
+                    Submit
+                </button>
+            </div>
 
-            </form>
-        </div>
+        </form>
     </div>
+</div>
+
+
 
 {% endblock %}
