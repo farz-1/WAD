@@ -118,6 +118,5 @@ class CarRatingForm(forms.ModelForm):
     class Meta:
         model = CarRating
         fields = ('overallRating', 'speed', 'aerodynamics', 'aesthetics', 'braking', 'engine')
-        exclude = ('userID','carID')
         
 
