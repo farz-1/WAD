@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from for1.models import Car
+from for1.models import Car, CarRating
 from for1.forms import CarRatingForm
 from django.contrib import messages
 
@@ -44,11 +44,25 @@ def rate(request, slug):
         print(rating_form)
 
         if rating_form.is_valid():
-            rating = rating_form.save(commit=False)
-            rating.userID = request.user
-            rating.carID = Car.objects.get(slug=slug)
-            rating.save()
+            userID = request.user
+            carID = Car.objects.get(slug=slug)
 
+            if CarRating.objects.filter(userID=userID, carID=carID).exists():
+                data = request.POST.dict()
+                print(data)
+                rating = CarRating.objects.get(userID=userID, carID=carID)
+                data.pop('csrfmiddlewaretoken')
+
+                for k, v in data.items():
+                    setattr(rating, k, int(v))
+
+            else:
+                rating = rating_form.save(commit=False)
+                print(rating)
+                rating.userID = userID
+                rating.carID = carID
+
+            rating.save()
             messages.success(request, "Rating submitted successfully")
             return redirect('cars')
 
