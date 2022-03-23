@@ -2,6 +2,7 @@ import os
 import requests
 import django
 import schedule
+import re
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'f1.settings')
 django.setup()
@@ -17,8 +18,10 @@ def get_news():
     News.objects.all().delete()
 
     for i in data.get("articles"):
+        clean = re.compile('<.*?>')
+        stripped_summary = re.sub(clean, '', i['description'])
         article = News(title=i['title'],
-                       summary=i['description'],
+                       summary=stripped_summary,
                        imageURL=i['urlToImage'],
                        articleURL=i['url'],
                        published=i['publishedAt'],
