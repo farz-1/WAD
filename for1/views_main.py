@@ -19,9 +19,6 @@ def home(request):
 def about(request):
     return render(request, 'for1/about.html')
 
-def ratings(request):
-    return render(request, 'for1/cars/car.rating_form.html')
-
 
 @csrf_protect
 def register(request):
@@ -35,6 +32,7 @@ def register(request):
             user = user_form.save()
             user.set_password(user.password)
             user.save()
+
             profile = profile_form.save(commit=False)
             profile.user = user
             if 'picture' in request.FILES:
@@ -49,18 +47,10 @@ def register(request):
                 fail_silently=False,
             )
 
-            messages.success(request, f"Account successfully created {user.username}")
-            messages.success(request, f"You are now logged in as {user.username}")
+            messages.success(request, "Account successfully created")
             return redirect('index')
 
         else:
-            pwd=user_form.password
-            email=user_form.email
-            if(messages in  user_form.as_data()):
-                if messages == 'pwd':
-                    messages.error(request,f"Selected password: {pwd} is not strong enough")
-                if messages=='email':
-                    messages.error(request,f"Declared {email} is not valid")
             messages.error(request, "Creation of the account unsuccessful. Please try again")
 
     else:
@@ -76,27 +66,22 @@ def register(request):
 @csrf_protect
 def user_login(request):
     if request.method == 'POST':
-        if request.user.is_authenticated:
-            return redirect('index')
+        username = request.POST.get('username')
+        password = request.POST.get('password')
 
-        if request.method == 'POST':
-            username = request.POST['username'].lower()
-            password = request.POST['password']
+        user = authenticate(username=username, password=password)
 
-            try:
-                user = User.objects.get(username=username)
-            except:
-                messages.error(request, 'Username does not exist')
-                return render(request, 'for1/users/user.login.html')
-
-            user = authenticate(request, username=username, password=password)
-
-            if user is not None:
+        if user:
+            if user.is_active:
                 login(request, user)
-                return redirect(request.GET['next'] if 'next' in request.GET else 'index')
+                messages.success(request, "Successfully logged in")
+                return redirect('index')
 
             else:
-                messages.error(request, 'Username OR password is incorrect')
+                messages.error(request, "Account disabled. Please re-verify your account.")
+
+        else:
+            messages.error(request, "Invalid login details.")
 
     return render(request, 'for1/users/user.login.html')
 
