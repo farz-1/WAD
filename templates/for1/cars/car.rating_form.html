@@ -26,11 +26,11 @@
             {% for field in rating_form.Meta.fields %}
                 <tr>
                     <td>
-                        <label for="field" class="mr-2"><b>{{ field|title }}</b></label>
+                        <label for="{{ field }}" class="mr-2"><b>{{ field|title }}</b></label>
                     </td>
 
                     <td>
-                        <input required type="number" max="5" min="1" name="field">
+                        <input required type="number" max="5" min="1" name="{{ field }}">
                     </td>
                 </tr>
             {% endfor %}

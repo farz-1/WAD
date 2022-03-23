@@ -45,8 +45,9 @@ def rate(request, slug):
 
         if rating_form.is_valid():
             rating = rating_form.save(commit=False)
+            print(rating)
             rating.userID = request.user
-            #rating.carID = slug
+            rating.carID = Car.objects.get(slug=slug)
             rating.save()
 
             messages.success(request, "Rating submitted successfully")
