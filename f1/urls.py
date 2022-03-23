@@ -60,11 +60,11 @@ urlpatterns = [
 
     # Views Drivers
     path('drivers/', views_drivers.index, name='drivers'),
-    path('driver/<slug:slug>', views_drivers.driver_details, name='driver_details'),
-    #path('driver/<slug:driver_name_slug>/rate', views_drivers.rate, name='driver_rate'),
+    path('driver/<slug:slug>', views_drivers.details, name='driver_details'),
+    path('driver/<slug:slug>/rate', views_drivers.rate, name='driver_rate'),
 
     # Views Constructors
     path('constructors/', views_constructors.index, name='constructors'),
-    path('constructor/<slug:slug>', views_constructors.constructor_details, name='constructor_details'),
-    # path('constructor/<slug:constructor_name_slug>/rate', views_constructors.rate, name='constructor_rate'),
-         ]
+    path('constructor/<slug:slug>', views_constructors.details, name='constructor_details'),
+    path('constructor/<slug:slug>/rate', views_constructors.rate, name='constructor_rate'),
+]

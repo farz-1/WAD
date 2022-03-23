@@ -15,7 +15,7 @@ def index(request):
     return render(request, 'for1/drivers/drivers.html', context=context_dict)
 
 
-def driver_details(request, slug):
+def details(request, slug):
     context_dict = {}
     
     try:
@@ -26,3 +26,6 @@ def driver_details(request, slug):
         context_dict['driver'] = None
         
     return render(request, 'for1/drivers/driver.details.html', context=context_dict)
+
+def rate(request, slug):
+    pass

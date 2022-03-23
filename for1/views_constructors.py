@@ -15,7 +15,7 @@ def index(request):
     return render(request, 'for1/constructors/constructors.html', context=context_dict)
 
 
-def constructor_details(request, slug):
+def details(request, slug):
     context_dict = {}
 
     try:
@@ -29,3 +29,7 @@ def constructor_details(request, slug):
         context_dict['constructor'] = None
 
     return render(request, 'for1/constructors/constructor.details.html', context=context_dict)
+
+
+def rate(request, slug):
+    pass
