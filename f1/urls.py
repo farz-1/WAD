@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 
-from for1 import views_main, views_cars, views_drivers, views_constructors, views_schedule, views_news, views_leaderboard, views_profile
+from for1 import views_main, views_cars, views_drivers, views_constructors, views_schedule, views_news, views_leaderboard, views_profile,views_ratings
 
 urlpatterns = [
     # Accounts
@@ -34,7 +34,7 @@ urlpatterns = [
     path('about/', views_main.about, name='about'),
     path('register/', views_main.register, name='register'),
     path('login/', views_main.user_login, name='login'),
-
+    path('ratings/', views_ratings.index, name='ratings'),
 
     # Views News
     path('news/', views_news.index, name='news'),
