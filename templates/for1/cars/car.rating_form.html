@@ -27,7 +27,7 @@
                         <tr>
 
                             <td>
-                                <label class="rating-label">
+                                <label class="rating-label" for="{{ field }}"></label>
                                     <strong>{{ field|title }}</strong>
                                     <input
                                             class="rating"
@@ -35,8 +35,8 @@
                                             oninput="this.style.setProperty('--value', this.value)"
                                             step="1"
                                             type="range"
-                                            value="1">
-                                </LABEL>
+                                            value="1"
+                                            name="{{ field }}">
                             </td>
                         </tr>
                     {% endfor %}

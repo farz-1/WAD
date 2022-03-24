@@ -324,8 +324,8 @@ class CarRating(models.Model):
                   self.engine]  # add new fields here.
         return sum(scores) / len(scores)  # this way allows for easier adding of new fields in future.
     
-    def __str__(self):
-        return f"USER: {self.userID}, CAR: {self.carID}"
+    # def __str__(self):
+    #     return f"USER: {self.userID}, CAR: {self.carID}"
 
     def save(self, *args, **kwargs):
         self.overallAverage = self.get_overall_average

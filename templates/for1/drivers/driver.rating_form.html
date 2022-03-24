@@ -25,10 +25,9 @@
                 <table>
                     {% for field in rating_form.Meta.fields %}
                         <tr>
-
                             <td>
-                                <label class="rating-label">
-                                    <strong>{{ field|title }}</strong>
+                                <strong>{{ field|title }}</strong>
+                                <label class="rating-label" for="{{ field }}"></label>
                                     <input
                                             class="rating"
                                             max="5"
@@ -36,7 +35,6 @@
                                             step="1"
                                             type="range"
                                             value="1">
-                                </LABEL>
                             </td>
                         </tr>
                     {% endfor %}
