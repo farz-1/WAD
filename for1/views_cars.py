@@ -31,6 +31,9 @@ def details(request, slug):
 
 
 def rate(request, slug):
+    if request.user.is_anonymous:
+        return redirect('profile')
+
     context_dict = {}
     if request.method == 'POST':
         rating_form = CarRatingForm(request.POST)

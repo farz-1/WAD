@@ -31,7 +31,11 @@ def details(request, slug):
 
 
 def rate(request, slug):
+    if request.user.is_anonymous:
+        return redirect('profile')
+
     context_dict = {}
+
     if request.method == 'POST':
         rating_form = DriverRatingForm(request.POST)
         context_dict['rating_form'] = rating_form
