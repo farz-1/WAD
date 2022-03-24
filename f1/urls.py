@@ -40,7 +40,9 @@ urlpatterns = [
     path('news/', views_news.index, name='news'),
 
     # Views Leaderboard
-    path('leaderboard/', views_leaderboard.index, name='leaderboard'),
+    path('leaderboard/driver', views_leaderboard.index_driver, name='leaderboard_driver'),
+    path('leaderboard/car', views_leaderboard.index_car, name='leaderboard_car'),
+    path('leaderboard/constructor', views_leaderboard.index_constructor, name='leaderboard_constructor'),
 
     # Views Profile
     path('profile/', views_profile.index, name='profile'),

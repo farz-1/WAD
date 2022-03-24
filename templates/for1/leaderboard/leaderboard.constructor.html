@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block headdata %}
+<title>Leaderboard</title>
+{% endblock %}
+
+{% block main_content %}
+
+<h1>Leaderboard Constructors</h1>
+
+<div class="flex">
+<div class="card m-2 w-100">
+
+    <table class="TablePage" width="100%">
+        <tr id="TableHeaders">
+            <th>Position</th>
+            <th>Constructor</th>
+            <th>Rating</th>
+        </tr>
+        {% for constructor in constructors %}
+            {% if forloop.counter0|divisibleby:2 %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ constructor.name }}</td>
+                    <td>{{ constructor.overallAverage }}</td>
+                </tr>
+            {% else %}
+                <tr class="EvenRow">
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ constructor.name }}</td>
+                    <td>{{ constructor.overallAverage }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+
+</div>
+</div>
+{% endblock %}

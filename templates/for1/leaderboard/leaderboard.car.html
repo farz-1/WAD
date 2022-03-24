@@ -6,7 +6,7 @@
 
 {% block main_content %}
 
-<h1>Leaderboard</h1>
+<h1>Leaderboard Cars</h1>
 
 <div class="flex">
 <div class="card m-2 w-100">
@@ -14,21 +14,21 @@
     <table class="TablePage" width="100%">
         <tr id="TableHeaders">
             <th>Position</th>
-            <th>Driver</th>
+            <th>Car</th>
             <th>Rating</th>
         </tr>
-        {% for driver in drivers %}
+        {% for car in cars %}
             {% if forloop.counter0|divisibleby:2 %}
                 <tr>
                     <td>{{ forloop.counter }}</td>
-                    <td>{{ driver.name }}</td>
-                    <td>{{ driver.overallAverage }}</td>
+                    <td>{{ car.model }}</td>
+                    <td>{{ car.overallAverage }}</td>
                 </tr>
             {% else %}
                 <tr class="EvenRow">
                     <td>{{ forloop.counter }}</td>
-                    <td>{{ driver.name }}</td>
-                    <td>{{ driver.overallAverage }}</td>
+                    <td>{{ car.model }}</td>
+                    <td>{{ car.overallAverage }}</td>
                 </tr>
             {% endif %}
         {% endfor %}

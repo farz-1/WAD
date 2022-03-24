@@ -58,10 +58,22 @@
             Profile
         </a>
 
-        {% url 'leaderboard' as url %}
-        <a href="{% url 'leaderboard' %}"
+        {% url 'leaderboard_driver' as url %}
+        <a href="{% url 'leaderboard_driver' %}"
             class="{% if request.path == url %}active{% endif %}">
-            Leaderboard
+            Leaderboard Drivers
+        </a>
+
+        {% url 'leaderboard_car' as url %}
+        <a href="{% url 'leaderboard_car' %}"
+            class="{% if request.path == url %}active{% endif %}">
+            Leaderboard Cars
+        </a>
+
+        {% url 'leaderboard_constructor' as url %}
+        <a href="{% url 'leaderboard_constructor' %}"
+            class="{% if request.path == url %}active{% endif %}">
+            Leaderboard Constructors
         </a>
 
         {% url 'news' as url %}
@@ -107,7 +119,7 @@
 
     </div>
 
-    <div class="flex-fill" style="margin: 0 250px 0 450px">
+    <div class="flex-fill" style="margin: 0 250px 0 480px">
     {% block main_content %}
     {% endblock %}
     </div>
