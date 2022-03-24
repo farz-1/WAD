@@ -46,7 +46,7 @@ def register(request):
             )
 
             messages.success(request, "Account successfully created")
-            return redirect('index')
+            return redirect('login')
 
         else:
             messages.error(request, "Creation of the account unsuccessful. Please try again")
