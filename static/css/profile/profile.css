@@ -1,10 +1,9 @@
 .profile-picture-container {
-    border: grey 1px solid;
-    border-radius: 100px;
-    margin: 20px;
-    height: 150px;
-    width: 150px;
-    object-fit: cover;
+    border: black 2px solid ;
+    border-radius: 10px;
+    margin: 5px;
+    height: 250px;
+    width: 250px;
 }
 
 .smaller-title {
@@ -17,10 +16,12 @@
 }
 
 .tr, td,th {
-  border: 1px #d2d2d2 solid;
-  text-align: center;
-  padding: 8px;
+    border: 2px solid #000000;
+    text-align: center;
+    padding: 8px;
+    background: #f1f1f1;
 }
+
 
 .td:nth-child(even) {
   background-color: #474e5d;
