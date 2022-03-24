@@ -50,7 +50,6 @@ def rate(request, slug):
 
             else:
                 rating = rating_form.save(commit=False)
-                print(rating)
                 rating.userID = userID
                 rating.carID = carID
 
