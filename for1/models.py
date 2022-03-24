@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.db.models import Avg
 from django.utils import timezone
 from django.template.defaultfilters import slugify
+from decimal import *
 
 
 class Constructor(models.Model):
@@ -190,15 +191,32 @@ class DriverRating(models.Model):
         scores = [self.overallRating, self.personality, self.aggressiveness, self.awareness, self.experience,
                   self.starts, self.pace, self.racecraft]  # add new fields here.
         return sum(scores) / len(scores)  # this way allows for easier adding of new fields in future.
+    
+    @property
+    def get_total_overall_average(self):
+        total=self.overallAverage
+        rating_count=1
+        driver_rating_set = DriverRating.objects.filter(driverID=self.driverID)
+
+    
+        driver = Driver.objects.get(name=self.driverID.name)
+        for rating in driver_rating_set.iterator():
+                total=total+float(rating.overallAverage)
+                rating_count+=1
+                
+        return total/rating_count
 
     def save(self, *args, **kwargs):
         self.overallAverage = self.get_overall_average
         ''' On save, update timestamps '''
         self.lastModified = timezone.now()
         update = Driver.objects.get(name=self.driverID.name)
-        rating = DriverRating.objects.filter(driverID=self.driverID).aggregate(Avg('overallAverage'))
-        print(rating)
-        update.overallAverage=rating['overallAverage__avg']
+        driver_rating_set = DriverRating.objects.filter(driverID=self.driverID)
+        if len(driver_rating_set)!=0:
+            new_rating = self.get_total_overall_average
+            update.overallAverage=new_rating
+        else:
+            update.overallAverage=self.overallAverage
         update.save()
         return super(DriverRating, self).save(*args, **kwargs)
 
