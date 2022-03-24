@@ -35,10 +35,10 @@ class Driver(models.Model):
     driverNumber = models.IntegerField()
     seasonsWon = models.IntegerField()
     podiumsWon = models.IntegerField()
-    constructor = models.ForeignKey(Constructor, on_delete=models.SET_NULL, null=True)
+    constructor = models.ForeignKey(Constructor, on_delete=models.SET_NULL)
     about = models.TextField(null=True)
     slug = models.SlugField(unique=True)
-    overallAverage = models.DecimalField(max_digits=4, decimal_places=2, null=True)
+    overallAverage = models.DecimalField(max_digits=4, decimal_places=2)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
@@ -120,9 +120,9 @@ class DriverRating(models.Model):
 
     userID = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    lastModified = models.DateTimeField()
+    lastModified = models.DateTimeField(null=True)
 
-    overallAverage = models.DecimalField(max_digits=4, decimal_places=2)
+    overallAverage = models.DecimalField(max_digits=4, decimal_places=2,null=True)
 
     overallRating = models.IntegerField(
         default=1,
@@ -324,9 +324,6 @@ class CarRating(models.Model):
                   self.engine]  # add new fields here.
         return sum(scores) / len(scores)  # this way allows for easier adding of new fields in future.
     
-    # def __str__(self):
-    #     return f"USER: {self.userID}, CAR: {self.carID}"
-
     def save(self, *args, **kwargs):
         self.overallAverage = self.get_overall_average
         ''' On save, update timestamps '''
