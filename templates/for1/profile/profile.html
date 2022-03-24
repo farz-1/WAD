@@ -12,42 +12,33 @@
     <div class="flex flex-row justify-content-between align-items-center">
         <h1>Your Profile</h1>
 
+        {% if user %}
         <a style="text-decoration: none" href="{% url 'profile_edit' %}">
             <button class="btn secondary-button">
                 Edit
             </button>
         </a>
+        {% endif %}
     </div>
 
 
-    {% if user.is_authenticated %}
+    {% if user %}
 
         <div class="flex flex-row">
 
             <div class="card m-2 w-33">
                 <div class="smaller-title">Profile Image</div>
-            <div class="m-2 flex justify-content-center align-items-center">
-                <div class="profile-picture-container">
-                    {% if user.profile_image %}
-                        <img src="{{user.profile_image}}">
-                    {% else %}
-                        <div class="h-100 w-100 flex justify-content-center align-items-center">
-                            <div>No Image set</div>
-                        </div>
-                    {% endif %}
-                </div>
-            </div>
-
-            <!--
-                    {% if user.profile_image %}
-                    <img src="{{user.profile_image}}">
-                    {% else %}
-                    <div class="h-100 w-100 flex justify-content-center align-items-center">
-                    <div>?</div>
+                <div class="m-2 flex justify-content-center align-items-center">
+                    <div class="profile-picture-container">
+                        {% if user_profile.picture %}
+                            <img src="{{user_profile.picture}}">
+                        {% else %}
+                            <div class="h-100 w-100 flex justify-content-center align-items-center">
+                                <div>No Image set</div>
+                            </div>
+                        {% endif %}
                     </div>
-                    {% endif %}
                 </div>
-                -->
             </div>
 
             <div class="card m-2 w-33">
@@ -160,108 +151,24 @@
         </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div class="card flex flex-row" style="margin-top: 1000px">
-
-            <div class="profile-picture-container">
-                {% if user.profile_image %}
-                <img src="{{user.profile_image}}">
-                {% else %}
-                    <div class="h-100 w-100 flex justify-content-center align-items-center">
-                    <div>?</div>
-                    </div>
-                {% endif %}
-            </div>
-
-        <table>
-            <tr>
-                <td>Username</td>
-                <td>{{user.username}}</td>
-            </tr>
-            <tr>
-                <td>E-Mail</td>
-                <td>{{user.email}}</td>
-            </tr>
-            <tr>
-                <td>Favourite Driver</td>
-                <td>{{ user_profile.favDriver }}</td>
-            </tr>
-        </table>
-
-        </div>
-
-
-
-
-
-    <form ACTION="/action_page.php">
-
-
-
-        <label for="team">Favourite Constructor:</label>
-        <select id="team" name="team">
-            <option value="volvo">Mercedes</option>
-            <option value="saab">McLaren</option>
-            <option value="fiat">Ferrari</option>
-            <option value="audi">AM</option>
-        </select>
-
-        <input type="submit">
-        <label for="cars">Favourite Racer:</label>
-        <select id="cars" name="cars">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="fiat">Fiat</option>
-            <option value="audi">Audi</option>
-        </select>
-
-        <input type="submit">
-
-        <h2>Bio</h2>
-
-        <textarea name="message" rows="10" cols="150">im a big knob</textarea>
-        <input type="submit">
-
-        <h1>Voting History</h1>
-        <table style="width:35%">
-            <tr>
-                <th>Event</th>
-                <th>Country</th>
-                <th>Dates</th>
-            </tr>
-            <tr>
-                <td>Alfreds Futterkiste</td>
-                <td>Maria Anders</td>
-                <td>Germany</td>
-            </tr>
-            <tr>
-                <td>Centro comercial Moctezuma</td>
-                <td>Francisco Chang</td>
-                <td>Mexico</td>
-            </tr>
-        </table>
-
-    </form>
-
-
     {% else %}
 
-    <h2>You're not logged in. Please log in or register first!</h2>
+    <div class="card">
 
-    <button ><a href="{% url 'login' %}" >Login</a></button>
-    <button><a href = "{% url 'register' %}">Register</a></button>
+        <h2>You're not logged in. Please log in or register first!</h2>
+
+        <div class="flex flex-row">
+            <a style="text-decoration: none" href="{% url 'login' %}" >
+                <button class="btn primary-button">Login</button>
+            </a>
+
+            <a style="text-decoration: none; margin-left: 24px" href = "{% url 'register' %}">
+                <button class="btn secondary-button">Register</button>
+            </a>
+        </div>
+
+    </div>
+
     {% endif %}
 
 {% endblock %}

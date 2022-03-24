@@ -6,20 +6,24 @@ from for1.models import Constructor, Driver, Car, CarRating, DriverRating, Const
 
 def index(request):
     context_dict = {}
-    user_profile = UserProfile.objects.get(user=request.user)
-    context_dict['user'] = request.user
-    context_dict['user_profile'] = user_profile
 
-    car_ratings = CarRating.objects.all().filter(userID=request.user)
-    context_dict['car_ratings'] = car_ratings
+    try:
+        user_profile = UserProfile.objects.get(user=request.user)
+        context_dict['user'] = request.user
+        context_dict['user_profile'] = user_profile
 
-    driver_ratings = DriverRating.objects.all().filter(userID=request.user)
-    context_dict['driver_ratings'] = driver_ratings
+        car_ratings = CarRating.objects.all().filter(userID=request.user)
+        context_dict['car_ratings'] = car_ratings
 
-    constructor_ratings = ConstructorRating.objects.all().filter(userID=request.user)
-    context_dict['constructor_ratings'] = constructor_ratings
+        driver_ratings = DriverRating.objects.all().filter(userID=request.user)
+        context_dict['driver_ratings'] = driver_ratings
 
-    print(car_ratings)
+        constructor_ratings = ConstructorRating.objects.all().filter(userID=request.user)
+        context_dict['constructor_ratings'] = constructor_ratings
+
+    except:
+        context_dict['user'] = None
+        context_dict['user_profile'] = None
 
     return render(request, 'for1/profile/profile.html', context=context_dict)
 
