@@ -8,13 +8,181 @@
 {% endblock %}
 
 {% block main_content %}
-    <h1>Your Profile</h1>
+
+    <div class="flex flex-row justify-content-between align-items-center">
+        <h1>Your Profile</h1>
+
+        <a style="text-decoration: none" href="{% url 'profile_edit' %}">
+            <button class="btn secondary-button">
+                Edit
+            </button>
+        </a>
+    </div>
+
+
     {% if user.is_authenticated %}
 
         <div class="flex flex-row">
 
+            <div class="card m-2 w-33">
+                <div class="smaller-title">Profile Image</div>
+            <div class="m-2 flex justify-content-center align-items-center">
+                <div class="profile-picture-container">
+                    {% if user.profile_image %}
+                        <img src="{{user.profile_image}}">
+                    {% else %}
+                        <div class="h-100 w-100 flex justify-content-center align-items-center">
+                            <div>No Image set</div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!--
+                    {% if user.profile_image %}
+                    <img src="{{user.profile_image}}">
+                    {% else %}
+                    <div class="h-100 w-100 flex justify-content-center align-items-center">
+                    <div>?</div>
+                    </div>
+                    {% endif %}
+                </div>
+                -->
+            </div>
+
+            <div class="card m-2 w-33">
+                <div class="smaller-title">Username</div>
+                <div class="mt-1 mb-3">{{ user.username }}</div>
+                <div class="smaller-title mt-3">E-Mail</div>
+                <div class="mt-1 mb-3">{{ user.email }}</div>
+                <div class="smaller-title mt-3">Date joined</div>
+                <div class="mt-1">{{ user.date_joined }}</div>
+            </div>
+
+            <div class="card m-2 w-33">
+                <div class="smaller-title">Favourite Driver</div>
+                <div class="mt-1 mb-3">{{ user_profile.favDriver }}</div>
+                <div class="smaller-title mt-3">Favourite Car</div>
+                <div class="mt-1 mb-3">{{ user_profile.favCar }}</div>
+                <div class="smaller-title mt-3">Favourite Constructor</div>
+                <div class="mt-1">{{ user_profile.favTeam }}</div>
+            </div>
+
+        </div>
+
+        <div class="card m-2" >
+            <div class="smaller-title">About me</div>
+            <p>{{ user_profile.aboutMe }}</p>
+        </div>
+
+        <div class="flex">
+        <div class="flex-fill card m-2">
+            <h3>Latest Driver Ratings</h3>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Personality</th>
+                    <th>Aggressiveness</th>
+                    <th>Awareness</th>
+                    <th>Experience</th>
+                    <th>Starts</th>
+                    <th>Pace</th>
+                    <th>Racecraft</th>
+                    <th>Overall Rating</th>
+                </tr>
+            {% for rating in driver_ratings %}
+                <tr>
+                    <td><a href="{% url 'driver_rate' rating.driverID.slug %}">{{ rating.driverID.name }}</a></td>
+                    <td>{{ rating.personality }}</td>
+                    <td>{{ rating.aggressiveness }}</td>
+                    <td>{{ rating.awareness }}</td>
+                    <td>{{ rating.experience }}</td>
+                    <td>{{ rating.starts }}</td>
+                    <td>{{ rating.pace }}</td>
+                    <td>{{ rating.racecraft }}</td>
+                    <td>{{ rating.overallRating }}</td>
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+        </div>
+
+        <div class="flex">
+        <div class="flex-fill card m-2">
+            <h3>Latest Car Ratings</h3>
+            <table>
+                <tr>
+                    <th>Model</th>
+                    <th>Speed</th>
+                    <th>Aerodynamics</th>
+                    <th>Aesthetics</th>
+                    <th>Braking</th>
+                    <th>Engine</th>
+                    <th>Overall Rating</th>
+                </tr>
+            {% for rating in car_ratings %}
+                <tr>
+                    <td><a href="{% url 'car_rate' rating.carID.slug %}">{{ rating.carID.model }}</a></td>
+                    <td>{{ rating.speed }}</td>
+                    <td>{{ rating.aerodynamics }}</td>
+                    <td>{{ rating.aesthetics }}</td>
+                    <td>{{ rating.braking }}</td>
+                    <td>{{ rating.engine }}</td>
+                    <td>{{ rating.overallRating }}</td>
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+        </div>
+
+        <div class="flex">
+        <div class="flex-fill card m-2">
+            <h3>Latest Constructor Ratings</h3>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Team Principle</th>
+                    <th>Race Strategy</th>
+                    <th>Pit Stops</th>
+                    <th>Overall Rating</th>
+                </tr>
+            {% for rating in constructor_ratings %}
+                <tr>
+                    <td><a href="{% url 'constructor_rate' rating.constructorID.slug %}">{{ rating.constructorID.name }}</a></td>
+                    <td>{{ rating.teamPrinciple }}</td>
+                    <td>{{ rating.raceStrategy }}</td>
+                    <td>{{ rating.pitStop }}</td>
+                    <td>{{ rating.overallRating }}</td>
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="card flex flex-row" style="margin-top: 1000px">
+
             <div class="profile-picture-container">
+                {% if user.profile_image %}
                 <img src="{{user.profile_image}}">
+                {% else %}
+                    <div class="h-100 w-100 flex justify-content-center align-items-center">
+                    <div>?</div>
+                    </div>
+                {% endif %}
             </div>
 
         <table>
@@ -26,9 +194,15 @@
                 <td>E-Mail</td>
                 <td>{{user.email}}</td>
             </tr>
+            <tr>
+                <td>Favourite Driver</td>
+                <td>{{ user_profile.favDriver }}</td>
+            </tr>
         </table>
 
         </div>
+
+
 
 
 

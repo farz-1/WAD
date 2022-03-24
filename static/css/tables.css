@@ -11,3 +11,7 @@
 .EvenRow {
     background-color: gainsboro;
 }
+
+table {
+    width: 100%;
+}

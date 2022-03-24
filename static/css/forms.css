@@ -2,9 +2,30 @@
 
 input {
     padding: 15px;
-    margin: 15px 0 32px 0;
+    margin: 16px 0;
     border: 1px solid transparent;
     background: #f1f1f1;
+    width: 100%;
+}
+
+select {
+    padding: 15px;
+    margin: 16px 0;
+    border: 1px solid transparent;
+    background: #f1f1f1;
+    width: 100%;
+}
+
+textarea {
+    padding: 15px;
+    margin: 16px 0;
+    border: 1px solid transparent;
+    background: #f1f1f1;
+    width: 100%;
+}
+
+label {
+    font-weight: 600;
 }
 
 input:hover {
