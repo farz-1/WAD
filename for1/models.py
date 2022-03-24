@@ -1,6 +1,7 @@
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models import Avg
 from django.utils import timezone
 from django.template.defaultfilters import slugify
 
