@@ -11,7 +11,7 @@
 
     <h1>
         <small>Rating:</small>
-        <span>{{ driver.model }}</span>
+        <span>{{ driver.name }}</span>
     </h1>
 
     <div class="card">
@@ -25,16 +25,18 @@
                 <table>
                     {% for field in rating_form.Meta.fields %}
                         <tr>
+
                             <td>
-                                <strong>{{ field|title }}</strong>
-                                <label class="rating-label" for="{{ field }}"></label>
-                                    <input
-                                            class="rating"
+                                <label class="rating-label">
+                                    <strong>{{ field|title }}</strong>
+                                    <input  class="rating"
                                             max="5"
                                             oninput="this.style.setProperty('--value', this.value)"
                                             step="1"
                                             type="range"
-                                            value="1">
+                                            value="1"
+                                            name="{{ field }}">
+                                </label>
                             </td>
                         </tr>
                     {% endfor %}

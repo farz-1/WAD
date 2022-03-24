@@ -1,5 +1,7 @@
-from django.shortcuts import render
-from for1.models import Constructor, Driver
+from django.shortcuts import render, redirect
+from for1.models import Constructor, ConstructorRating
+from for1.forms import ConstructorRatingForm
+from django.contrib import messages
 
 
 def index(request):
@@ -22,9 +24,6 @@ def details(request, slug):
         constructor = Constructor.objects.get(slug=slug)
         context_dict['constructor'] = constructor
 
-        drivers = Driver.objects.filter(constructor=constructor.name)
-        context_dict['drivers'] = drivers
-
     except Constructor.DoesNotExist:
         context_dict['constructor'] = None
 
@@ -32,4 +31,46 @@ def details(request, slug):
 
 
 def rate(request, slug):
-    pass
+    context_dict = {}
+    if request.method == 'POST':
+        rating_form = ConstructorRatingForm(request.POST)
+        context_dict['rating_form'] = rating_form
+
+        if rating_form.is_valid():
+            userID = request.user
+            constructorID = Constructor.objects.get(slug=slug)
+
+            if ConstructorRating.objects.filter(userID=userID, constructorID=constructorID).exists():
+                data = request.POST.dict()
+                rating = ConstructorRating.objects.get(userID=userID, constructorID=constructorID)
+                data.pop('csrfmiddlewaretoken')
+
+                for k, v in data.items():
+                    setattr(rating, k, int(v))
+
+            else:
+                rating = rating_form.save(commit=False)
+                rating.userID = userID
+                rating.constructorID = constructorID
+
+            rating.save()
+            messages.success(request, "Rating submitted successfully")
+            return redirect('constructors')
+
+        else:
+            messages.error(request, "Rating could not be submitted. Please try again")
+            return redirect('constructor_rate', slug)
+
+    else:
+        context_dict = {}
+        rating_form = ConstructorRatingForm()
+        context_dict['rating_form'] = rating_form
+
+        try:
+            constructor = Constructor.objects.get(slug=slug)
+            context_dict['constructor'] = constructor
+
+        except Constructor.DoesNotExist:
+            context_dict['constructor'] = None
+
+        return render(request, 'for1/constructors/constructor.rating_form.html', context=context_dict)

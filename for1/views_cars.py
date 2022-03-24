@@ -33,15 +33,8 @@ def details(request, slug):
 def rate(request, slug):
     context_dict = {}
     if request.method == 'POST':
-        print(request.POST)
-        print('RATE WITH POST')
         rating_form = CarRatingForm(request.POST)
         context_dict['rating_form'] = rating_form
-
-        print("XXXXXXXXXXXXXXXXXXxxxxxxxxxxxxxxxxxxxxxxxxxXx\n\n")
-        print(rating_form.errors.as_data())
-        print("XXXXXXXXXXXXXXXXXXxxxxxxxxxxxxxxxxxxxxxxxxxxXx\n\n")
-        print(rating_form)
 
         if rating_form.is_valid():
             userID = request.user
@@ -49,7 +42,6 @@ def rate(request, slug):
 
             if CarRating.objects.filter(userID=userID, carID=carID).exists():
                 data = request.POST.dict()
-                print(data)
                 rating = CarRating.objects.get(userID=userID, carID=carID)
                 data.pop('csrfmiddlewaretoken')
 
