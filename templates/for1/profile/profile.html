@@ -156,6 +156,14 @@
 
     {% else %}
 
+        {% if request.user.is_superuser %}
+
+            <div class="card me-2">
+                <h2>You, are the superuser. You don't have a profile page :(</h2>
+            </div>
+
+        {% else %}
+
         <div class="card">
 
             <h2>You're not logged in. Please log in or register first!</h2>
@@ -171,6 +179,8 @@
             </div>
 
         </div>
+
+        {% endif %}
 
     {% endif %}
 
