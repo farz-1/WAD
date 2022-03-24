@@ -15,6 +15,7 @@ class Constructor(models.Model):
     raceEngineer = models.CharField(max_length=50)
     about = models.TextField(null=True)
     slug = models.SlugField(unique=True)
+    overallAverage = models.DecimalField(max_digits=4, decimal_places=2,null=True,default=0.0)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
@@ -61,6 +62,7 @@ class Car(models.Model):
     constructor = models.ForeignKey(Constructor, on_delete=models.SET_NULL, null=True)
     about = models.TextField(null=True)
     slug = models.SlugField(unique=True)
+    overallAverage = models.DecimalField(max_digits=4, decimal_places=2,null=True,default=0.0)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.constructor.name)
@@ -270,13 +272,33 @@ class ConstructorRating(models.Model):
         scores = [self.overallRating, self.teamPrinciple, self.raceStrategy, self.pitStop]  # add new fields here.
         return sum(scores) / len(scores)  # this way allows for easier adding of new fields in future.
 
+    @property
+    def get_total_overall_average(self):
+        total=self.overallAverage
+        rating_count=1
+        constructor_rating_set = ConstructorRating.objects.filter(constructorID=self.constructorID)
+
+    
+        constructor = Constructor.objects.get(name=self.constructorID.name)
+        for rating in constructor_rating_set.iterator():
+                total=total+float(rating.overallAverage)
+                rating_count+=1
+                
+        return total/rating_count
 
     def save(self, *args, **kwargs):
         self.overallAverage = self.get_overall_average
         ''' On save, update timestamps '''
         self.lastModified = timezone.now()
+        update = Constructor.objects.get(name=self.constructorID.name)
+        constructor_rating_set = ConstructorRating.objects.filter(constructorID=self.constructorID)
+        if len(constructor_rating_set)!=0:
+            new_rating = self.get_total_overall_average
+            update.overallAverage=new_rating
+        else:
+            update.overallAverage=self.overallAverage
+        update.save()
         return super(ConstructorRating, self).save(*args, **kwargs)
-
 
 class CarRating(models.Model):
     carID = models.ForeignKey(Car, on_delete=models.CASCADE)
@@ -344,8 +366,32 @@ class CarRating(models.Model):
                   self.engine]  # add new fields here.
         return sum(scores) / len(scores)  # this way allows for easier adding of new fields in future.
     
+    @property
+    def get_total_overall_average(self):
+        total=self.overallAverage
+        rating_count=1
+        car_rating_set = CarRating.objects.filter(carID=self.carID)
+
+    
+        car = Car.objects.get(constructor=self.carID.constructor)
+        for rating in car_rating_set.iterator():
+                total=total+float(rating.overallAverage)
+                rating_count+=1
+                
+        return total/rating_count
+
     def save(self, *args, **kwargs):
         self.overallAverage = self.get_overall_average
         ''' On save, update timestamps '''
         self.lastModified = timezone.now()
+        update = Car.objects.get(constructor=self.carID.constructor)
+        car_rating_set = CarRating.objects.filter(carID=self.carID)
+        if len(car_rating_set)!=0:
+            new_rating = self.get_total_overall_average
+            update.overallAverage=new_rating
+        else:
+            update.overallAverage=self.overallAverage
+        update.save()
         return super(CarRating, self).save(*args, **kwargs)
+    
+    
