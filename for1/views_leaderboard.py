@@ -6,7 +6,7 @@ def index_driver(request):
     context_dict = {}
 
     try:
-        drivers = Driver.objects.all().order_by('overallAverage')
+        drivers = Driver.objects.all().order_by('-overallAverage')
         context_dict['drivers'] = drivers
 
     except:
@@ -19,7 +19,7 @@ def index_car(request):
     context_dict = {}
 
     try:
-        cars = Car.objects.all().order_by('overallAverage')
+        cars = Car.objects.all().order_by('-overallAverage')
         context_dict['cars'] = cars
 
     except:
@@ -32,7 +32,7 @@ def index_constructor(request):
     context_dict = {}
 
     try:
-        constructors = Constructor.objects.all().order_by('overallAverage')
+        constructors = Constructor.objects.all().order_by('-overallAverage')
         context_dict['constructors'] = constructors
 
     except:
