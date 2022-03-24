@@ -35,10 +35,10 @@ class Driver(models.Model):
     driverNumber = models.IntegerField()
     seasonsWon = models.IntegerField()
     podiumsWon = models.IntegerField()
-    constructor = models.ForeignKey(Constructor, on_delete=models.SET_NULL)
+    constructor = models.ForeignKey(Constructor, on_delete=models.SET_NULL,null=True)
     about = models.TextField(null=True)
     slug = models.SlugField(unique=True)
-    overallAverage = models.DecimalField(max_digits=4, decimal_places=2)
+    overallAverage = models.DecimalField(max_digits=4, decimal_places=2,null=True,default=0.0)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
@@ -195,6 +195,11 @@ class DriverRating(models.Model):
         self.overallAverage = self.get_overall_average
         ''' On save, update timestamps '''
         self.lastModified = timezone.now()
+        update = Driver.objects.get(name=self.driverID.name)
+        rating = DriverRating.objects.filter(driverID=self.driverID).aggregate(Avg('overallAverage'))
+        print(rating)
+        update.overallAverage=rating['overallAverage__avg']
+        update.save()
         return super(DriverRating, self).save(*args, **kwargs)
 
 
