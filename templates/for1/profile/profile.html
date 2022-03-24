@@ -30,16 +30,13 @@
             <div class="card m-2 w-33">
                 <div class="smaller-title">Profile Image</div>
                 <div class="m-2 flex justify-content-center align-items-center">
-                    <div class="profile-picture-container">
-
-                        {% if user_profile.picture %}
-                            <img src="{{ user_profile.picture }} " alt="not showing">
-                        {% else %}
-                            <div class="h-100 w-100 flex justify-content-center align-items-center">
-                                <div>No Image set</div>
-                            </div>
-                        {% endif %}
-                    </div>
+                    {% if profile_picture %}
+                        <img class="profile-picture-container" src="{{ profile_picture }}" alt="profile-picture">
+                    {% else %}
+                        <div class="h-100 w-100 flex justify-content-center align-items-center">
+                            <div>No Image set</div>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
 

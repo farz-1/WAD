@@ -23,8 +23,6 @@ def about(request):
 @csrf_protect
 def register(request):
     if request.method == 'POST':
-
-        print(request.POST)
         user_form = UserForm(request.POST)
         profile_form = UserProfilePictureForm(request.POST)
 

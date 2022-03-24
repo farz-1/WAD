@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 from for1 import views_main, views_cars, views_drivers, views_constructors, views_schedule, views_news, views_leaderboard, views_profile
@@ -70,4 +72,4 @@ urlpatterns = [
     path('constructors/', views_constructors.index, name='constructors'),
     path('constructor/<slug:slug>', views_constructors.details, name='constructor_details'),
     path('constructor/<slug:slug>/rate', views_constructors.rate, name='constructor_rate'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
