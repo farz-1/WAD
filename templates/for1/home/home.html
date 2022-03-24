@@ -3,6 +3,7 @@
 {% block headdata %}
     <title>For1</title>
     {% load static %}
+    {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/home/home.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script>
@@ -29,21 +30,28 @@
 {% block main_content %}
 
     <div class="m-2">
-        <img src="https://www.codemasters.com/wp-content/uploads/2020/04/2020banner.jpg">
+        <img src="{% static 'images/banner.jpg' %}">
     </div>
 
     <div class="flex">
         <div class="flex-fill card m-2">
             <h1 style="text-align: center">Welcome to For1!</h1>
-            <center><a href="https://twitter.com/F1" class="fa fa-twitter"></a>
-            <a href="https://www.facebook.com/Formula1/" class="fa fa-facebook"></a>
-            <a href="https://www.instagram.com/f1/" class="fa fa-instagram"></a>
-            <a href="https://www.youtube.com/channel/UCB_qr75-ydFVKSF9Dmo6izg" class="fa fa-youtube"></a></center>
-        </div>
+            <center>
+            <button class="icon" onclick="location.href='https://twitter.com/F1?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor'" type="button">
+                <img src="{% static 'images/Icons/twitter.png' %}" ></button>
+                <button class="icon" onclick="location.href='https://www.facebook.com/Formula1/'" type="button">
+                <img src="{% static 'images/Icons/facebook.jpg' %}" ></button>
+                <button class="icon" onclick="location.href='https://www.instagram.com/f1/?hl=en'" type="button">
+                <img src="{% static 'images/Icons/instagram.png' %}" ></button>
+            </center>
     </div>
+</div>
 
     <div class="card me-2">
-        <center><p style="font-size: 20px">
+        <center><p style="font-size: 20px"> Register to be able to make ratings! You can register for a profile <a class="homeLink" href="{% url 'register' %}"> here</a>. If you are an existing user login <a class="homeLink" href="{% url 'login' %}"> here</a>. Then you can go to <a class="homeLink" href="{% url 'drivers' %}"> drivers</a>, <a class="homeLink" href="{% url 'cars' %}"> cars</a>, <a class="homeLink" href="{% url 'constructors' %}"> constructors</a> and pick one to rate! Leaderboards for <a class="homeLink" href="{% url 'leaderboard_car' %}"> car</a>, <a class="homeLink" href="{% url 'leaderboard_driver' %}"> driver</a>, and <a class="homeLink" href="{% url 'leaderboard_constructor' %}"> constructor</a> collate all average ratings to see who is on top. Don't forget the <a class="homeLink" href="{% url 'schedule' %}"> schedule</a> to help you keep up with the races and the <a class="homeLink" href="{% url 'news' %}"> news page</a>  for all latest Formula One headlines!
+            <br>
+            <br>
+
             Formula One is the highest class of international racing for open-wheel
             single-seater formula racing cars sanctioned by the Fédération Internationale de l'Automobile.
             It was founded in 1950 and has 20 drivers, 10 teams and a variety of races to score points for the
