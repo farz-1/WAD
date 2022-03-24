@@ -2,64 +2,55 @@
 
 {% block headdata %}
     <title>For1</title>
-
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/home/home.css' %}">
+    <script>
+    var countDownDate = new Date("Nov 20, 2022 13:00:25").getTime();
+    var x = setInterval(function () {
+        var now = new Date().getTime();
+        var distance = countDownDate - now;
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+        document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "EXPIRED";
+        }
+    }, 1000);
+    </script>
 {% endblock %}
 
 
 {% block main_content %}
 
-    <img style="width: 100%;height:70%" src="https://www.codemasters.com/wp-content/uploads/2020/04/2020banner.jpg">
-    <div class="row">
-        <div class="column">
-            <div class="card">
-                <div class="container">
-                    <h2>About</h2>
-                    <p class="title">Get to know our Page</p>
-                    <p>Welcome to For1! Formula One is the highest class of international racing for open-wheel
-                        single-seater formula racing cars sanctioned by the Fédération Internationale de l'Automobile.
-                        It
-                        was founded in 1950 and has 20 drivers, 10 teams and a variety of races to score points for the
-                        aims
-                        to win the constructors or driver championship.</p>
-                </div>
-            </div>
+    <div class="m-2">
+        <img src="https://www.codemasters.com/wp-content/uploads/2020/04/2020banner.jpg">
+    </div>
+
+    <div class="flex">
+        <div class="flex-fill card m-2">
+            <h1 style="text-align: center">Welcome to For1</h1>
         </div>
+    </div>
 
-        <div class="column">
-            <div class="card">
-                <div class="container">
-                    <h2>Countdown to Abu Dhabi GP- finale of the 2022 season! </h2>
-                    <h1 style="color:orangered;"><p id="demo"></p></h1>
-
-                    <script>
-                        var countDownDate = new Date("Nov 20, 2022 13:00:25").getTime();
-                        var x = setInterval(function () {
-                            var now = new Date().getTime();
-                            var distance = countDownDate - now;
-                            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                            document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-                                + minutes + "m " + seconds + "s ";
-                            if (distance < 0) {
-                                clearInterval(x);
-                                document.getElementById("demo").innerHTML = "EXPIRED";
-                            }
-                        }, 1000);
-                    </script>
-                </div>
-                <p>
-                    <button class="button"><a href="/ratings">Click to make some ratings</a></button>
-                </p>
-
-            </div>
+    <div class="flex">
+        <div class="flex-fill card me-2">
+            <h2 style="text-align: center">Countdown to Abu Dhabi GP- finale of the 2022 season! </h2>
+            <h1 style="color:orangered; height:45px; text-align: center" id="countdown">Loading...</h1>
         </div>
+    </div>
 
+    <div class="card me-2">
+        <p style="font-size: 16px">
+            Formula One is the highest class of international racing for open-wheel
+            single-seater formula racing cars sanctioned by the Fédération Internationale de l'Automobile.
+            It was founded in 1950 and has 20 drivers, 10 teams and a variety of races to score points for the
+            aims to win the constructors or driver championship.
+        </p>
     </div>
 
 {% endblock %}

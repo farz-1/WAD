@@ -35,10 +35,15 @@
 }
 
 .back-button {
+    font-weight: 600;
+    background: transparent;
+    min-width: 0;
+    padding-left: 8px;
+    margin-left: 0;
     color: #555555;
     transition: 200ms ease-out;
 }
 
 .back-button:hover {
-    color: #333333;
+    color: black;
 }
