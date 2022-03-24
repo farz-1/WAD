@@ -22,12 +22,14 @@ def index(request):
         constructor_ratings = ConstructorRating.objects.all().filter(userID=request.user)
         context_dict['constructor_ratings'] = constructor_ratings
 
+        profile_picture = str(settings.MEDIA_URL) + str(user_profile.picture)
+        context_dict['profile_picture'] = profile_picture
+
     except:
         context_dict['user'] = None
         context_dict['user_profile'] = None
 
-    profile_picture = str(settings.MEDIA_URL) + str(user_profile.picture)
-    context_dict['profile_picture'] = profile_picture
+
 
     return render(request, 'for1/profile/profile.html', context=context_dict)
 

@@ -30,12 +30,16 @@
                         <tr>
                             <td><label class="rating-label">About Me</label></td>
                             <td>
-                                <textarea  style="width:600px" rows="4" name="aboutMe" type="textfield">{{ user_profile.aboutMe }}</textarea>
+                                <textarea rows="4" name="aboutMe" type="textfield">{{ user_profile.aboutMe }}</textarea>
                             </td>
                         </tr>
                         <tr>
                             <td><label class="rating-label">Picture</label></td>
-                            <td><input id="picture" type="file" name="picture" capture style="width:600px"></td>
+                            <td>
+                                <div>
+                                <input id="picture" type="file" name="picture" capture>
+                            </div>
+                            </td>
                         </tr>
                     </table>
                 </div>
