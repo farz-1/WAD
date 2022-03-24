@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block headdata %}
-    <title>Constrcutors</title>
+    <title>Constructors</title>
 
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/cars/car.ratings.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/constructors/constructor.ratings.css' %}">
 {% endblock %}
 
 {% block main_content %}
@@ -25,18 +25,17 @@
                 <table>
                     {% for field in rating_form.Meta.fields %}
                         <tr>
-
                             <td>
                                 <label class="rating-label">
                                     <strong>{{ field|title }}</strong>
-                                    <input
-                                            class="rating"
+                                    <input  class="rating"
                                             max="5"
                                             oninput="this.style.setProperty('--value', this.value)"
                                             step="1"
                                             type="range"
-                                            value="1">
-                                </LABEL>
+                                            value="1"
+                                            name="{{ field }}">
+                                </label>
                             </td>
                         </tr>
                     {% endfor %}
