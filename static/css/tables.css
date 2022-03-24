@@ -1,17 +1,50 @@
-#TableHeaders {
-    background-color: grey;
-    color: white;
-}
-
 .TablePage {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.EvenRow {
-    background-color: gainsboro;
-}
-
-table {
+    font-family: sans-serif;
+    border-collapse: collapse;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.TablePage thead tr{
+    background-color: #FF1801;
+    color: #ffffff;
+    text-align: left;
+}
+
+.TablePage th, .TablePage td {
+    padding: 8px 15px;
+}
+
+.TablePage tbody tr td {
+    margin-left: 10px;
+}
+
+.TablePage tbody tr {
+    border-bottom: thin solid #dddddd;
+}
+
+.TablePage tbody tr:nth-of-type(even){
+    background-color: gainsboro;
+    border-bottom: thin solid gainsboro;
+}
+
+.TablePage tbody tr:last-of-type{
+    border-bottom: thick solid #FF1801;
+}
+
+.TablePage tbody tr:hover{
+    font-weight: bold;
+    color: red;
+}
+
+td::after {
+    display: block;
+    content:attr(title);
+    font-weight: 600;
+    height: 1px;
+    margin-bottom: -1px;
+    visibility: hidden;
+    overflow: hidden;
 }
