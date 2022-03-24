@@ -78,36 +78,37 @@ img {
   border-radius: 8px;
 }
 
-.fa {
-  padding: 20px;
-  font-size: 30px;
-  width: 50px;
-  text-align: center;
+.icon{
+      width: 5%;
+      object-fit: cover;
+      border-radius: 8px;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden; 
+}
+
+.homeLink:link {
+  color: red;
+  background-color: transparent;
   text-decoration: none;
-  margin: 5px 2px;
-    border-radius: 20%;
 }
 
-.fa:hover {
-    opacity: 0.7;
+.homeLink:visited {
+  color: red;
+  background-color: transparent;
+  text-decoration: none;
 }
 
-.fa-twitter {
-  background: #55ACEE;
-  color: white;
+.homeLink:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
 }
 
-.fa-facebook {
-  background: #3B5998;
-  color: white;
-}
-
-.fa-instagram {
-  background: #125688;
-  color: white;
-}
-
-.fa-youtube {
-  background: #bb0000;
-  color: white;
+.homeLink:active {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
 }
