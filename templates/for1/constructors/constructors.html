@@ -16,7 +16,7 @@
     <div class="w-25">
         <a style="text-decoration: none" href="{% url 'constructor_details' constructor.slug %}">
             <div class="card pointer hover-shadow m-2">
-                <div class="img mb-2" style="height:370px; width: 100%">
+                <div class="img mb-2 flex justify-content-center align-items-center" style="height:200px; width: 100%">
                     <img src="{% static 'images/Logos/' %}{{ constructor.slug }}.jpeg"
                          alt="Picture of {{ constructor.name }}" >
                 </div>
