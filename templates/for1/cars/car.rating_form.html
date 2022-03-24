@@ -4,7 +4,7 @@
     <title>Cars</title>
 
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/cars/car.ratings.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/drivers/drivers.ratings.css' %}">
 {% endblock %}
 
 {% block main_content %}
@@ -25,9 +25,8 @@
                 <table>
                     {% for field in rating_form.Meta.fields %}
                         <tr>
-
                             <td>
-                                <label class="rating-label" for="{{ field }}"></label>
+                                <label class="rating-label" for="{{ field }}">
                                     <strong>{{ field|title }}</strong>
                                     <input
                                             class="rating"
@@ -37,6 +36,7 @@
                                             type="range"
                                             value="1"
                                             name="{{ field }}">
+                                </label>
                             </td>
                         </tr>
                     {% endfor %}

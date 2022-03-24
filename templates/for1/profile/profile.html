@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block headdata %}
-<title>My Profile</title>
+    <title>My Profile</title>
 
-{% load static %}
-<link rel="stylesheet" type='text/css' href="{% static 'css/profile/profile.css' %}">
+    {% load static %}
+    <link rel="stylesheet" type='text/css' href="{% static 'css/profile/profile.css' %}">
 {% endblock %}
 
 {% block main_content %}
@@ -13,11 +13,11 @@
         <h1>Your Profile</h1>
 
         {% if user %}
-        <a style="text-decoration: none" href="{% url 'profile_edit' %}">
-            <button class="btn secondary-button">
-                Edit
-            </button>
-        </a>
+            <a style="text-decoration: none" href="{% url 'profile_edit' %}">
+                <button class="btn secondary-button">
+                    Edit
+                </button>
+            </a>
         {% endif %}
     </div>
 
@@ -30,8 +30,9 @@
                 <div class="smaller-title">Profile Image</div>
                 <div class="m-2 flex justify-content-center align-items-center">
                     <div class="profile-picture-container">
+
                         {% if user_profile.picture %}
-                            <img src="{{user_profile.picture}}">
+                            <img src="{{ user_profile.picture }}">
                         {% else %}
                             <div class="h-100 w-100 flex justify-content-center align-items-center">
                                 <div>No Image set</div>
@@ -61,114 +62,117 @@
 
         </div>
 
-        <div class="card m-2" >
+        <div class="card m-2">
             <div class="smaller-title">About me</div>
             <p>{{ user_profile.aboutMe }}</p>
         </div>
 
         <div class="flex">
-        <div class="flex-fill card m-2">
-            <h3>Latest Driver Ratings</h3>
-            <table>
-                <tr>
-                    <th>Name</th>
-                    <th>Personality</th>
-                    <th>Aggressiveness</th>
-                    <th>Awareness</th>
-                    <th>Experience</th>
-                    <th>Starts</th>
-                    <th>Pace</th>
-                    <th>Racecraft</th>
-                    <th>Overall Rating</th>
-                </tr>
-            {% for rating in driver_ratings %}
-                <tr>
-                    <td><a href="{% url 'driver_rate' rating.driverID.slug %}">{{ rating.driverID.name }}</a></td>
-                    <td>{{ rating.personality }}</td>
-                    <td>{{ rating.aggressiveness }}</td>
-                    <td>{{ rating.awareness }}</td>
-                    <td>{{ rating.experience }}</td>
-                    <td>{{ rating.starts }}</td>
-                    <td>{{ rating.pace }}</td>
-                    <td>{{ rating.racecraft }}</td>
-                    <td>{{ rating.overallRating }}</td>
-                </tr>
-            {% endfor %}
-            </table>
-        </div>
-        </div>
-
-        <div class="flex">
-        <div class="flex-fill card m-2">
-            <h3>Latest Car Ratings</h3>
-            <table>
-                <tr>
-                    <th>Model</th>
-                    <th>Speed</th>
-                    <th>Aerodynamics</th>
-                    <th>Aesthetics</th>
-                    <th>Braking</th>
-                    <th>Engine</th>
-                    <th>Overall Rating</th>
-                </tr>
-            {% for rating in car_ratings %}
-                <tr>
-                    <td><a href="{% url 'car_rate' rating.carID.slug %}">{{ rating.carID.model }}</a></td>
-                    <td>{{ rating.speed }}</td>
-                    <td>{{ rating.aerodynamics }}</td>
-                    <td>{{ rating.aesthetics }}</td>
-                    <td>{{ rating.braking }}</td>
-                    <td>{{ rating.engine }}</td>
-                    <td>{{ rating.overallRating }}</td>
-                </tr>
-            {% endfor %}
-            </table>
-        </div>
+            <div class="flex-fill card m-2">
+                <h3>Latest Driver Ratings</h3>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Personality</th>
+                        <th>Aggressiveness</th>
+                        <th>Awareness</th>
+                        <th>Experience</th>
+                        <th>Starts</th>
+                        <th>Pace</th>
+                        <th>Racecraft</th>
+                        <th>Overall Rating</th>
+                    </tr>
+                    {% for rating in driver_ratings %}
+                        <tr>
+                            <td><a href="{% url 'driver_rate' rating.driverID.slug %}">{{ rating.driverID.name }}</a>
+                            </td>
+                            <td>{{ rating.personality }}</td>
+                            <td>{{ rating.aggressiveness }}</td>
+                            <td>{{ rating.awareness }}</td>
+                            <td>{{ rating.experience }}</td>
+                            <td>{{ rating.starts }}</td>
+                            <td>{{ rating.pace }}</td>
+                            <td>{{ rating.racecraft }}</td>
+                            <td>{{ rating.overallRating }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
         </div>
 
         <div class="flex">
-        <div class="flex-fill card m-2">
-            <h3>Latest Constructor Ratings</h3>
-            <table>
-                <tr>
-                    <th>Name</th>
-                    <th>Team Principle</th>
-                    <th>Race Strategy</th>
-                    <th>Pit Stops</th>
-                    <th>Overall Rating</th>
-                </tr>
-            {% for rating in constructor_ratings %}
-                <tr>
-                    <td><a href="{% url 'constructor_rate' rating.constructorID.slug %}">{{ rating.constructorID.name }}</a></td>
-                    <td>{{ rating.teamPrinciple }}</td>
-                    <td>{{ rating.raceStrategy }}</td>
-                    <td>{{ rating.pitStop }}</td>
-                    <td>{{ rating.overallRating }}</td>
-                </tr>
-            {% endfor %}
-            </table>
-
+            <div class="flex-fill card m-2">
+                <h3>Latest Car Ratings</h3>
+                <table>
+                    <tr>
+                        <th>Model</th>
+                        <th>Speed</th>
+                        <th>Aerodynamics</th>
+                        <th>Aesthetics</th>
+                        <th>Braking</th>
+                        <th>Engine</th>
+                        <th>Overall Rating</th>
+                    </tr>
+                    {% for rating in car_ratings %}
+                        <tr>
+                            <td><a href="{% url 'car_rate' rating.carID.slug %}">{{ rating.carID.model }}</a></td>
+                            <td>{{ rating.speed }}</td>
+                            <td>{{ rating.aerodynamics }}</td>
+                            <td>{{ rating.aesthetics }}</td>
+                            <td>{{ rating.braking }}</td>
+                            <td>{{ rating.engine }}</td>
+                            <td>{{ rating.overallRating }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
         </div>
+
+        <div class="flex">
+            <div class="flex-fill card m-2">
+                <h3>Latest Constructor Ratings</h3>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Team Principle</th>
+                        <th>Race Strategy</th>
+                        <th>Pit Stops</th>
+                        <th>Overall Rating</th>
+                    </tr>
+                    {% for rating in constructor_ratings %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'constructor_rate' rating.constructorID.slug %}">{{ rating.constructorID.name }}</a>
+                            </td>
+                            <td>{{ rating.teamPrinciple }}</td>
+                            <td>{{ rating.raceStrategy }}</td>
+                            <td>{{ rating.pitStop }}</td>
+                            <td>{{ rating.overallRating }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+
+            </div>
         </div>
 
 
     {% else %}
 
-    <div class="card">
+        <div class="card">
 
-        <h2>You're not logged in. Please log in or register first!</h2>
+            <h2>You're not logged in. Please log in or register first!</h2>
 
-        <div class="flex flex-row">
-            <a style="text-decoration: none" href="{% url 'login' %}" >
-                <button class="btn primary-button">Login</button>
-            </a>
+            <div class="flex flex-row">
+                <a style="text-decoration: none" href="{% url 'login' %}">
+                    <button class="btn primary-button">Login</button>
+                </a>
 
-            <a style="text-decoration: none; margin-left: 24px" href = "{% url 'register' %}">
-                <button class="btn secondary-button">Register</button>
-            </a>
+                <a style="text-decoration: none; margin-left: 24px" href="{% url 'register' %}">
+                    <button class="btn secondary-button">Register</button>
+                </a>
+            </div>
+
         </div>
-
-    </div>
 
     {% endif %}
 
