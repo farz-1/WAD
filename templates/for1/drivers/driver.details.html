@@ -27,49 +27,49 @@
 
     <div class="flex flex-row">
 
-    <div class="card w-25 m-2">
-        <div class="img w-100 h-100">
+    <div class="card w-33 m-2">
+        <div class="img w-100 h-100 flex justify-content-center align-items-center">
             <img src="{% static 'images/Drivers/' %}{{ driver.slug }}.jpeg" alt="Picture of {{ driver.name }}">
         </div>
     </div>
 
-    <div class="card w-75 flex flex-column m-2">
+    <div class="card flex-fill flex flex-column m-2 justify-content-center">
         <table>
             <tr>
-                <td><h3>Name</h3></td>
-                <td>{{ driver.name }}</td>
+                <td><div class="smaller-title">Name</div></td>
+                <td><div class="mt-2 mb-2">{{ driver.name }}</div></td>
             </tr>
             <tr>
-                <td><h3>Constructor</h3></td>
-                <td>{{ driver.constructor }}</td>
+                <td><div class="smaller-title">Constructor</div></td>
+                <td><div class="mt-2 mb-2">{{ driver.constructor }}</div></td>
             </tr>
             <tr>
-                <td><h3>Date of Birth</h3></td>
-                <td>{{ driver.DOB }}</td>
+                <td><div class="smaller-title">Date of Birth</div></td>
+                <td><div class="mt-2 mb-2">{{ driver.DOB }}</div></td>
             </tr>
             <tr>
-                <td><h3>Height<</h3></td>
-                <td>{{ driver.height }}</td>
+                <td><div class="smaller-title">Height</div></td>
+                <td><div class="mt-2 mb-2">{{ driver.height }}</div></td>
             </tr>
             <tr>
-                <td><h3>Weight</h3></td>
-                <td>{{ driver.weight }}</td>
+                <td><div class="smaller-title">Weight</div></td>
+               <td><div class="mt-2 mb-2">{{ driver.weight }}</div></td>
             </tr>
             <tr>
-                <td><h3>Nationality</h3></td>
-                <td>{{ driver.nationality }}</td>
+                <td><div class="smaller-title">Nationality</div></td>
+                <td><div class="mt-2 mb-2">{{ driver.nationality }}</div></td>
             </tr>
             <tr>
-                <td><h3>Driver Number</h3></td>
-                <td>{{ driver.driverNumber }}</td>
+                <td><div class="smaller-title">Driver Number</div></td>
+                <td><div class="mt-2 mb-2">{{ driver.driverNumber }}</div></td>
             </tr>
             <tr>
-                <td><h3>World Championships</h3></td>
-                <td>{{ driver.seasonsWon }}</td>
+                <td><div class="smaller-title">World Championships</div></td>
+               <td><div class="mt-2 mb-2">{{ driver.seasonsWon }}</div></td>
             </tr>
             <tr>
-                <td><h3>Podiums</h3></td>
-                <td>{{ driver.podiumsWon }}</td>
+                <td><div class="smaller-title">Podiums won</div></td>
+                <td><div class="mt-2 mb-2">{{ driver.podiumsWon }}</div></td>
             </tr>
         </table>
     </div>

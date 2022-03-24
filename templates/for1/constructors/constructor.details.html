@@ -27,33 +27,33 @@
 
     <div class="flex flex-row">
 
-    <div class="card w-25 m-2">
-        <div class="img w-100 h-100">
+    <div class="card w-33 m-2">
+        <div class="img w-100 h-100 flex justify-content-center align-items-center">
             <img src="{% static 'images/Logos/' %}{{ constructor.slug }}.jpeg" alt="Picture of {{ constructor.name }}">
         </div>
     </div>
 
-    <div class="card w-75 flex flex-column m-2">
+    <div class="card flex-fill flex flex-column m-2 justify-content-center">
         <table>
             <tr>
-                <td><h3>Name</h3></td>
-                <td>{{ constructor.name }}</td>
+                <td><div class="smaller-title">Name</div></td>
+                <td><div class="mt-2 mb-2">{{ constructor.name }}</div></td>
             </tr>
             <tr>
-                <td><h3>Team Principal</h3></td>
-                <td>{{ constructor.teamPrincipal }}</td>
+                <td><div class="smaller-title">Team Principal</div></td>
+                <td><div class="mt-2 mb-2">{{ constructor.teamPrincipal }}</div></td>
             </tr>
             <tr>
-                <td><h3>Race Engineer</h3></td>
-                <td>{{ constructor.raceEngineer }}</td>
+                <td><div class="smaller-title">Race Engineer</div></td>
+                <td><div class="mt-2 mb-2">{{ constructor.raceEngineer }}</div></td>
             </tr>
             <tr>
-                <td><h3>Nationality</h3></td>
-                <td>{{ constructor.nationality }}</td>
+                <td><div class="smaller-title">Nationality</div></td>
+                <td><div class="mt-2 mb-2">{{ constructor.nationality }}</div></td>
             </tr>
             <tr>
-                <td><h3>Years active</h3></td>
-                <td>{{ constructor.yearsActive }}</td>
+                <td><div class="smaller-title">Years active</div></td>
+                <td><div class="mt-2 mb-2">{{ constructor.yearsActive }}</div></td>
             </tr>
 
         </table>

@@ -27,37 +27,37 @@
 
     <div class="flex flex-row">
 
-    <div class="card w-25 m-2">
-        <div class="img w-100h-100">
+    <div class="card w-33 m-2">
+        <div class="img w-100 h-100 flex justify-content-center align-items-center">
             <img src="{% static 'images/Cars/' %}{{ car.slug }}.jpeg" alt="Picture of {{ car.name }}">
         </div>
     </div>
 
-    <div class="card w-75 flex flex-column m-2">
+    <div class="card flex-fill flex flex-column m-2 justify-content-center">
         <table>
             <tr>
-                <td><h3>Model</h3></td>
-                <td>{{ car.model }}</td>
+                <td><div class="smaller-title">Model</div></td>
+                <td><div class="mt-2 mb-2">{{ car.model }}</div></td>
             </tr>
             <tr>
-                <td><h3>Horsepower</h3></td>
-                <td>{{ car.horsepower }}</td>
+                <td><div class="smaller-title">Horsepower</div></td>
+                <td><div class="mt-2 mb-2">{{ car.horsepower }}</div></td>
             </tr>
             <tr>
-                <td><h3>Engine</h3></td>
-                <td>{{ car.engine }}</td>
+                <td><div class="smaller-title">Engine</div></td>
+                <td><div class="mt-2 mb-2">{{ car.engine }}</div></td>
             </tr>
             <tr>
-                <td><h3>Weight</h3></td>
-                <td>{{ car.weight }}</td>
+                <td><div class="smaller-title">Weight</div></td>
+                <td><div class="mt-2 mb-2">{{ car.weight }}</div></td>
             </tr>
             <tr>
-                <td><h3>Gearbox</h3></td>
-                <td>{{ car.gearbox }}</td>
+                <td><div class="smaller-title">Gearbox</div></td>
+                <td><div class="mt-2 mb-2">{{ car.gearbox }}</div></td>
             </tr>
             <tr>
-                <td><h3>Constructor</h3></td>
-                <td>{{ car.constructor }}</td>
+                <td><div class="smaller-title">Constructor</div></td>
+                <td><div class="mt-2 mb-2">{{ car.constructor }}</div></td>
             </tr>
         </table>
     </div>

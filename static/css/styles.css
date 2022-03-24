@@ -39,7 +39,11 @@ h1 {
     display: flex;
 }
 
-
 .pointer {
     cursor: pointer;
+}
+
+
+.smaller-title {
+    font-weight: 600;
 }
