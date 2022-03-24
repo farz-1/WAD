@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from for1.forms import UserProfileForm, UserProfile
+from for1.forms import UserProfileForm, UserProfile, UserProfilePictureForm
 from django.contrib import messages
 from for1.models import Constructor, Driver, Car, CarRating, DriverRating, ConstructorRating
 from django.conf import settings
@@ -51,12 +51,21 @@ def edit(request):
         profile_edit_form = UserProfileForm(instance=user_profile, data=request.POST)
         context_dict['profile_edit_form'] = profile_edit_form
 
+
     except profile_edit_form.DoesNotExist:
         context_dict['profile_edit_form'] = None
 
     if request.method == 'POST':
-        if profile_edit_form.is_valid():
-            profile_edit_form.save()
+        picture_form = UserProfilePictureForm(instance=user_profile,data=request.POST)
+
+        if profile_edit_form.is_valid() and picture_form.is_valid():
+            saved_form = profile_edit_form.save()
+
+            profile = picture_form.save(commit=False)
+            if 'picture' in request.FILES:
+                profile.picture = request.FILES['picture']
+                profile.save()
+            saved_form.save()
             messages.success(request, "Profile edited successfully")
             return redirect('profile')
 

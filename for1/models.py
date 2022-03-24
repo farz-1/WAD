@@ -106,7 +106,7 @@ class UserProfile(models.Model):
     favCar = models.ForeignKey(Car, on_delete=models.SET_NULL, null=True)
     favTeam = models.ForeignKey(Constructor, on_delete=models.SET_NULL, null=True)
     favDriver = models.ForeignKey(Driver, on_delete=models.SET_NULL, null=True)
-    aboutMe = models.CharField(max_length=256)
+    aboutMe = models.CharField(max_length=256,null=True)
     picture = models.ImageField(upload_to='media/profile_images', blank=True)
     slug = models.SlugField(unique=True)
 
