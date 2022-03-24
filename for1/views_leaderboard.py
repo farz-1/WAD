@@ -13,3 +13,4 @@ def index(request):
         context_dict['drivers'] = None
 
     return render(request, 'for1/leaderboard/leaderboard.html', context=context_dict)
+

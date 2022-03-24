@@ -34,10 +34,10 @@ class Driver(models.Model):
     driverNumber = models.IntegerField()
     seasonsWon = models.IntegerField()
     podiumsWon = models.IntegerField()
-    constructor = models.ForeignKey(Constructor, on_delete=models.SET_NULL, null=True)
+    constructor = models.ForeignKey(Constructor, on_delete=models.SET_NULL,null=True)
     about = models.TextField(null=True)
     slug = models.SlugField(unique=True)
-    overallAverage = models.DecimalField(max_digits=4, decimal_places=2, null=True)
+    overallAverage = models.DecimalField(max_digits=4, decimal_places=2,null=True,default=0.0)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
@@ -119,9 +119,9 @@ class DriverRating(models.Model):
 
     userID = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    lastModified = models.DateTimeField()
+    lastModified = models.DateTimeField(null=True)
 
-    overallAverage = models.DecimalField(max_digits=4, decimal_places=2)
+    overallAverage = models.DecimalField(max_digits=4, decimal_places=2,null=True)
 
     overallRating = models.IntegerField(
         default=1,
@@ -194,6 +194,11 @@ class DriverRating(models.Model):
         self.overallAverage = self.get_overall_average
         ''' On save, update timestamps '''
         self.lastModified = timezone.now()
+        update = Driver.objects.get(name=self.driverID.name)
+        rating = DriverRating.objects.filter(driverID=self.driverID).aggregate(Avg('overallAverage'))
+        print(rating)
+        update.overallAverage=rating['overallAverage__avg']
+        update.save()
         return super(DriverRating, self).save(*args, **kwargs)
 
 
@@ -320,9 +325,6 @@ class CarRating(models.Model):
                   self.engine]  # add new fields here.
         return sum(scores) / len(scores)  # this way allows for easier adding of new fields in future.
     
-    # def __str__(self):
-    #     return f"USER: {self.userID}, CAR: {self.carID}"
-
     def save(self, *args, **kwargs):
         self.overallAverage = self.get_overall_average
         ''' On save, update timestamps '''
