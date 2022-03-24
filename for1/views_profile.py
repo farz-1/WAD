@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from for1.forms import UserProfileForm, UserProfile
 from django.contrib import messages
 from for1.models import Constructor, Driver, Car, CarRating, DriverRating, ConstructorRating
+from django.conf import settings
 
 
 def index(request):
@@ -24,6 +25,9 @@ def index(request):
     except:
         context_dict['user'] = None
         context_dict['user_profile'] = None
+
+    profile_picture = str(settings.MEDIA_URL) + str(user_profile.picture)
+    context_dict['profile_picture'] = profile_picture
 
     return render(request, 'for1/profile/profile.html', context=context_dict)
 

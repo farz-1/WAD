@@ -4,6 +4,7 @@
     margin: 20px;
     height: 150px;
     width: 150px;
+    object-fit: cover;
 }
 
 .smaller-title {
@@ -16,10 +17,9 @@
 }
 
 .tr, td,th {
-  border: 2px solid #000000;
+  border: 1px #d2d2d2 solid;
   text-align: center;
   padding: 8px;
-    background: darkgrey;
 }
 
 .td:nth-child(even) {
