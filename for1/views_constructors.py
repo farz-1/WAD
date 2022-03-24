@@ -1,3 +1,4 @@
+from django.db.models import Avg
 from django.shortcuts import render, redirect
 from for1.models import Constructor, ConstructorRating
 from for1.forms import ConstructorRatingForm
@@ -58,6 +59,12 @@ def rate(request, slug):
                 rating.constructorID = constructorID
 
             rating.save()
+
+            update = Constructor.objects.get(name=constructorID.name)
+            constructorSet = ConstructorRating.objects.filter(constructorID=constructorID)
+            update.overallAverage = constructorSet.aggregate(Avg('overallAverage'))['overallAverage__avg']
+
+            update.save()
             messages.success(request, "Rating submitted successfully")
             return redirect('constructors')
 

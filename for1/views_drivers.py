@@ -1,3 +1,4 @@
+from django.db.models import Avg
 from django.shortcuts import render, redirect
 from for1.models import Driver, DriverRating
 from for1.forms import DriverRatingForm
@@ -43,9 +44,9 @@ def rate(request, slug):
         if rating_form.is_valid():
             userID = request.user
             driverID = Driver.objects.get(slug=slug)
+            data = request.POST.dict()
 
             if DriverRating.objects.filter(userID=userID, driverID=driverID).exists():
-                data = request.POST.dict()
                 rating = DriverRating.objects.get(userID=userID, driverID=driverID)
                 data.pop('csrfmiddlewaretoken')
 
@@ -58,6 +59,12 @@ def rate(request, slug):
                 rating.driverID = driverID
 
             rating.save()
+
+            update = Driver.objects.get(name=driverID.name)
+            driverSet = DriverRating.objects.filter(driverID=driverID)
+            update.overallAverage = driverSet.aggregate(Avg('overallAverage'))['overallAverage__avg']
+
+            update.save()
             messages.success(request, "Rating submitted successfully")
             return redirect('drivers')
 

@@ -1,3 +1,4 @@
+from django.db.models import Avg
 from django.shortcuts import render, redirect
 from for1.models import Car, CarRating
 from for1.forms import CarRatingForm
@@ -57,6 +58,12 @@ def rate(request, slug):
                 rating.carID = carID
 
             rating.save()
+
+            update = Car.objects.get(model=carID.model)
+            carSet = CarRating.objects.filter(carID=carID)
+            update.overallAverage = carSet.aggregate(Avg('overallAverage'))['overallAverage__avg']
+
+            update.save()
             messages.success(request, "Rating submitted successfully")
             return redirect('cars')
 
