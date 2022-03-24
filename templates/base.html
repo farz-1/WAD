@@ -108,9 +108,8 @@
 
 
         <div class="flex-fill flex align-items-end">
-            {% if user.is_authenticated %}
+            {% if user.is_authenticated or request.user.is_superuser%}
             <a class="w-100" href="{% url 'logout' %}">Logout</a>
-
             {% else %}
             <a href="{% url 'login' %}" class="w-100" href="#" style="color:red;">Login</a>
             <a href="{% url 'register' %}" class="w-100" href="#" style="color:red;">Register</a>
