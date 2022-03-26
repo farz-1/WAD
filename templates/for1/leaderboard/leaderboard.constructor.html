@@ -11,27 +11,24 @@
 <div class="flex">
 <div class="card m-2 w-100">
 
-    <table class="TablePage" width="100%">
-        <tr id="TableHeaders">
-            <th>Position</th>
-            <th>Constructor</th>
-            <th>Rating</th>
-        </tr>
-        {% for constructor in constructors %}
-            {% if forloop.counter0|divisibleby:2 %}
+    <table class="TablePage">
+        <thead>
+            <tr>
+                <th>Position</th>
+                <th>Constructor</th>
+                <th>Rating</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for constructor in constructors %}
                 <tr>
                     <td>{{ forloop.counter }}</td>
-                    <td>{{ constructor.name }}</td>
+                    <td title="{{ constructor.name }}">{{ constructor.name }}</td>
                     <td>{{ constructor.overallAverage }}</td>
                 </tr>
-            {% else %}
-                <tr class="EvenRow">
-                    <td>{{ forloop.counter }}</td>
-                    <td>{{ constructor.name }}</td>
-                    <td>{{ constructor.overallAverage }}</td>
-                </tr>
-            {% endif %}
-        {% endfor %}
+            {% endfor %}
+        </tbody>
     </table>
 
 </div>

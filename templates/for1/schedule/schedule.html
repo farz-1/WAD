@@ -11,33 +11,28 @@
 <div class="flex">
 <div class="card m-2 w-100">
 
-    <table class="TablePage" width="100%">
-        <tr id="TableHeaders">
-            <th>Event</th>
-            <th>Laps</th>
-            <th>Length</th>
-            <th>Dates</th>
-            <th>Time</th>
-        </tr>
-        {% for race in races %}
-            {% if forloop.counter0|divisibleby:2 %}
+    <table class="TablePage">
+        <thead>
+            <tr>
+                <th>Event</th>
+                <th>Laps</th>
+                <th>Length</th>
+                <th>Dates</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for race in races %}
                 <tr>
-                    <td>{{ race.location }}</td>
+                    <td title="{{ race.location }}">{{ race.location }}</td>
                     <td>{{ race.laps }}</td>
                     <td>{{ race.trackLength }}</td>
                     <td>{{ race.date }}</td>
                     <td>{{ race.time }}</td>
                 </tr>
-            {% else %}
-                <tr class="EvenRow">
-                    <td>{{ race.location }}</td>
-                    <td>{{ race.laps }}</td>
-                    <td>{{ race.trackLength }}</td>
-                    <td>{{ race.date }}</td>
-                    <td>{{ race.time }}</td>
-                </tr>
-            {% endif %}
         {% endfor %}
+        </tbody>
     </table>
 </div>
 </div>

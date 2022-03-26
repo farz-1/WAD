@@ -77,3 +77,38 @@ img {
   object-fit: cover;
   border-radius: 8px;
 }
+
+.icon{
+      width: 5%;
+      object-fit: cover;
+      border-radius: 8px;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden; 
+}
+
+.homeLink:link {
+  color: red;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.homeLink:visited {
+  color: red;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.homeLink:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.homeLink:active {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}

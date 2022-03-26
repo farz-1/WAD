@@ -3,7 +3,9 @@
 {% block headdata %}
     <title>For1</title>
     {% load static %}
+    {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/home/home.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script>
     var countDownDate = new Date("Nov 20, 2022 13:00:25").getTime();
     var x = setInterval(function () {
@@ -28,29 +30,45 @@
 {% block main_content %}
 
     <div class="m-2">
-        <img src="https://www.codemasters.com/wp-content/uploads/2020/04/2020banner.jpg">
+        <img src="{% static 'images/banner.jpg' %}">
     </div>
 
     <div class="flex">
         <div class="flex-fill card m-2">
-            <h1 style="text-align: center">Welcome to For1</h1>
-        </div>
+            <h1 style="text-align: center">Welcome to For1!</h1>
+            <center>
+            <button class="icon" onclick="location.href='https://twitter.com/F1?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor'" type="button">
+                <img src="{% static 'images/Icons/twitter.png' %}" ></button>
+                <button class="icon" onclick="location.href='https://www.facebook.com/Formula1/'" type="button">
+                <img src="{% static 'images/Icons/facebook.jpg' %}" ></button>
+                <button class="icon" onclick="location.href='https://www.instagram.com/f1/?hl=en'" type="button">
+                <img src="{% static 'images/Icons/instagram.png' %}" ></button>
+            </center>
+    </div>
+</div>
+
+    <div class="card me-2">
+        <center><p style="font-size: 20px"> Register to be able to make ratings! You can register for a profile <a class="homeLink" href="{% url 'register' %}"> here</a>. If you are an existing user login <a class="homeLink" href="{% url 'login' %}"> here</a>. Then you can go to <a class="homeLink" href="{% url 'drivers' %}"> drivers</a>, <a class="homeLink" href="{% url 'cars' %}"> cars</a>, <a class="homeLink" href="{% url 'constructors' %}"> constructors</a> and pick one to rate! Leaderboards for <a class="homeLink" href="{% url 'leaderboard_car' %}"> car</a>, <a class="homeLink" href="{% url 'leaderboard_driver' %}"> driver</a>, and <a class="homeLink" href="{% url 'leaderboard_constructor' %}"> constructor</a> collate all average ratings to see who is on top. Don't forget the <a class="homeLink" href="{% url 'schedule' %}"> schedule</a> to help you keep up with the races and the <a class="homeLink" href="{% url 'news' %}"> news page</a>  for all latest Formula One headlines!
+            <br>
+            <br>
+
+            Formula One is the highest class of international racing for open-wheel
+            single-seater formula racing cars sanctioned by the Fédération Internationale de l'Automobile.
+            It was founded in 1950 and has 20 drivers, 10 teams and a variety of races to score points for the
+            aims to win the constructors or driver championship. Formula 1 racing originated during the 1920-30s in Europe from other similar racing competitions. In 1946, the FIA standardized racing rules and this formed the basis of Formula One racing. The inaugural Formula One World Drivers’ championship was then held in 1950, the first world championship series. Apart from the world championship series, many other non-championship F1 races were also held, but as the costs of conducting these contests got higher, such races were discontinued after 1983. Each F1 team can have maximum of four drivers per season. There is support staff with every F1 team that plays a vital role in the team’s success. A series of Formula One races are conducted over a period of time, usually over a year called the ‘Formula One World Championship season’. Each race in a season is called a ‘Grand Prix’ or GP and all the races in a season combined are called ‘Grands Prix’ (plural of Grand Prix). The term ‘Grand Prix’ is derived from French which means ‘great prize’.
+            
+            </p></center>
     </div>
 
     <div class="flex">
         <div class="flex-fill card me-2">
             <h2 style="text-align: center">Countdown to Abu Dhabi GP- finale of the 2022 season! </h2>
-            <h1 style="color:orangered; height:45px; text-align: center" id="countdown">Loading...</h1>
+            <h1 style="color:red; height:45px; text-align: center" id="countdown">Loading...</h1>
         </div>
     </div>
 
     <div class="card me-2">
-        <p style="font-size: 16px">
-            Formula One is the highest class of international racing for open-wheel
-            single-seater formula racing cars sanctioned by the Fédération Internationale de l'Automobile.
-            It was founded in 1950 and has 20 drivers, 10 teams and a variety of races to score points for the
-            aims to win the constructors or driver championship.
-        </p>
+    <center><iframe width="1000" height="600" style="border:2px solid red;" src="https://www.youtube.com/embed/wtJPe1ksS6E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
     </div>
 
 {% endblock %}
