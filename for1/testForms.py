@@ -26,7 +26,7 @@ class TestUserForm(TestCase):
 
 class TestUserProfilePicureForm(TestCase):    
     def testProfilePicture(self):
-        newPhoto.image = SimpleUploadedFile(name='test_image.jpg', content=open('../media/media/profile_images/car.png', 'rb').read(), content_type='image/jpeg')
+        newPhoto.image = SimpleUploadedFile(name='test_image.jpg', content=open('../media/profile_images/car.png', 'rb').read(), content_type='image/jpeg')
         self.assertTrue(newPhoto.image)
         
         form = UserProfilePictureForm(data={'picture': newPhoto.image})
@@ -57,7 +57,7 @@ class TestUserProfileForm(TestCase):
         self.assertTrue(form.is_valid())
 
     def testPicture(self):
-        newPhoto.image = SimpleUploadedFile(name='test_image.jpg', content=open('../media/media/profile_images/car.png', 'rb').read(), content_type='image/jpeg')
+        newPhoto.image = SimpleUploadedFile(name='test_image.jpg', content=open('../media/profile_images/car.png', 'rb').read(), content_type='image/jpeg')
         self.assertTrue(newPhoto.image)
         
         form = UserProfilePictureForm(data={'picture': newPhoto.image})

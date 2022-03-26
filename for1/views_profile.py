@@ -1,5 +1,7 @@
+import os
+
 from django.shortcuts import render, redirect
-from for1.forms import UserProfileForm, UserProfile, UserProfilePictureForm
+from for1.forms import UserProfileForm, UserProfile
 from django.contrib import messages
 from for1.models import Constructor, Driver, Car, CarRating, DriverRating, ConstructorRating
 from django.conf import settings
@@ -29,8 +31,6 @@ def index(request):
         context_dict['user'] = None
         context_dict['user_profile'] = None
 
-
-
     return render(request, 'for1/profile/profile.html', context=context_dict)
 
 
@@ -56,13 +56,16 @@ def edit(request):
         context_dict['profile_edit_form'] = None
 
     if request.method == 'POST':
-        picture_form = UserProfilePictureForm(instance=user_profile,data=request.POST)
+        picture_form = UserProfileForm(instance=user_profile, data=request.POST)
 
         if profile_edit_form.is_valid() and picture_form.is_valid():
             saved_form = profile_edit_form.save()
 
-            profile = picture_form.save(commit=False)
             if 'picture' in request.FILES:
+                if user_profile.picture != 'profile_images/default.jpg':
+                    os.remove(user_profile.picture.path)
+
+                profile = picture_form.save(commit=False)
                 profile.picture = request.FILES['picture']
                 profile.save()
             saved_form.save()

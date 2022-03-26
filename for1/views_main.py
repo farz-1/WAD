@@ -35,6 +35,8 @@ def register(request):
             profile.user = user
             if 'picture' in request.FILES:
                 profile.picture = request.FILES['picture']
+            else:
+                profile.picture = 'profile_images/default.jpg'
             profile.save()
 
             send_mail(

@@ -6,6 +6,7 @@
      {% load static %}
     {%  load staticfiles %}
     <link rel="stylesheet" type='text/css' href="{% static 'css/profile/profile.css' %}">
+    <link rel="stylesheet" type='text/css' href="{% static 'css/tables.css' %}">
 {% endblock %}
 
 {% block main_content %}
@@ -68,32 +69,37 @@
         <div class="flex">
             <div class="flex-fill card m-2">
                 <h3>Latest Driver Ratings</h3>
-                <table>
-                    <tr>
-                        <th>Name</th>
-                        <th>Personality</th>
-                        <th>Aggressiveness</th>
-                        <th>Awareness</th>
-                        <th>Experience</th>
-                        <th>Starts</th>
-                        <th>Pace</th>
-                        <th>Racecraft</th>
-                        <th>Overall Rating</th>
-                    </tr>
-                    {% for rating in driver_ratings %}
+                <table class="TablePage">
+                    <thead>
                         <tr>
-                            <td><a href="{% url 'driver_rate' rating.driverID.slug %}">{{ rating.driverID.name }}</a>
-                            </td>
-                            <td>{{ rating.personality }}</td>
-                            <td>{{ rating.aggressiveness }}</td>
-                            <td>{{ rating.awareness }}</td>
-                            <td>{{ rating.experience }}</td>
-                            <td>{{ rating.starts }}</td>
-                            <td>{{ rating.pace }}</td>
-                            <td>{{ rating.racecraft }}</td>
-                            <td>{{ rating.overallRating }}</td>
+                            <th>Name</th>
+                            <th>Personality</th>
+                            <th>Aggressiveness</th>
+                            <th>Awareness</th>
+                            <th>Experience</th>
+                            <th>Starts</th>
+                            <th>Pace</th>
+                            <th>Racecraft</th>
+                            <th>Overall Rating</th>
                         </tr>
-                    {% endfor %}
+                    </thead>
+
+                    <tbody>
+                        {% for rating in driver_ratings %}
+                            <tr>
+                                <td title="{{ rating.driverID.name }}"><a href="{% url 'driver_rate' rating.driverID.slug %}">
+                                    {{ rating.driverID.name }}</a></td>
+                                <td>{{ rating.personality }}</td>
+                                <td>{{ rating.aggressiveness }}</td>
+                                <td>{{ rating.awareness }}</td>
+                                <td>{{ rating.experience }}</td>
+                                <td>{{ rating.starts }}</td>
+                                <td>{{ rating.pace }}</td>
+                                <td>{{ rating.racecraft }}</td>
+                                <td>{{ rating.overallRating }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -101,27 +107,33 @@
         <div class="flex">
             <div class="flex-fill card m-2">
                 <h3>Latest Car Ratings</h3>
-                <table>
-                    <tr>
-                        <th>Model</th>
-                        <th>Speed</th>
-                        <th>Aerodynamics</th>
-                        <th>Aesthetics</th>
-                        <th>Braking</th>
-                        <th>Engine</th>
-                        <th>Overall Rating</th>
-                    </tr>
-                    {% for rating in car_ratings %}
+                <table class="TablePage">
+                    <thead>
                         <tr>
-                            <td><a href="{% url 'car_rate' rating.carID.slug %}">{{ rating.carID.model }}</a></td>
-                            <td>{{ rating.speed }}</td>
-                            <td>{{ rating.aerodynamics }}</td>
-                            <td>{{ rating.aesthetics }}</td>
-                            <td>{{ rating.braking }}</td>
-                            <td>{{ rating.engine }}</td>
-                            <td>{{ rating.overallRating }}</td>
+                            <th>Model</th>
+                            <th>Speed</th>
+                            <th>Aerodynamics</th>
+                            <th>Aesthetics</th>
+                            <th>Braking</th>
+                            <th>Engine</th>
+                            <th>Overall Rating</th>
                         </tr>
-                    {% endfor %}
+                    </thead>
+
+                    <tbody>
+                        {% for rating in car_ratings %}
+                            <tr>
+                                <td title="{{ rating.carID.model }}"><a href="{% url 'car_rate' rating.carID.slug %}">
+                                    {{ rating.carID.model }}</a></td>
+                                <td>{{ rating.speed }}</td>
+                                <td>{{ rating.aerodynamics }}</td>
+                                <td>{{ rating.aesthetics }}</td>
+                                <td>{{ rating.braking }}</td>
+                                <td>{{ rating.engine }}</td>
+                                <td>{{ rating.overallRating }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -129,27 +141,30 @@
         <div class="flex">
             <div class="flex-fill card m-2">
                 <h3>Latest Constructor Ratings</h3>
-                <table>
-                    <tr>
-                        <th>Name</th>
-                        <th>Team Principle</th>
-                        <th>Race Strategy</th>
-                        <th>Pit Stops</th>
-                        <th>Overall Rating</th>
-                    </tr>
-                    {% for rating in constructor_ratings %}
+                <table class="TablePage">
+                    <thead>
                         <tr>
-                            <td>
-                                <a href="{% url 'constructor_rate' rating.constructorID.slug %}">{{ rating.constructorID.name }}</a>
-                            </td>
-                            <td>{{ rating.teamPrinciple }}</td>
-                            <td>{{ rating.raceStrategy }}</td>
-                            <td>{{ rating.pitStop }}</td>
-                            <td>{{ rating.overallRating }}</td>
+                            <th>Name</th>
+                            <th>Team Principle</th>
+                            <th>Race Strategy</th>
+                            <th>Pit Stops</th>
+                            <th>Overall Rating</th>
                         </tr>
-                    {% endfor %}
-                </table>
+                    </thead>
 
+                    <tbody>
+                        {% for rating in constructor_ratings %}
+                            <tr>
+                                <td title="{{ rating.constructorID.name }}"><a href="{% url 'constructor_rate' rating.constructorID.slug %}">
+                                    {{ rating.constructorID.name }}</a></td>
+                                <td>{{ rating.teamPrinciple }}</td>
+                                <td>{{ rating.raceStrategy }}</td>
+                                <td>{{ rating.pitStop }}</td>
+                                <td>{{ rating.overallRating }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
 

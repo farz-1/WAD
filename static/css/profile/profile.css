@@ -9,26 +9,3 @@
 .smaller-title {
     font-weight: 600;
 }
-.table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-.tr, td,th {
-    border: 2px solid #000000;
-    text-align: center;
-    padding: 8px;
-    background: #f1f1f1;
-}
-
-
-.td:nth-child(even) {
-  background-color: #474e5d;
-}
-.tr:nth-child(even) {
-  background-color: #474e5d;
-}
-.th:nth-child(even) {
-  background-color: #474e5d;
-}
