@@ -9,56 +9,28 @@ class TestUserForm(TestCase):
         "email": "joelee90x@gmail.com",
         "password": "F0xtr0t.41h4"})
         self.assertTrue(form.is_valid())
-<<<<<<< HEAD
-=======
 
-    def testPassword(self):
-        form = UserForm('password': "F0xtr0t.41h4")
-        
-        self.assertTrue(form.fields['password'].label is None
-        or form.fields['password'].label == 'password')
-        self.assertTrue(form.is_valid())
 
+"""
 class TestUserProfilePicureForm(TestCase):    
     def testProfilePicture(self):
         newPhoto.image = SimpleUploadedFile(name='test_image.jpg', content=open('../media/profile_images/car.png', 'rb').read(), content_type='image/jpeg')
         self.assertTrue(newPhoto.image)
->>>>>>> 5ae6cf206cdb6d2520ef57908bab900df0157d43
         
+"""
+
 """
 class TestUserProfileForm(TestCase):
     def testFavCar(self):
-        form = UserProfileForm(data={'favCar': "Red Bull Racing RB18",
+        data = {'favCar': "Red Bull Racing RB18",
         'favTeam': "Red Bull",
         'favDriver': "Max Verstappen",
+        'aboutMe': "Some text"
+        }
 
-        })
+        file_data = {'picture': SimpleUploadedFile('../media/profile_images/default.jpg', 'data')}
+        form = UserProfileForm(data, file_data)
 
-        self.assertTrue(form.fields['favCar'].label is None
-        or form.fields['favCar'].label == 'favCar')
-        self.assertTrue(form.is_valid())
-
-
-    def testFavTeam(self):
-        form = UserForm(data={'favTeam': "Red Bull"})
-        
-        self.assertTrue(form.fields['favTeam'].label is None
-        or form.fields['favTeam'].label == 'favTeam')
-        self.assertTrue(form.is_valid())
-
-
-    def testFavDriver(self):
-        form = UserForm(data={})
-        
-        self.assertTrue(form.fields['favCar'].label is None
-        or form.fields['favDriver'].label == 'favDriver')
-        self.assertTrue(form.is_valid())
-
-    def testPicture(self):
-        newPhoto.image = SimpleUploadedFile(name='test_image.jpg', content=open('../media/profile_images/car.png', 'rb').read(), content_type='image/jpeg')
-        self.assertTrue(newPhoto.image)
-        
-        form = UserProfilePictureForm(data={'picture': newPhoto.image})
         self.assertTrue(form.is_valid())
 """
 
