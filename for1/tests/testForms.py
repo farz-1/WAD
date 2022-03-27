@@ -10,30 +10,6 @@ class TestUserForm(TestCase):
         "password": "F0xtr0t.41h4"})
         self.assertTrue(form.is_valid())
 
-
-"""
-class TestUserProfilePicureForm(TestCase):    
-    def testProfilePicture(self):
-        newPhoto.image = SimpleUploadedFile(name='test_image.jpg', content=open('../media/profile_images/car.png', 'rb').read(), content_type='image/jpeg')
-        self.assertTrue(newPhoto.image)
-        
-"""
-
-"""
-class TestUserProfileForm(TestCase):
-    def testFavCar(self):
-        data = {'favCar': "Red Bull Racing RB18",
-        'favTeam': "Red Bull",
-        'favDriver': "Max Verstappen",
-        'aboutMe': "Some text"
-        }
-
-        file_data = {'picture': SimpleUploadedFile('../media/profile_images/default.jpg', 'data')}
-        form = UserProfileForm(data, file_data)
-
-        self.assertTrue(form.is_valid())
-"""
-
 class TestConstructorRatingForm(TestCase):
     def testOverallRating(self):
         form = ConstructorRatingForm(data={'overallRating': 3,
