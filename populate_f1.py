@@ -5,7 +5,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'f1.settings')
 django.setup()
 
 from for1.models import *
-from scripts import news_api
+import news_api
 
 
 def populate():

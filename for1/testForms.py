@@ -1,6 +1,5 @@
 from for1.forms import *
 from django.test import TestCase
-from django.core.files.uploadedfile import SimpleUploadedFile
 
 
 class TestUserForm(TestCase):
