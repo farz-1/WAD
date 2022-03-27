@@ -14,9 +14,9 @@
 <div class="flex flex-row flex-wrap">
     {% for car in cars %}
     <div class="w-25 flex">
-        <a style="text-decoration: none" class="h-100 flex" href="{% url 'car_details' car.slug %}">
-            <div class="card pointer hover-shadow m-2 flex flex-column">
-                <div class="img mb-2 flex-fill">
+        <a style="text-decoration: none" class="h-100 w-100 flex" href="{% url 'car_details' car.slug %}">
+            <div class="card pointer w-100 hover-shadow m-2 flex flex-column">
+                <div class="img mb-2 w-100 flex-fill">
                     <img style="height: 150px" src="{% static 'images/Cars/' %}{{ car.slug }}.jpeg" alt="Picture of {{ car.name }}">
                 </div>
                 <h5 style="height: 30px"> {{ car.model }} </h5>
