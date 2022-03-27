@@ -58,20 +58,20 @@
             Profile
         </a>
 
-        {% url 'leaderboard_driver' as url %}
-        <a href="{% url 'leaderboard_driver' %}"
+        {% url 'drivers_leaderboard' as url %}
+        <a href="{% url 'drivers_leaderboard' %}"
             class="{% if request.path == url %}active{% endif %}">
             Leaderboard Drivers
         </a>
 
-        {% url 'leaderboard_car' as url %}
-        <a href="{% url 'leaderboard_car' %}"
+        {% url 'cars_leaderboard' as url %}
+        <a href="{% url 'cars_leaderboard' %}"
             class="{% if request.path == url %}active{% endif %}">
             Leaderboard Cars
         </a>
 
-        {% url 'leaderboard_constructor' as url %}
-        <a href="{% url 'leaderboard_constructor' %}"
+        {% url 'constructors_leaderboard' as url %}
+        <a href="{% url 'constructors_leaderboard' %}"
             class="{% if request.path == url %}active{% endif %}">
             Leaderboard Constructors
         </a>

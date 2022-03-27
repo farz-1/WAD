@@ -18,6 +18,19 @@ def index(request):
     return render(request, 'for1/constructors/constructors.html', context=context_dict)
 
 
+def leaderboard(request):
+    context_dict = {}
+
+    try:
+        constructors = Constructor.objects.all().order_by('-overallAverage')
+        context_dict['constructors'] = constructors
+
+    except:
+        context_dict['constructors'] = None
+
+    return render(request, 'for1/constructors/constructors.leaderboard.html', context=context_dict)
+
+
 def details(request, slug):
     context_dict = {}
 

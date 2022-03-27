@@ -79,9 +79,9 @@ img {
 }
 
 .icon{
-      width: 5%;
-      object-fit: cover;
-      border-radius: 8px;
+    width: 5%;
+    object-fit: cover;
+    border-radius: 8px;
     background-color: Transparent;
     background-repeat:no-repeat;
     border: none;

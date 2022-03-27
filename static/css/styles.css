@@ -47,3 +47,27 @@ h1 {
 .smaller-title {
     font-weight: 600;
 }
+
+.red-link {
+  color: red;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.red-link:visited {
+  color: red;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.red-link:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.red-link:active {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}

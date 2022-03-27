@@ -1,12 +1,11 @@
-table, th, td {
-    border: 1px solid black;
+.profile-picture-container {
+    border: black 2px solid ;
+    border-radius: 10px;
+    margin: 5px;
+    height: 250px;
+    width: 250px;
 }
 
-.aligned {
-    display: flex;
-    align-items: center;
-}
-
-span {
-    padding: 30px;
+.smaller-title {
+    font-weight: 600;
 }

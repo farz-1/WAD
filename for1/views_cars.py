@@ -18,6 +18,19 @@ def index(request):
     return render(request, 'for1/cars/cars.html', context=context_dict)
 
 
+def leaderboard(request):
+    context_dict = {}
+
+    try:
+        cars = Car.objects.all().order_by('-overallAverage')
+        context_dict['cars'] = cars
+
+    except:
+        context_dict['cars'] = None
+
+    return render(request, 'for1/cars/cars.leaderboard.html', context=context_dict)
+
+
 def details(request, slug):
     context_dict = {}
 

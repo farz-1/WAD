@@ -1,38 +1,11 @@
-* {
-  box-sizing: border-box;
-}
-
-.row {
-    display: flex;
+img {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
     width: 100%;
-  }
-
-  .column {
-    flex: 33.33%;
-    padding: 30px;
-    height: 50%;
-    width: 33%;
-    display: flex;
-  }
- .container {
-     width: 100%;
-     text-align: center;
-     display: block;
-     margin: auto;
-  }
-
- img {
-      display: block;
-      margin-right: auto;
-      margin-left: auto;
-      padding-top: 5px;
-      padding-bottom: 5px;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 8px;
-  }
-
- h5{
-     height: 32px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
  }

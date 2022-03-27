@@ -18,6 +18,19 @@ def index(request):
     return render(request, 'for1/drivers/drivers.html', context=context_dict)
 
 
+def leaderboard(request):
+    context_dict = {}
+
+    try:
+        drivers = Driver.objects.all().order_by('-overallAverage')
+        context_dict['drivers'] = drivers
+
+    except:
+        context_dict['drivers'] = None
+
+    return render(request, 'for1/drivers/drivers.leaderboard.html', context=context_dict)
+
+
 def details(request, slug):
     context_dict = {}
 

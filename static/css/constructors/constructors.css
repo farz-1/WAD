@@ -1,29 +1,9 @@
-* {
-  box-sizing: border-box;
-}
-
-.row {
-  display: flex;
-}
-.container {
-   width: 100%;
-   text-align: center;
-   display: block;
-   margin: auto;
-}
-
-/* Create three equal columns that sits next to each other */
-.column {
-  flex: 33.33%;
-  padding: 5px;
-}
-
 img {
-      display: block;
-      margin-right: auto;
-      margin-left: auto;
-      width: 90%;
-      max-height: 100%;
-      object-fit: cover;
-      border-radius: 8px;
-  }
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 90%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}

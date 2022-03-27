@@ -31,8 +31,8 @@
                     <div class="flex flex-column flex-fill justify-content-center">
 
 
-                        <a style="margin-bottom: 4px" href="/register">No account yet? Register here!</a>
-                        <a href="/accounts/password_reset">Password forgotten?</a>
+                        <a style="margin-bottom: 4px" href="{% url 'register' %}">No account yet? Register here!</a>
+                        <a href="{% url 'password_reset' %}">Password forgotten?</a>
                     </div>
 
                     <button type="submit" class="btn primary-button">Login</button>

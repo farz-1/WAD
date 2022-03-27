@@ -3,7 +3,6 @@ import os.path
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.contrib.auth.models import User
-from django.db.models import Avg
 from django.utils import timezone
 from django.template.defaultfilters import slugify
 from decimal import *
@@ -115,7 +114,7 @@ class UserProfile(models.Model):
     favCar = models.ForeignKey(Car, on_delete=models.SET_NULL, null=True)
     favTeam = models.ForeignKey(Constructor, on_delete=models.SET_NULL, null=True)
     favDriver = models.ForeignKey(Driver, on_delete=models.SET_NULL, null=True)
-    aboutMe = models.CharField(max_length=256,null=True)
+    aboutMe = models.CharField(max_length=256, null=True)
     picture = models.ImageField(upload_to=rename_profile_image, blank=True)
     slug = models.SlugField(unique=True)
 

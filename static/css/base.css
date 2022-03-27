@@ -80,29 +80,3 @@ div.content {
 .messages .info {
     background: rgba(109, 255, 255, 0.75);
 }
-
-
-
-.red-link {
-  color: red;
-  background-color: transparent;
-  text-decoration: none;
-}
-
-.red-link:visited {
-  color: red;
-  background-color: transparent;
-  text-decoration: none;
-}
-
-.red-link:hover {
-  color: red;
-  background-color: transparent;
-  text-decoration: underline;
-}
-
-.red-link:active {
-  color: red;
-  background-color: transparent;
-  text-decoration: underline;
-}
