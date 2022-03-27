@@ -87,7 +87,7 @@
                     <tbody>
                         {% for rating in driver_ratings %}
                             <tr>
-                                <td title="{{ rating.driverID.name }}"><a href="{% url 'driver_rate' rating.driverID.slug %}">
+                                <td title="{{ rating.driverID.name }}"><a class="red-link" href="{% url 'driver_rate' rating.driverID.slug %}">
                                     {{ rating.driverID.name }}</a></td>
                                 <td>{{ rating.personality }}</td>
                                 <td>{{ rating.aggressiveness }}</td>
@@ -123,7 +123,7 @@
                     <tbody>
                         {% for rating in car_ratings %}
                             <tr>
-                                <td title="{{ rating.carID.model }}"><a href="{% url 'car_rate' rating.carID.slug %}">
+                                <td title="{{ rating.carID.model }}"><a class="red-link" href="{% url 'car_rate' rating.carID.slug %}">
                                     {{ rating.carID.model }}</a></td>
                                 <td>{{ rating.speed }}</td>
                                 <td>{{ rating.aerodynamics }}</td>
@@ -155,7 +155,7 @@
                     <tbody>
                         {% for rating in constructor_ratings %}
                             <tr>
-                                <td title="{{ rating.constructorID.name }}"><a href="{% url 'constructor_rate' rating.constructorID.slug %}">
+                                <td title="{{ rating.constructorID.name }}"><a class="red-link" href="{% url 'constructor_rate' rating.constructorID.slug %}">
                                     {{ rating.constructorID.name }}</a></td>
                                 <td>{{ rating.teamPrinciple }}</td>
                                 <td>{{ rating.raceStrategy }}</td>
@@ -185,11 +185,11 @@
             <h2>You're not logged in. Please log in or register first!</h2>
 
             <div class="flex flex-row">
-                <a style="text-decoration: none" href="{% url 'login' %}">
+                <a style="text-decoration: none" href="{% url 'login' %}" class="red-link">
                     <button class="btn primary-button">Login</button>
                 </a>
 
-                <a style="text-decoration: none; margin-left: 24px" href="{% url 'register' %}">
+                <a style="text-decoration: none; margin-left: 24px" href="{% url 'register' %}" class="red-link">
                     <button class="btn secondary-button">Register</button>
                 </a>
             </div>
