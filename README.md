@@ -12,6 +12,7 @@ Users can log in and out of the site and have details about themselves.
 * $ pip install schedule
 * $ pip install requests
 * $ pip install bcrypt
+* pip install Pillow
 * We used the newsapi-python API for fetching our news stories and bcrypt API for user authentication. The schedule library aids the news API. 
 * Make sure you migrate/populate your database!
 
