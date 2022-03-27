@@ -24,7 +24,7 @@
             {% for constructor in constructors %}
                 <tr>
                     <td>{{ forloop.counter }}</td>
-                    <td title="{{ constructor.name }}">{{ constructor.name }}</td>
+                    <td title="{{ constructor.name }}"><a href="{% url 'constructor_details' constructor.slug %}">{{ constructor.name }}</a></td>
                     <td>{{ constructor.overallAverage }}</td>
                 </tr>
             {% endfor %}

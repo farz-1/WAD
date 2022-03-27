@@ -90,6 +90,3 @@ def logout(request):
     auth.logout(request)
     messages.success(request, "Successfully logged out")
     return redirect('home')
-
-def page_not_found(request):
-    return render(request, 'for1/page_not_found.html')

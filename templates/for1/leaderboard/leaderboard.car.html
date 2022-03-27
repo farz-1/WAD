@@ -24,7 +24,7 @@
             {% for car in cars %}
                 <tr>
                     <td>{{ forloop.counter }}</td>
-                    <td title="{{ car.model }}">{{ car.model }}</td>
+                    <td title="{{ car.model }}"><a href="{% url 'car_details' car.slug %}">{{ car.model }}</a></td>
                     <td>{{ car.overallAverage }}</td>
                 </tr>
             {% endfor %}

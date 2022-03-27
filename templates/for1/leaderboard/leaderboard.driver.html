@@ -24,7 +24,7 @@
             {% for driver in drivers %}
                 <tr>
                     <td>{{ forloop.counter }}</td>
-                    <td title="{{ driver.name }}">{{ driver.name }}</td>
+                    <td title="{{ driver.name }}"><a href="{% url 'driver_details' driver.slug %}">{{ driver.name }}</a></td>
                     <td>{{ driver.overallAverage }}</td>
                 </tr>
             {% endfor %}
