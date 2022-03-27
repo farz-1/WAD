@@ -89,26 +89,17 @@ img {
     overflow: hidden; 
 }
 
-.homeLink:link {
-  color: red;
-  background-color: transparent;
-  text-decoration: none;
+.iframe-container {
+  overflow: hidden;
+  /* 16:9 aspect ratio */
+  padding-top: 56.25%;
+  position: relative;
 }
-
-.homeLink:visited {
-  color: red;
-  background-color: transparent;
-  text-decoration: none;
-}
-
-.homeLink:hover {
-  color: red;
-  background-color: transparent;
-  text-decoration: underline;
-}
-
-.homeLink:active {
-  color: red;
-  background-color: transparent;
-  text-decoration: underline;
+.iframe-container iframe {
+   border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;
 }
